@@ -1,6 +1,9 @@
 package net.alberdrocs.darkaethercorruptionmod;
 
 import com.mojang.logging.LogUtils;
+import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,6 +30,8 @@ public class DarkAetherCorruptionMod
     public DarkAetherCorruptionMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -44,6 +49,10 @@ public class DarkAetherCorruptionMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.DARK_AETHER_CRYSTAL);
+            event.accept(ModItems.REFINED_DARK_AETHER_CRYSTAL);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
