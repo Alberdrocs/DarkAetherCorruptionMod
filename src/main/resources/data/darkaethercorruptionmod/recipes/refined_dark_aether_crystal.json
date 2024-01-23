@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "darkaethercorruptionmod:dark_aether_crystal"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "result": {
+    "item": "darkaethercorruptionmod:refined_dark_aether_crystal",
+    "count": 1
+  }
+}

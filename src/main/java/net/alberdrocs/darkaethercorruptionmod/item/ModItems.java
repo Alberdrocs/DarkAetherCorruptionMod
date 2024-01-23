@@ -12,10 +12,10 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, DarkAetherCorruptionMod.MOD_ID);
 
     public static final RegistryObject<Item> DARK_AETHER_CRYSTAL =
-            ITEMS.register("darkaethercrystal", () -> new Item(new Item.Properties()));
+            ITEMS.register("dark_aether_crystal", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> REFINED_DARK_AETHER_CRYSTAL =
-            ITEMS.register("refineddarkaethercrystal", () -> new Item(new Item.Properties()));
+            ITEMS.register("refined_dark_aether_crystal", () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

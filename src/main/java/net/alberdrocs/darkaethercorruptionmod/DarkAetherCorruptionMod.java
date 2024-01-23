@@ -1,6 +1,8 @@
 package net.alberdrocs.darkaethercorruptionmod;
 
 import com.mojang.logging.LogUtils;
+import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
+import net.alberdrocs.darkaethercorruptionmod.item.ModCreativeModTabs;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -30,7 +32,10 @@ public class DarkAetherCorruptionMod
     public DarkAetherCorruptionMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

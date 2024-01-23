@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "darkaethercorruptionmod:refined_dark_aether_crystal"
+    }
+  },
+  "result": {
+    "item": "darkaethercorruptionmod:dark_aether_crystal_block"
+  }
+}
