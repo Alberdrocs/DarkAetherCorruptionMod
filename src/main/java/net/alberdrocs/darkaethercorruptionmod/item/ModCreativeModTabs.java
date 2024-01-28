@@ -21,7 +21,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.DARK_AETHER_CRYSTAL.get());
                         pOutput.accept(ModItems.REFINED_DARK_AETHER_CRYSTAL.get());
 
+                        pOutput.accept(ModBlocks.DARK_AETHER_CRYSTAL_ORE.get());
                         pOutput.accept(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_GRASS_BLOCK.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_DIRT.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
                     })
                     .build()
             );

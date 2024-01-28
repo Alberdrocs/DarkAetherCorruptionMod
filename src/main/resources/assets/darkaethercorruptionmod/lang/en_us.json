@@ -3,6 +3,10 @@
   "item.darkaethercorruptionmod.refined_dark_aether_crystal": "Refined Dark Aether Crystal",
 
   "block.darkaethercorruptionmod.dark_aether_crystal_block": "Dark Aether Crystal Block",
+  "block.darkaethercorruptionmod.dark_aether_crystal_ore": "Dark Aether Crystal Ore",
+  "block.darkaethercorruptionmod.corrupted_grass_block": "Corrupted Grass Block",
+  "block.darkaethercorruptionmod.corrupted_dirt": "Corrupted Dirt",
+  "block.darkaethercorruptionmod.corrupted_dark_oak_log": "Corrupted Dark Oak Log",
 
   "creativetab.dark_aether_tab": "Dark Aether Tab"
 }

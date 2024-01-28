@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "darkaethercorruptionmod:block/corrupted_grass_block"
+      },
+      {
+        "model": "darkaethercorruptionmod:block/corrupted_grass_block",
+        "y": 90
+      },
+      {
+        "model": "darkaethercorruptionmod:block/corrupted_grass_block",
+        "y": 180
+      },
+      {
+        "model": "darkaethercorruptionmod:block/corrupted_grass_block",
+        "y": 270
+      }
+    ]
+  }
+}
