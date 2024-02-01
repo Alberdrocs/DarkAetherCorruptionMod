@@ -1,12 +1,22 @@
 {
-  "item.darkaethercorruptionmod.dark_aether_crystal": "Dark Aether Crystal",
-  "item.darkaethercorruptionmod.refined_dark_aether_crystal": "Refined Dark Aether Crystal",
+  "item.darkaethercorruptionmod.dark_aether_crystal": "Raw Aetherium",
+  "item.darkaethercorruptionmod.refined_dark_aether_crystal": "Refined Aetherium",
+
+  "item.darkaethercorruptionmod.aetherium_sword": "Aetherium Sword",
+  "item.darkaethercorruptionmod.aetherium_pickaxe": "Aetherium Pickaxe",
+  "item.darkaethercorruptionmod.aetherium_axe": "Aetherium Axe",
+  "item.darkaethercorruptionmod.aetherium_shovel": "Aetherium Shovel",
+  "item.darkaethercorruptionmod.aetherium_hoe": "Aetherium Hoe",
 
   "block.darkaethercorruptionmod.dark_aether_crystal_block": "Dark Aether Crystal Block",
   "block.darkaethercorruptionmod.dark_aether_crystal_ore": "Dark Aether Crystal Ore",
+
   "block.darkaethercorruptionmod.corrupted_grass_block": "Corrupted Grass Block",
   "block.darkaethercorruptionmod.corrupted_dirt": "Corrupted Dirt",
   "block.darkaethercorruptionmod.corrupted_dark_oak_log": "Corrupted Dark Oak Log",
+  "block.darkaethercorruptionmod.corrupted_stone": "Corrupted Stone",
+
+  "block.darkaethercorruptionmod.aether_neutralizer": "Aether Neutralizer",
 
   "creativetab.dark_aether_tab": "Dark Aether Tab"
 }

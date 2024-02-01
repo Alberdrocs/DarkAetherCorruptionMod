@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "darkaethercorruptionmod:block/dark_aether_crystal_block"
-  }
-}
