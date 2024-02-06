@@ -27,6 +27,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.AETHERIUM_SHOVEL.get());
                         pOutput.accept(ModItems.AETHERIUM_SWORD.get());
 
+                        pOutput.accept(ModItems.AETHERIUM_HELMET.get());
+                        pOutput.accept(ModItems.AETHERIUM_CHESTPLATE.get());
+                        pOutput.accept(ModItems.AETHERIUM_LEGGINS.get());
+                        pOutput.accept(ModItems.AETHERIUM_BOOTS.get());
+
                         pOutput.accept(ModBlocks.DARK_AETHER_CRYSTAL_ORE.get());
                         pOutput.accept(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get());
                         pOutput.accept(ModBlocks.CORRUPTED_GRASS_BLOCK.get());

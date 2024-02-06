@@ -33,6 +33,19 @@ public class ModItems {
             ITEMS.register("aetherium_hoe", () -> new HoeItem(
                     ModToolTiers.AETHERIUM, 0, 0, new Item.Properties()));
 
+    public static final RegistryObject<Item> AETHERIUM_HELMET =
+            ITEMS.register("aetherium_helmet", () -> new ArmorItem(
+                    ModArmorMaterials.AETHERIUM, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> AETHERIUM_CHESTPLATE =
+            ITEMS.register("aetherium_chestplate", () -> new ArmorItem(
+                    ModArmorMaterials.AETHERIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> AETHERIUM_LEGGINS =
+            ITEMS.register("aetherium_leggings", () -> new ArmorItem(
+                    ModArmorMaterials.AETHERIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> AETHERIUM_BOOTS =
+            ITEMS.register("aetherium_boots", () -> new ArmorItem(
+                    ModArmorMaterials.AETHERIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }
