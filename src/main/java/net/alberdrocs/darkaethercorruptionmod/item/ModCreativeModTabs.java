@@ -39,6 +39,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
                         pOutput.accept(ModBlocks.CORRUPTED_STONE.get());
 
+                        pOutput.accept(ModItems.DARK_AETHER_ZOMBIE_SPAWN_EGG.get());
+
 
                     })
                     .build()

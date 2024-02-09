@@ -52,9 +52,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.AETHERIUM_CHESTPLATE);
         trimmedArmorItem(ModItems.AETHERIUM_LEGGINS);
         trimmedArmorItem(ModItems.AETHERIUM_BOOTS);
+
+        withExistingParent(ModItems.DARK_AETHER_ZOMBIE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
-    //Code provided by Modding by Kaupenjoe
+    //Method provided by "Modding by Kaupenjoe"
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
         final String MOD_ID = DarkAetherCorruptionMod.MOD_ID;
 

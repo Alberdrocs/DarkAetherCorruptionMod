@@ -1,7 +1,9 @@
 package net.alberdrocs.darkaethercorruptionmod.item;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
+import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,10 +15,12 @@ public class ModItems {
 
     public static final RegistryObject<Item> DARK_AETHER_CRYSTAL =
             ITEMS.register("dark_aether_crystal", () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> REFINED_DARK_AETHER_CRYSTAL =
             ITEMS.register("refined_dark_aether_crystal", () -> new Item(new Item.Properties()));
 
+    //************************
+    // TOOLS
+    //************************
     public static final RegistryObject<Item> AETHERIUM_SWORD =
             ITEMS.register("aetherium_sword", () -> new SwordItem(
                     ModToolTiers.AETHERIUM, 4, 2, new Item.Properties()));
@@ -33,6 +37,9 @@ public class ModItems {
             ITEMS.register("aetherium_hoe", () -> new HoeItem(
                     ModToolTiers.AETHERIUM, 0, 0, new Item.Properties()));
 
+    //************************
+    // ARMOR
+    //************************
     public static final RegistryObject<Item> AETHERIUM_HELMET =
             ITEMS.register("aetherium_helmet", () -> new ArmorItem(
                     ModArmorMaterials.AETHERIUM, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -45,6 +52,14 @@ public class ModItems {
     public static final RegistryObject<Item> AETHERIUM_BOOTS =
             ITEMS.register("aetherium_boots", () -> new ArmorItem(
                     ModArmorMaterials.AETHERIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    //************************
+    // EGGS
+    //************************
+    public static final RegistryObject<Item> DARK_AETHER_ZOMBIE_SPAWN_EGG =
+            ITEMS.register("dark_aether_zombie_spawn_egg",
+                    () -> new ForgeSpawnEggItem(ModEntities.DARK_AETHER_ZOMBIE, 0x7e9680, 0xc5d1c5, new Item.Properties()));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

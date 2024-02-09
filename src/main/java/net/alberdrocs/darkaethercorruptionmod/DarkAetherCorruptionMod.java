@@ -2,8 +2,11 @@ package net.alberdrocs.darkaethercorruptionmod;
 
 import com.mojang.logging.LogUtils;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
+import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
+import net.alberdrocs.darkaethercorruptionmod.entity.client.DarkAetherZombieRenderer;
 import net.alberdrocs.darkaethercorruptionmod.item.ModCreativeModTabs;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,6 +39,8 @@ public class DarkAetherCorruptionMod
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -72,6 +77,7 @@ public class DarkAetherCorruptionMod
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.DARK_AETHER_ZOMBIE.get(), DarkAetherZombieRenderer::new);
         }
     }
 }
