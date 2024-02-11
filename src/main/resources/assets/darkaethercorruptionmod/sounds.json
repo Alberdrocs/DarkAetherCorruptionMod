@@ -1,0 +1,10 @@
+{
+  "dark_aether_zombie_ambient" : {
+    "subtitle": "sounds.darkaethercorruptionmod.dark_aether_zombie_ambient",
+    "sounds": [
+      "darkaethercorruptionmod:dark_aether_zombie_ambient1",
+      "darkaethercorruptionmod:dark_aether_zombie_ambient2",
+      "darkaethercorruptionmod:dark_aether_zombie_ambient3"
+    ]
+  }
+}

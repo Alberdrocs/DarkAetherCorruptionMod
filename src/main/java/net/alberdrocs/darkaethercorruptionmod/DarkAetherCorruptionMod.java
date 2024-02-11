@@ -6,6 +6,7 @@ import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.alberdrocs.darkaethercorruptionmod.entity.client.DarkAetherZombieRenderer;
 import net.alberdrocs.darkaethercorruptionmod.item.ModCreativeModTabs;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -39,6 +40,8 @@ public class DarkAetherCorruptionMod
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModSounds.register(modEventBus);
 
         ModEntities.register(modEventBus);
 

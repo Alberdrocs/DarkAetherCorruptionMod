@@ -1,6 +1,7 @@
 package net.alberdrocs.darkaethercorruptionmod.entity.custom;
 
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.DarkAetherZombieAttackGoal;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -116,13 +117,13 @@ public class DarkAetherZombieEntity extends Monster {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ZOMBIE_AMBIENT;
+        return ModSounds.DARK_AETHER_ZOMBIE_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.ZOMBIE_HURT;
+        return ModSounds.DARK_AETHER_ZOMBIE_ATTACK.get();
     }
 
     @Nullable
