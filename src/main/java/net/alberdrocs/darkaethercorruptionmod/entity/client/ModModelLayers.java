@@ -7,4 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 public class ModModelLayers {
     public static final ModelLayerLocation DARK_AETHER_ZOMBIE_LAYER = new ModelLayerLocation(
             new ResourceLocation(DarkAetherCorruptionMod.MOD_ID, "dark_aether_zombie_layer"), "main");
+
+    public static final ModelLayerLocation SCREAMER_LAYER = new ModelLayerLocation(
+            new ResourceLocation(DarkAetherCorruptionMod.MOD_ID, "screamer_layer"), "main");
 }

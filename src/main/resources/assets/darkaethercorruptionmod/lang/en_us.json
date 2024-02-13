@@ -24,8 +24,11 @@
   "block.darkaethercorruptionmod.aether_neutralizer": "Aether Neutralizer",
 
   "item.darkaethercorruptionmod.dark_aether_zombie_spawn_egg": "Dark Aether Zombie Spawn Egg",
+  "item.darkaethercorruptionmod.screamer_spawn_egg": "Screamer Spawn Egg",
 
   "sounds.darkaethercorruptionmod.dark_aether_zombie_ambient": "Dark Aether Zombie groans",
+  "sounds.darkaethercorruptionmod.dark_aether_zombie_ambient": "Screamer screams",
+  "sounds.darkaethercorruptionmod.dark_aether_zombie_explosion": "Screamer explodes",
 
   "creativetab.dark_aether_tab": "Dark Aether Tab"
 }

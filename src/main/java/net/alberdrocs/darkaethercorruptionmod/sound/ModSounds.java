@@ -16,6 +16,9 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> DARK_AETHER_ZOMBIE_AMBIENT = registerSoundEvents("dark_aether_zombie_ambient");
     public static final RegistryObject<SoundEvent> DARK_AETHER_ZOMBIE_ATTACK = registerSoundEvents("dark_aether_zombie_attack");
 
+    public static final RegistryObject<SoundEvent> SCREAMER_CHASE = registerSoundEvents("screamer_chase");
+    public static final RegistryObject<SoundEvent> SCREAMER_EXPLOSION = registerSoundEvents("screamer_explosion");
+
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name,

@@ -6,5 +6,23 @@
       "darkaethercorruptionmod:dark_aether_zombie_ambient2",
       "darkaethercorruptionmod:dark_aether_zombie_ambient3"
     ]
+  },
+  "dark_aether_zombie_attack" : {
+    "subtitle": "sounds.darkaethercorruptionmod.dark_aether_zombie_attack",
+    "sounds": [
+      "darkaethercorruptionmod:dark_aether_zombie_attack"
+    ]
+  },
+  "screamer_chase" : {
+    "subtitle": "sounds.darkaethercorruptionmod.screamer_chase",
+    "sounds": [
+      "darkaethercorruptionmod:screamer_chase"
+    ]
+  },
+  "screamer_explosion" : {
+    "subtitle": "sounds.darkaethercorruptionmod.screamer_explosion",
+    "sounds": [
+      "darkaethercorruptionmod:screamer_explosion"
+    ]
   }
 }

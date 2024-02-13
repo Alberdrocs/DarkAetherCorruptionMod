@@ -3,6 +3,7 @@ package net.alberdrocs.darkaethercorruptionmod.event;
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
+import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,5 +15,6 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event){
         event.put(ModEntities.DARK_AETHER_ZOMBIE.get(), DarkAetherZombieEntity.createAttributes().build());
+        event.put(ModEntities.SCREAMER.get(), ScreamerEntity.createAttributes().build());
     }
 }

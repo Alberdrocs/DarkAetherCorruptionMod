@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.alberdrocs.darkaethercorruptionmod.entity.client.DarkAetherZombieRenderer;
+import net.alberdrocs.darkaethercorruptionmod.entity.client.ScreamerRenderer;
+import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
 import net.alberdrocs.darkaethercorruptionmod.item.ModCreativeModTabs;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
@@ -81,6 +83,7 @@ public class DarkAetherCorruptionMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.DARK_AETHER_ZOMBIE.get(), DarkAetherZombieRenderer::new);
+            EntityRenderers.register(ModEntities.SCREAMER.get(), ScreamerRenderer::new);
         }
     }
 }
