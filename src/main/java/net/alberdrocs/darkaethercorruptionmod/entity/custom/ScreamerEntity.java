@@ -1,6 +1,6 @@
 package net.alberdrocs.darkaethercorruptionmod.entity.custom;
 
-import net.alberdrocs.darkaethercorruptionmod.entity.ai.ScreamerChaseGoal;
+import net.alberdrocs.darkaethercorruptionmod.entity.ai.screamer.ScreamerChaseGoal;
 import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;

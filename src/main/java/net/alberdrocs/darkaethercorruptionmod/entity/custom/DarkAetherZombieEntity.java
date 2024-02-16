@@ -1,6 +1,6 @@
 package net.alberdrocs.darkaethercorruptionmod.entity.custom;
 
-import net.alberdrocs.darkaethercorruptionmod.entity.ai.DarkAetherZombieAttackGoal;
+import net.alberdrocs.darkaethercorruptionmod.entity.ai.darkaetherzombie.DarkAetherZombieAttackGoal;
 import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -17,10 +17,8 @@ import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 

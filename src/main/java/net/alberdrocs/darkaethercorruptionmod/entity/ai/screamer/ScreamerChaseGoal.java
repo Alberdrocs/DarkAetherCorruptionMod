@@ -1,4 +1,4 @@
-package net.alberdrocs.darkaethercorruptionmod.entity.ai;
+package net.alberdrocs.darkaethercorruptionmod.entity.ai.screamer;
 
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;

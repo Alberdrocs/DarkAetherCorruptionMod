@@ -55,9 +55,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent(ModItems.DARK_AETHER_ZOMBIE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.SCREAMER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.TEMPEST_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
-    //Method provided by "Modding by Kaupenjoe"
+    //Method provided by "El Redstoniano"
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
         final String MOD_ID = DarkAetherCorruptionMod.MOD_ID;
 

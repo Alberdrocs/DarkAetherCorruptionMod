@@ -10,4 +10,7 @@ public class ModModelLayers {
 
     public static final ModelLayerLocation SCREAMER_LAYER = new ModelLayerLocation(
             new ResourceLocation(DarkAetherCorruptionMod.MOD_ID, "screamer_layer"), "main");
+
+    public static final ModelLayerLocation TEMPEST_LAYER = new ModelLayerLocation(
+            new ResourceLocation(DarkAetherCorruptionMod.MOD_ID, "tempest_layer"), "main");
 }

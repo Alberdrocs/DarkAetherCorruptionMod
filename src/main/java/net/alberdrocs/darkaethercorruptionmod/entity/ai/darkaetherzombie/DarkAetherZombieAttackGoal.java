@@ -1,4 +1,4 @@
-package net.alberdrocs.darkaethercorruptionmod.entity.ai;
+package net.alberdrocs.darkaethercorruptionmod.entity.ai.darkaetherzombie;
 
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.minecraft.world.InteractionHand;
