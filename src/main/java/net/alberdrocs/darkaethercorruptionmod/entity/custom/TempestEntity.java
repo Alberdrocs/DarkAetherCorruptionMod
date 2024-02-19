@@ -1,7 +1,9 @@
 package net.alberdrocs.darkaethercorruptionmod.entity.custom;
 
+import net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest.TempestAttackGoal;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest.TempestFloatAroundGoal;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest.TempestLookGoal;
+import net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest.TempestTeleportGoal;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -22,6 +24,8 @@ import net.minecraft.world.phys.Vec3;
 public class TempestEntity extends FlyingMob {
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(TempestEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> TELEPORTING =
+            SynchedEntityData.defineId(TempestEntity.class, EntityDataSerializers.BOOLEAN);
 
     public TempestEntity(EntityType<? extends FlyingMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -30,7 +34,12 @@ public class TempestEntity extends FlyingMob {
 
     public final AnimationState hoverAnimationState = new AnimationState();
     private int hoverAnimationTimeout = 0;
+    public final AnimationState teleportAnimationState = new AnimationState();
+    public int teleportAnimationTimeout = 0;
     public int teleportCooldown = 50;
+    public final AnimationState attackAnimationState = new AnimationState();
+    public int attackAnimationTimeout = 0;
+    public int attackDelay = 7;
 
     @Override
     public void tick() {
@@ -48,12 +57,34 @@ public class TempestEntity extends FlyingMob {
         } else {
             --this.hoverAnimationTimeout;
         }
+
+        if (this.isTeleporting() && this.teleportAnimationTimeout <= 0){
+            teleportAnimationTimeout = 5;
+            teleportAnimationState.start(tickCount);
+        } else {
+            --this.teleportAnimationTimeout;
+        }
+        if (!this.isTeleporting()){
+            teleportAnimationState.stop();
+        }
+
+        if (this.isAttacking() && this.attackAnimationTimeout <= 0){
+            attackAnimationTimeout = 15;
+            attackAnimationState.start(tickCount);
+        } else {
+            --this.attackAnimationTimeout;
+        }
+        if (!this.isAttacking()){
+            attackAnimationState.stop();
+        }
     }
 
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new TempestFloatAroundGoal(this));
         this.goalSelector.addGoal(1, new TempestLookGoal(this));
+        this.goalSelector.addGoal(2, new TempestTeleportGoal(this));
+        this.goalSelector.addGoal(3, new TempestAttackGoal(this));
 
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(
                 this, Player.class, 10, true, false,
@@ -64,12 +95,27 @@ public class TempestEntity extends FlyingMob {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.FOLLOW_RANGE, 100.0D);
     }
 
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(ATTACKING, false);
+        this.entityData.define(TELEPORTING, false);
+    }
+
     public void setAttacking(boolean attacking){
         this.entityData.set(ATTACKING, attacking);
     }
 
     public boolean isAttacking(){
         return this.entityData.get(ATTACKING);
+    }
+
+    public void setTeleporting(boolean teleporting){
+        this.entityData.set(TELEPORTING, teleporting);
+    }
+
+    public boolean isTeleporting(){
+        return this.entityData.get(TELEPORTING);
     }
 
     static class TempestMoveControl extends MoveControl{

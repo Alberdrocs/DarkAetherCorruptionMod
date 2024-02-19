@@ -72,6 +72,8 @@ public class TempestModel <T extends Entity> extends HierarchicalModel<T> {
         this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
         this.animate(((TempestEntity) entity).hoverAnimationState, ModAnimationDefinitions.TEMPEST_HOVER, ageInTicks, 1.0F);
+        this.animate(((TempestEntity) entity).teleportAnimationState, ModAnimationDefinitions.TEMPEST_TELEPORT, ageInTicks, 1.0F);
+        this.animate(((TempestEntity) entity).attackAnimationState, ModAnimationDefinitions.TEMPEST_ATTACK, ageInTicks, 1.0F);
     }
 
     private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
