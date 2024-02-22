@@ -56,6 +56,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModItems.DARK_AETHER_ZOMBIE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.SCREAMER_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.TEMPEST_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.MIMIC_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     //Method provided by "El Redstoniano"

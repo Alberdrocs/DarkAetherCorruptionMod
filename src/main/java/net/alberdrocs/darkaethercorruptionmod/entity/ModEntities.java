@@ -2,6 +2,7 @@ package net.alberdrocs.darkaethercorruptionmod.entity;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
+import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.TempestEntity;
 import net.minecraft.world.entity.EntityType;
@@ -26,6 +27,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<TempestEntity>> TEMPEST =
             ENTITY_TYPES.register("tempest", () -> EntityType.Builder.of(TempestEntity::new, MobCategory.MONSTER)
                     .sized(1.0f, 2.0f).build("tempest"));
+
+    public static final RegistryObject<EntityType<MimicEntity>> MIMIC =
+            ENTITY_TYPES.register("mimic", () -> EntityType.Builder.of(MimicEntity::new, MobCategory.MONSTER)
+                    .sized(1.5f, 3.0f).build("mimic"));
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);

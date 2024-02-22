@@ -1,4 +1,4 @@
-package net.alberdrocs.darkaethercorruptionmod.entity.client;
+package net.alberdrocs.darkaethercorruptionmod.entity.client.darkaetherzombie;
 // Made with Blockbench 4.9.3
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 

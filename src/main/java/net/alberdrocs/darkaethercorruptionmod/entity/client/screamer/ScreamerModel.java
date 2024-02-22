@@ -1,4 +1,4 @@
-package net.alberdrocs.darkaethercorruptionmod.entity.client;
+package net.alberdrocs.darkaethercorruptionmod.entity.client.screamer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

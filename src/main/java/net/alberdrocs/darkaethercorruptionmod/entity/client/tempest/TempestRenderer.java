@@ -1,7 +1,8 @@
-package net.alberdrocs.darkaethercorruptionmod.entity.client;
+package net.alberdrocs.darkaethercorruptionmod.entity.client.tempest;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
+import net.alberdrocs.darkaethercorruptionmod.entity.client.ModModelLayers;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.TempestEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

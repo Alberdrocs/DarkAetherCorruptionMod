@@ -1,7 +1,8 @@
-package net.alberdrocs.darkaethercorruptionmod.entity.client;
+package net.alberdrocs.darkaethercorruptionmod.entity.client.darkaetherzombie;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
+import net.alberdrocs.darkaethercorruptionmod.entity.client.ModModelLayers;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

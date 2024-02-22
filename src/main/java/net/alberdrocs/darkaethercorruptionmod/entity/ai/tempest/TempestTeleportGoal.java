@@ -68,6 +68,7 @@ public class TempestTeleportGoal extends Goal {
         double d0 = this.entity.getMoveControl().getWantedX();
         double d1 = this.entity.getMoveControl().getWantedY();
         double d2 = this.entity.getMoveControl().getWantedZ();
+        //TODO: Teleport to a random location
         this.entity.teleportTo(d0 + 20, d1, d2 + 20);
         this.entity.getMoveControl().setWantedPosition(d0 + 20, d1, d2 + 20, 1.0D);
     }

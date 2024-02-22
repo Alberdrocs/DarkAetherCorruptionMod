@@ -13,4 +13,10 @@ public class ModModelLayers {
 
     public static final ModelLayerLocation TEMPEST_LAYER = new ModelLayerLocation(
             new ResourceLocation(DarkAetherCorruptionMod.MOD_ID, "tempest_layer"), "main");
+
+    public static final ModelLayerLocation MIMIC_LAYER = new ModelLayerLocation(
+            new ResourceLocation(DarkAetherCorruptionMod.MOD_ID, "mimic_layer"), "main");
+
+    public static final ModelLayerLocation MIMIC_HIDING_LAYER = new ModelLayerLocation(
+            new ResourceLocation(DarkAetherCorruptionMod.MOD_ID, "mimic_hiding_layer"), "main");
 }

@@ -3,15 +3,14 @@ package net.alberdrocs.darkaethercorruptionmod;
 import com.mojang.logging.LogUtils;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
-import net.alberdrocs.darkaethercorruptionmod.entity.client.DarkAetherZombieRenderer;
-import net.alberdrocs.darkaethercorruptionmod.entity.client.ScreamerRenderer;
-import net.alberdrocs.darkaethercorruptionmod.entity.client.TempestRenderer;
-import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
+import net.alberdrocs.darkaethercorruptionmod.entity.client.darkaetherzombie.DarkAetherZombieRenderer;
+import net.alberdrocs.darkaethercorruptionmod.entity.client.mimic.MimicRenderer;
+import net.alberdrocs.darkaethercorruptionmod.entity.client.screamer.ScreamerRenderer;
+import net.alberdrocs.darkaethercorruptionmod.entity.client.tempest.TempestRenderer;
 import net.alberdrocs.darkaethercorruptionmod.item.ModCreativeModTabs;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -19,9 +18,7 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -86,6 +83,7 @@ public class DarkAetherCorruptionMod
             EntityRenderers.register(ModEntities.DARK_AETHER_ZOMBIE.get(), DarkAetherZombieRenderer::new);
             EntityRenderers.register(ModEntities.SCREAMER.get(), ScreamerRenderer::new);
             EntityRenderers.register(ModEntities.TEMPEST.get(), TempestRenderer::new);
+            EntityRenderers.register(ModEntities.MIMIC.get(), MimicRenderer::new);
         }
     }
 }

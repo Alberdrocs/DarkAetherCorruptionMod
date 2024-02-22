@@ -65,6 +65,9 @@ public class ModItems {
     public static final RegistryObject<Item> TEMPEST_SPAWN_EGG =
             ITEMS.register("tempest_spawn_egg",
                     () -> new ForgeSpawnEggItem(ModEntities.TEMPEST, 0x7e9680, 0xc5d1c5, new Item.Properties()));
+    public static final RegistryObject<Item> MIMIC_SPAWN_EGG =
+            ITEMS.register("mimic_spawn_egg",
+                    () -> new ForgeSpawnEggItem(ModEntities.MIMIC, 0x7e9680, 0xc5d1c5, new Item.Properties()));
 
 
     public static void register(IEventBus eventBus){
