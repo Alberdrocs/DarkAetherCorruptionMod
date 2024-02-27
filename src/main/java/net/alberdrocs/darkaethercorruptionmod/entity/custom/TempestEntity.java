@@ -36,7 +36,7 @@ public class TempestEntity extends FlyingMob {
     private int hoverAnimationTimeout = 0;
     public final AnimationState teleportAnimationState = new AnimationState();
     public int teleportAnimationTimeout = 0;
-    public int teleportCooldown = 50;
+    public int teleportCooldown = 40;
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationTimeout = 0;
     public int attackDelay = 7;

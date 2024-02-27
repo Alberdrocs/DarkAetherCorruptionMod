@@ -4,6 +4,7 @@ import net.alberdrocs.darkaethercorruptionmod.entity.custom.TempestEntity;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 public class TempestTeleportGoal extends Goal {
@@ -68,9 +69,30 @@ public class TempestTeleportGoal extends Goal {
         double d0 = this.entity.getMoveControl().getWantedX();
         double d1 = this.entity.getMoveControl().getWantedY();
         double d2 = this.entity.getMoveControl().getWantedZ();
-        //TODO: Teleport to a random location
-        this.entity.teleportTo(d0 + 20, d1, d2 + 20);
-        this.entity.getMoveControl().setWantedPosition(d0 + 20, d1, d2 + 20, 1.0D);
+
+        d0 += this.entity.getRandom().nextInt(-12,12);
+        d2 += this.entity.getRandom().nextInt(-12,12);
+
+        Vec3 vec3 = new Vec3(d0 - this.entity.getX(), d1 - this.entity.getY(), d2 - this.entity.getZ());
+        double d3 = vec3.length();
+        vec3 = vec3.normalize();
+        if (this.canReach(vec3, Mth.ceil(d3))) {
+            this.entity.teleportTo(d0, d1, d2);
+            this.entity.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
+        }
+    }
+
+    private boolean canReach(Vec3 pPos, int pLength) {
+        AABB aabb = this.entity.getBoundingBox();
+
+        for(int i = 1; i < pLength; ++i) {
+            aabb = aabb.move(pPos);
+            if (!this.entity.level().noCollision(this.entity, aabb)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
