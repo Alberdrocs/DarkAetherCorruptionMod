@@ -44,6 +44,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         simpleItem(ModItems.DARK_AETHER_CRYSTAL);
         simpleItem(ModItems.REFINED_DARK_AETHER_CRYSTAL);
+        simpleItem(ModItems.CORRUPTED_HEART);
 
         simpleBlockItem(ModBlocks.AETHER_INFUSED_DOOR);
 

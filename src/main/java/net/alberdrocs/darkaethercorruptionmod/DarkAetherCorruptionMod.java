@@ -9,6 +9,7 @@ import net.alberdrocs.darkaethercorruptionmod.entity.client.screamer.ScreamerRen
 import net.alberdrocs.darkaethercorruptionmod.entity.client.tempest.TempestRenderer;
 import net.alberdrocs.darkaethercorruptionmod.item.ModCreativeModTabs;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
+import net.alberdrocs.darkaethercorruptionmod.loot.ModLootModifiers;
 import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -44,6 +45,8 @@ public class DarkAetherCorruptionMod
         ModSounds.register(modEventBus);
 
         ModEntities.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

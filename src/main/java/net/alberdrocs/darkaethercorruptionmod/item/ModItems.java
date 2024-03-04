@@ -17,6 +17,8 @@ public class ModItems {
             ITEMS.register("dark_aether_crystal", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> REFINED_DARK_AETHER_CRYSTAL =
             ITEMS.register("refined_dark_aether_crystal", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CORRUPTED_HEART =
+            ITEMS.register("corrupted_heart", () -> new Item(new Item.Properties()));
 
     //************************
     // TOOLS

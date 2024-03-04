@@ -20,6 +20,7 @@ public class ModCreativeModTabs {
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.DARK_AETHER_CRYSTAL.get());
                         pOutput.accept(ModItems.REFINED_DARK_AETHER_CRYSTAL.get());
+                        pOutput.accept(ModItems.CORRUPTED_HEART.get());
 
                         pOutput.accept(ModItems.AETHERIUM_AXE.get());
                         pOutput.accept(ModItems.AETHERIUM_HOE.get());
