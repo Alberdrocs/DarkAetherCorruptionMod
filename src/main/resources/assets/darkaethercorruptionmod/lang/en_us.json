@@ -21,6 +21,13 @@
   "block.darkaethercorruptionmod.corrupted_dark_oak_log": "Corrupted Dark Oak Log",
   "block.darkaethercorruptionmod.corrupted_stone": "Corrupted Stone",
 
+  "block.darkaethercorruptionmod.aether_stone_bricks": "Aether Stone Bricks",
+  "block.darkaethercorruptionmod.aether_stone_stairs": "Aether Stone Stairs",
+  "block.darkaethercorruptionmod.aether_stone_fence": "Aether Stone Fence",
+  "block.darkaethercorruptionmod.aether_stone_fence_gate": "Aether Stone Fence Gate",
+  "block.darkaethercorruptionmod.aether_stone_wall": "Aether Stone Wall",
+  "block.darkaethercorruptionmod.aether_infused_door": "Aether Infused Door",
+
   "block.darkaethercorruptionmod.aether_neutralizer": "Aether Neutralizer",
 
   "item.darkaethercorruptionmod.dark_aether_zombie_spawn_egg": "Dark Aether Zombie Spawn Egg",

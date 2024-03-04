@@ -38,6 +38,14 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CORRUPTED_DIRT.get());
                         pOutput.accept(ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
                         pOutput.accept(ModBlocks.CORRUPTED_STONE.get());
+                        pOutput.accept(ModBlocks.AETHER_STONE_BRICKS.get());
+
+                        pOutput.accept(ModBlocks.AETHER_STONE_STAIRS.get());
+                        pOutput.accept(ModBlocks.AETHER_STONE_WALL.get());
+                        pOutput.accept(ModBlocks.AETHER_STONE_FENCE.get());
+                        pOutput.accept(ModBlocks.AETHER_STONE_FENCE_GATE.get());
+                        pOutput.accept(ModBlocks.AETHER_INFUSED_DOOR.get());
+                        pOutput.accept(ModBlocks.AETHER_STONE_SLAB.get());
 
                         pOutput.accept(ModItems.DARK_AETHER_ZOMBIE_SPAWN_EGG.get());
                         pOutput.accept(ModItems.SCREAMER_SPAWN_EGG.get());

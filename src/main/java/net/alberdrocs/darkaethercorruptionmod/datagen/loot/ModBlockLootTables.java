@@ -23,6 +23,17 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
         this.dropSelf(ModBlocks.CORRUPTED_DIRT.get());
         this.dropSelf(ModBlocks.CORRUPTED_STONE.get());
+        this.dropSelf(ModBlocks.AETHER_STONE_BRICKS.get());
+
+        this.dropSelf(ModBlocks.AETHER_STONE_WALL.get());
+        this.dropSelf(ModBlocks.AETHER_STONE_STAIRS.get());
+        this.dropSelf(ModBlocks.AETHER_STONE_FENCE.get());
+        this.dropSelf(ModBlocks.AETHER_STONE_FENCE_GATE.get());
+
+        this.add(ModBlocks.AETHER_STONE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.AETHER_STONE_SLAB.get()));
+        this.add(ModBlocks.AETHER_INFUSED_DOOR.get(),
+                block -> createDoorTable(ModBlocks.AETHER_INFUSED_DOOR.get()));
 
         //TODO: implement proper loot drop for grass
         this.dropSelf(ModBlocks.CORRUPTED_GRASS_BLOCK.get());

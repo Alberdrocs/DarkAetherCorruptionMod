@@ -30,5 +30,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(ModTags.Blocks.NEEDS_AETHERIUM_TOOL).
                 add(ModBlocks.AETHER_NEUTRALIZER.get());
 
+        this.tag(BlockTags.FENCES)
+                .add(ModBlocks.AETHER_STONE_FENCE.get());
+        this.tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.AETHER_STONE_FENCE_GATE.get());
+        this.tag(BlockTags.WALLS)
+                .add(ModBlocks.AETHER_STONE_WALL.get());
+
     }
 }

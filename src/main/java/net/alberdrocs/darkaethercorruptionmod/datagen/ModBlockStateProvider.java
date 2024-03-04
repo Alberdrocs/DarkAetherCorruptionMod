@@ -3,8 +3,7 @@ package net.alberdrocs.darkaethercorruptionmod.datagen;
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -22,7 +21,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.DARK_AETHER_CRYSTAL_ORE);
         blockWithItem(ModBlocks.AETHER_NEUTRALIZER);
         blockWithItem(ModBlocks.CORRUPTED_STONE);
+        blockWithItem(ModBlocks.AETHER_STONE_BRICKS);
         blockWithItem(ModBlocks.CORRUPTED_DIRT);
+
+        stairsBlock(((StairBlock) ModBlocks.AETHER_STONE_STAIRS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
+        slabBlock(((SlabBlock) ModBlocks.AETHER_STONE_SLAB.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
+
+        fenceBlock(((FenceBlock) ModBlocks.AETHER_STONE_FENCE.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.AETHER_STONE_FENCE_GATE.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
+        wallBlock(((WallBlock) ModBlocks.AETHER_STONE_WALL.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
+
+        doorBlockWithRenderType(((DoorBlock) ModBlocks.AETHER_INFUSED_DOOR.get()), modLoc("block/aether_door_bottom"), modLoc("block/aether_door_top"), "cutout");
+
 
         //TODO: add grass block
 
