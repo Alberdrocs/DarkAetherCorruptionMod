@@ -24,6 +24,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.AETHER_STONE_BRICKS);
         blockWithItem(ModBlocks.CORRUPTED_DIRT);
 
+        blockWithItem(ModBlocks.INACTIVE_DARK_AETHER_PORTAL);
+
+        saplingBlock(ModBlocks.CORRUPTED_OAK_SAPLING);
+
         stairsBlock(((StairBlock) ModBlocks.AETHER_STONE_STAIRS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
         slabBlock(((SlabBlock) ModBlocks.AETHER_STONE_SLAB.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
 
@@ -38,6 +42,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         logBlock((RotatedPillarBlock) ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
         blockItem(ModBlocks.CORRUPTED_DARK_OAK_LOG);
+    }
+
+    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
     private void blockItem(RegistryObject<Block> blockRegistryObject){

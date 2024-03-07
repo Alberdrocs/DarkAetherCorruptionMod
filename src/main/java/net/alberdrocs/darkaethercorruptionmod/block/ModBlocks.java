@@ -2,8 +2,10 @@ package net.alberdrocs.darkaethercorruptionmod.block;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.block.custom.AetherNeutralizerBlock;
+import net.alberdrocs.darkaethercorruptionmod.block.custom.InactiveDarkAetherPortalBlock;
 import net.alberdrocs.darkaethercorruptionmod.block.custom.ModFlammableRotatedPillarBlock;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
+import net.alberdrocs.darkaethercorruptionmod.worldgen.tree.CorruptedOakTreeGrower;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -60,6 +62,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> AETHER_NEUTRALIZER = registerBlock
             ("aether_neutralizer", () -> new AetherNeutralizerBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+    public static final RegistryObject<Block> INACTIVE_DARK_AETHER_PORTAL = registerBlock
+            ("inactive_dark_aether_portal",
+                    () -> new InactiveDarkAetherPortalBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL)
+                    .noLootTable()
+                    .noOcclusion()));
+
+    public static final RegistryObject<Block> CORRUPTED_OAK_SAPLING = registerBlock("corrupted_oak_sapling",
+            () -> new SaplingBlock(new CorruptedOakTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){

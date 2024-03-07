@@ -30,6 +30,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.AETHER_STONE_FENCE.get());
         this.dropSelf(ModBlocks.AETHER_STONE_FENCE_GATE.get());
 
+        this.dropSelf(ModBlocks.CORRUPTED_OAK_SAPLING.get());
+
         this.add(ModBlocks.AETHER_STONE_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.AETHER_STONE_SLAB.get()));
         this.add(ModBlocks.AETHER_INFUSED_DOOR.get(),

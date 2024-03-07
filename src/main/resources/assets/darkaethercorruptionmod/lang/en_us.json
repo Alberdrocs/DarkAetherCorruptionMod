@@ -30,14 +30,16 @@
 
   "block.darkaethercorruptionmod.aether_neutralizer": "Aether Neutralizer",
 
+  "block.darkaethercorruptionmod.corrupted_oak_sapling": "Corrupted Oak Sapling",
+
   "item.darkaethercorruptionmod.dark_aether_zombie_spawn_egg": "Dark Aether Zombie Spawn Egg",
   "item.darkaethercorruptionmod.screamer_spawn_egg": "Screamer Spawn Egg",
   "item.darkaethercorruptionmod.tempest_spawn_egg": "Tempest Spawn Egg",
   "item.darkaethercorruptionmod.mimic_spawn_egg": "Mimic Spawn Egg",
 
   "sounds.darkaethercorruptionmod.dark_aether_zombie_ambient": "Dark Aether Zombie groans",
-  "sounds.darkaethercorruptionmod.dark_aether_zombie_ambient": "Screamer screams",
-  "sounds.darkaethercorruptionmod.dark_aether_zombie_explosion": "Screamer explodes",
+  "sounds.darkaethercorruptionmod.screamer_chase": "Screamer screams",
+  "sounds.darkaethercorruptionmod.screamer_explosion": "Screamer explodes",
 
   "creativetab.dark_aether_tab": "Dark Aether Tab"
 }

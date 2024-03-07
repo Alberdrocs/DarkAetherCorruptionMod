@@ -55,6 +55,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.AETHER_STONE_SLAB);
         evenSimplerBlockItem(ModBlocks.AETHER_STONE_FENCE_GATE);
 
+        saplingItem(ModBlocks.CORRUPTED_OAK_SAPLING);
+
         handheldItem(ModItems.AETHERIUM_AXE);
         handheldItem(ModItems.AETHERIUM_HOE);
         handheldItem(ModItems.AETHERIUM_PICKAXE);
@@ -118,6 +120,12 @@ public class ModItemModelProvider extends ItemModelProvider {
                                         "item/" + itemRegistryObject.getId().getPath()));
             });
         }
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(DarkAetherCorruptionMod.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

@@ -53,6 +53,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.TEMPEST_SPAWN_EGG.get());
                         pOutput.accept(ModItems.MIMIC_SPAWN_EGG.get());
 
+                        pOutput.accept(ModBlocks.AETHER_NEUTRALIZER.get());
+                        pOutput.accept(ModBlocks.INACTIVE_DARK_AETHER_PORTAL.get());
+
+                        pOutput.accept(ModBlocks.CORRUPTED_OAK_SAPLING.get());
+
 
                     })
                     .build()
