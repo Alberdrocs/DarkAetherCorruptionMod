@@ -57,6 +57,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.INACTIVE_DARK_AETHER_PORTAL.get());
 
                         pOutput.accept(ModBlocks.CORRUPTED_OAK_SAPLING.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_BIRCH_SAPLING.get());
 
 
                     })

@@ -26,7 +26,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.INACTIVE_DARK_AETHER_PORTAL);
 
-        saplingBlock(ModBlocks.CORRUPTED_OAK_SAPLING);
+
 
         stairsBlock(((StairBlock) ModBlocks.AETHER_STONE_STAIRS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
         slabBlock(((SlabBlock) ModBlocks.AETHER_STONE_SLAB.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
@@ -40,8 +40,30 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         //TODO: add grass block
 
+        //************************
+        // OAK BLOCKS
+        //************************
         logBlock((RotatedPillarBlock) ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
         blockItem(ModBlocks.CORRUPTED_DARK_OAK_LOG);
+        logBlock((RotatedPillarBlock) ModBlocks.CORRUPTED_ACACIA_LOG.get());
+        blockItem(ModBlocks.CORRUPTED_ACACIA_LOG);
+        logBlock((RotatedPillarBlock) ModBlocks.CORRUPTED_BIRCH_LOG.get());
+        blockItem(ModBlocks.CORRUPTED_BIRCH_LOG);
+        logBlock((RotatedPillarBlock) ModBlocks.CORRUPTED_CHERRY_LOG.get());
+        blockItem(ModBlocks.CORRUPTED_CHERRY_LOG);
+        logBlock((RotatedPillarBlock) ModBlocks.CORRUPTED_JUNGLE_LOG.get());
+        blockItem(ModBlocks.CORRUPTED_JUNGLE_LOG);
+        logBlock((RotatedPillarBlock) ModBlocks.CORRUPTED_MANGROVE_LOG.get());
+        blockItem(ModBlocks.CORRUPTED_MANGROVE_LOG);
+        logBlock((RotatedPillarBlock) ModBlocks.CORRUPTED_SPRUCE_LOG.get());
+        blockItem(ModBlocks.CORRUPTED_SPRUCE_LOG);
+
+        //************************
+        // SAPLINGS
+        //************************
+        saplingBlock(ModBlocks.CORRUPTED_OAK_SAPLING);
+        saplingBlock(ModBlocks.CORRUPTED_BIRCH_SAPLING);
+
     }
 
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {

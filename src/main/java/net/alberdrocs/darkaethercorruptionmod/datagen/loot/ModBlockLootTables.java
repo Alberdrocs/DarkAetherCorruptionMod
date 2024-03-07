@@ -20,8 +20,25 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         this.dropSelf(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get());
         this.dropSelf(ModBlocks.AETHER_NEUTRALIZER.get());
-        this.dropSelf(ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
         this.dropSelf(ModBlocks.CORRUPTED_DIRT.get());
+
+        //************************
+        // OAK BLOCKS
+        //************************
+        this.dropSelf(ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
+        this.dropSelf(ModBlocks.CORRUPTED_ACACIA_LOG.get());
+        this.dropSelf(ModBlocks.CORRUPTED_BIRCH_LOG.get());
+        this.dropSelf(ModBlocks.CORRUPTED_CHERRY_LOG.get());
+        this.dropSelf(ModBlocks.CORRUPTED_JUNGLE_LOG.get());
+        this.dropSelf(ModBlocks.CORRUPTED_MANGROVE_LOG.get());
+        this.dropSelf(ModBlocks.CORRUPTED_SPRUCE_LOG.get());
+
+        //************************
+        // SAPLINGS
+        //************************
+        this.dropSelf(ModBlocks.CORRUPTED_OAK_SAPLING.get());
+        this.dropSelf(ModBlocks.CORRUPTED_BIRCH_SAPLING.get());
+
         this.dropSelf(ModBlocks.CORRUPTED_STONE.get());
         this.dropSelf(ModBlocks.AETHER_STONE_BRICKS.get());
 
@@ -30,7 +47,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.AETHER_STONE_FENCE.get());
         this.dropSelf(ModBlocks.AETHER_STONE_FENCE_GATE.get());
 
-        this.dropSelf(ModBlocks.CORRUPTED_OAK_SAPLING.get());
+
 
         this.add(ModBlocks.AETHER_STONE_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.AETHER_STONE_SLAB.get()));
