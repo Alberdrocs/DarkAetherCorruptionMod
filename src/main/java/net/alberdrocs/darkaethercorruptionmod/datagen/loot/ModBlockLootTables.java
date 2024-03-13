@@ -21,6 +21,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get());
         this.dropSelf(ModBlocks.AETHER_NEUTRALIZER.get());
         this.dropSelf(ModBlocks.CORRUPTED_DIRT.get());
+        this.dropSelf(ModBlocks.CORRUPTED_SAND.get());
 
         //************************
         // OAK BLOCKS
@@ -37,7 +38,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         // SAPLINGS
         //************************
         this.dropSelf(ModBlocks.CORRUPTED_OAK_SAPLING.get());
+        this.dropSelf(ModBlocks.CORRUPTED_DARK_OAK_SAPLING.get());
         this.dropSelf(ModBlocks.CORRUPTED_BIRCH_SAPLING.get());
+        this.dropSelf(ModBlocks.CORRUPTED_ACACIA_SAPLING.get());
+        this.dropSelf(ModBlocks.CORRUPTED_SPRUCE_SAPLING.get());
+        this.dropSelf(ModBlocks.CORRUPTED_CHERRY_SAPLING.get());
+        this.dropSelf(ModBlocks.CORRUPTED_MANGROVE_PROPAGULE.get());
 
         this.dropSelf(ModBlocks.CORRUPTED_STONE.get());
         this.dropSelf(ModBlocks.AETHER_STONE_BRICKS.get());
@@ -54,8 +60,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.AETHER_INFUSED_DOOR.get(),
                 block -> createDoorTable(ModBlocks.AETHER_INFUSED_DOOR.get()));
 
-        //TODO: implement proper loot drop for grass
-        this.dropSelf(ModBlocks.CORRUPTED_GRASS_BLOCK.get());
+        this.add(ModBlocks.CORRUPTED_GRASS_BLOCK.get(),
+                block -> createGrassDrops(ModBlocks.CORRUPTED_DIRT.get()));
 
         this.add(ModBlocks.DARK_AETHER_CRYSTAL_ORE.get(),
                 block -> createOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE.get(), ModItems.DARK_AETHER_CRYSTAL.get()));

@@ -2,11 +2,11 @@ package net.alberdrocs.darkaethercorruptionmod.block;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.block.custom.AetherNeutralizerBlock;
+import net.alberdrocs.darkaethercorruptionmod.block.custom.CorruptedDirtBlock;
 import net.alberdrocs.darkaethercorruptionmod.block.custom.InactiveDarkAetherPortalBlock;
 import net.alberdrocs.darkaethercorruptionmod.block.custom.ModFlammableRotatedPillarBlock;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
-import net.alberdrocs.darkaethercorruptionmod.worldgen.tree.CorruptedBirchTreeGrower;
-import net.alberdrocs.darkaethercorruptionmod.worldgen.tree.CorruptedOakTreeGrower;
+import net.alberdrocs.darkaethercorruptionmod.worldgen.tree.*;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -33,13 +33,16 @@ public class ModBlocks {
             ("dark_aether_crystal_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
 
+    public static final RegistryObject<Block> CORRUPTED_SAND = registerBlock
+            ("corrupted_sand", () -> new SandBlock(1, BlockBehaviour.Properties.copy(Blocks.SAND)));
+
     //************************
     // DIRT
     //************************
     public static final RegistryObject<Block> CORRUPTED_GRASS_BLOCK = registerBlock
-            ("corrupted_grass_block", () -> new GrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
+            ("corrupted_grass_block", () -> new CorruptedDirtBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
     public static final RegistryObject<Block> CORRUPTED_DIRT = registerBlock
-            ("corrupted_dirt", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
+            ("corrupted_dirt", () -> new CorruptedDirtBlock(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 
 
     //************************
@@ -66,8 +69,19 @@ public class ModBlocks {
     //************************
     public static final RegistryObject<Block> CORRUPTED_OAK_SAPLING = registerBlock("corrupted_oak_sapling",
             () -> new SaplingBlock(new CorruptedOakTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+    public static final RegistryObject<Block> CORRUPTED_DARK_OAK_SAPLING = registerBlock("corrupted_dark_oak_sapling",
+            () -> new SaplingBlock(new CorruptedDarkOakTreeGrower(), BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
     public static final RegistryObject<Block> CORRUPTED_BIRCH_SAPLING = registerBlock("corrupted_birch_sapling",
             () -> new SaplingBlock(new CorruptedBirchTreeGrower(), BlockBehaviour.Properties.copy(Blocks.BIRCH_SAPLING)));
+    public static final RegistryObject<Block> CORRUPTED_ACACIA_SAPLING = registerBlock("corrupted_acacia_sapling",
+            () -> new SaplingBlock(new CorruptedAcaciaTreeGrower(), BlockBehaviour.Properties.copy(Blocks.ACACIA_SAPLING)));
+    public static final RegistryObject<Block> CORRUPTED_SPRUCE_SAPLING = registerBlock("corrupted_spruce_sapling",
+            () -> new SaplingBlock(new CorruptedSpruceTreeGrower(), BlockBehaviour.Properties.copy(Blocks.SPRUCE_SAPLING)));
+    public static final RegistryObject<Block> CORRUPTED_MANGROVE_PROPAGULE = registerBlock("corrupted_mangrove_propagule",
+            () -> new SaplingBlock(new CorruptedMangroveTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
+    public static final RegistryObject<Block> CORRUPTED_CHERRY_SAPLING = registerBlock("corrupted_cherry_sapling",
+            () -> new SaplingBlock(new CorruptedCherryTreeGrower(), BlockBehaviour.Properties.copy(Blocks.CHERRY_SAPLING)));
+
 
 
     //************************

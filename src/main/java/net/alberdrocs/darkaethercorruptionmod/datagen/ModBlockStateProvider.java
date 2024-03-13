@@ -23,6 +23,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.CORRUPTED_STONE);
         blockWithItem(ModBlocks.AETHER_STONE_BRICKS);
         blockWithItem(ModBlocks.CORRUPTED_DIRT);
+        blockWithItem(ModBlocks.CORRUPTED_SAND);
 
         blockWithItem(ModBlocks.INACTIVE_DARK_AETHER_PORTAL);
 
@@ -62,7 +63,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         // SAPLINGS
         //************************
         saplingBlock(ModBlocks.CORRUPTED_OAK_SAPLING);
+        saplingBlock(ModBlocks.CORRUPTED_DARK_OAK_SAPLING);
         saplingBlock(ModBlocks.CORRUPTED_BIRCH_SAPLING);
+        saplingBlock(ModBlocks.CORRUPTED_ACACIA_SAPLING);
+        saplingBlock(ModBlocks.CORRUPTED_SPRUCE_SAPLING);
+        saplingBlock(ModBlocks.CORRUPTED_CHERRY_SAPLING);
+        saplingBlock(ModBlocks.CORRUPTED_MANGROVE_PROPAGULE);
 
     }
 

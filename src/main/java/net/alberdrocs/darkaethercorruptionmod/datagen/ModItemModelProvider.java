@@ -56,7 +56,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.AETHER_STONE_FENCE_GATE);
 
         saplingItem(ModBlocks.CORRUPTED_OAK_SAPLING);
+        saplingItem(ModBlocks.CORRUPTED_DARK_OAK_SAPLING);
         saplingItem(ModBlocks.CORRUPTED_BIRCH_SAPLING);
+        saplingItem(ModBlocks.CORRUPTED_ACACIA_SAPLING);
+        saplingItem(ModBlocks.CORRUPTED_SPRUCE_SAPLING);
+        saplingItem(ModBlocks.CORRUPTED_CHERRY_SAPLING);
+        saplingItem(ModBlocks.CORRUPTED_MANGROVE_PROPAGULE);
 
         handheldItem(ModItems.AETHERIUM_AXE);
         handheldItem(ModItems.AETHERIUM_HOE);
