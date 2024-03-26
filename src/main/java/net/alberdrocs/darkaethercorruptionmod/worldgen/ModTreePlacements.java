@@ -40,29 +40,37 @@ public class ModTreePlacements {
         //************************
         // TREE PLACEMENTS
         //************************
-        Holder<ConfiguredFeature<?, ?>> holder2 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_OAK_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder3 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_DARK_OAK_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder4 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_BIRCH_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder5 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_ACACIA_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder6 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_SPRUCE_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder7 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_MANGROVE_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder8 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_CHERRY_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder9 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_PINE_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder10 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_JUNGLE_TREE_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder11 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_FANCY_OAK_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder12 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_MEGA_JUNGLE_TREE_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder13 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_MEGA_SPRUCE_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder14 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_MEGA_PINE_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder15 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_TALL_MANGROVE_KEY);
-        Holder<ConfiguredFeature<?, ?>> holder16 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_JUNGLE_BUSH_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder2 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_OAK_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder3 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_DARK_OAK_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder4 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_BIRCH_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder5 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_ACACIA_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder6 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_SPRUCE_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder7 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_MANGROVE_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder8 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_CHERRY_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder9 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_PINE_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder10 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_JUNGLE_TREE_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder11 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_FANCY_OAK_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder12 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_MEGA_JUNGLE_TREE_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder13 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_MEGA_SPRUCE_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder14 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_MEGA_PINE_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder15 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_TALL_MANGROVE_KEY);
+        Holder<ConfiguredFeature<?, ?>> treePlcmntHolder16 = holdergetter.getOrThrow(ModTreeFeatures.CORRUPTED_JUNGLE_BUSH_KEY);
 
-        register(context, CORRUPTED_OAK_CHECKED, holder2, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_OAK_SAPLING.get()));
-        register(context, CORRUPTED_DARK_OAK_CHECKED, holder3, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_DARK_OAK_SAPLING.get()));
-        register(context, CORRUPTED_BIRCH_CHECKED, holder4, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_BIRCH_SAPLING.get()));
-        register(context, CORRUPTED_ACACIA_CHECKED, holder5, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_ACACIA_SAPLING.get()));
-        register(context, CORRUPTED_SPRUCE_CHECKED, holder6, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_SPRUCE_SAPLING.get()));
-        register(context, CORRUPTED_MANGROVE_CHECKED, holder7, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_MANGROVE_PROPAGULE.get()));
-        register(context, CORRUPTED_CHERRY_CHECKED, holder8, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_CHERRY_SAPLING.get()));
+        register(context, CORRUPTED_OAK_CHECKED, treePlcmntHolder2, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_OAK_SAPLING.get()));
+        register(context, CORRUPTED_DARK_OAK_CHECKED, treePlcmntHolder3, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_DARK_OAK_SAPLING.get()));
+        register(context, CORRUPTED_BIRCH_CHECKED, treePlcmntHolder4, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_BIRCH_SAPLING.get()));
+        register(context, CORRUPTED_ACACIA_CHECKED, treePlcmntHolder5, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_ACACIA_SAPLING.get()));
+        register(context, CORRUPTED_SPRUCE_CHECKED, treePlcmntHolder6, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_SPRUCE_SAPLING.get()));
+        register(context, CORRUPTED_MANGROVE_CHECKED, treePlcmntHolder7, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_MANGROVE_PROPAGULE.get()));
+        register(context, CORRUPTED_CHERRY_CHECKED, treePlcmntHolder8, PlacementUtils.filteredByBlockSurvival(ModBlocks.CORRUPTED_CHERRY_SAPLING.get()));
+        register(context, CORRUPTED_PINE_CHECKED, treePlcmntHolder9, PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING));
+        register(context, CORRUPTED_JUNGLE_TREE_CHECKED, treePlcmntHolder10, PlacementUtils.filteredByBlockSurvival(Blocks.JUNGLE_SAPLING));
+        register(context, CORRUPTED_FANCY_OAK_CHECKED, treePlcmntHolder11, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
+        register(context, CORRUPTED_MEGA_JUNGLE_TREE_CHECKED, treePlcmntHolder12, PlacementUtils.filteredByBlockSurvival(Blocks.JUNGLE_SAPLING));
+        register(context, CORRUPTED_MEGA_SPRUCE_CHECKED, treePlcmntHolder13, PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING));
+        register(context, CORRUPTED_MEGA_PINE_CHECKED, treePlcmntHolder14, PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING));
+        register(context, CORRUPTED_TALL_MANGROVE_CHECKED, treePlcmntHolder15, PlacementUtils.filteredByBlockSurvival(Blocks.MANGROVE_PROPAGULE));
+        register(context, CORRUPTED_JUNGLE_BUSH, treePlcmntHolder16, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {
