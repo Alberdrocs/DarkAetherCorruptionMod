@@ -26,7 +26,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.CORRUPTED_SAND);
 
         blockWithItem(ModBlocks.INACTIVE_DARK_AETHER_PORTAL);
-
+        blockWithItem(ModBlocks.ACTIVE_DARK_AETHER_PORTAL);
 
 
         stairsBlock(((StairBlock) ModBlocks.AETHER_STONE_STAIRS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));

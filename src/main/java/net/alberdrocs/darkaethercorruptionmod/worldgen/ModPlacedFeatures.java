@@ -88,6 +88,8 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CORRUPTED_TREES_OLD_GROWTH_PINE_TAIGA = registerKey("corrupted_trees_old_growth_pine_taiga");
     public static final ResourceKey<PlacedFeature> CORRUPTED_TREES_JUNGLE = registerKey("corrupted_trees_jungle");
     public static final ResourceKey<PlacedFeature> CORRUPTED_TREES_MANGROVE = registerKey("corrupted_trees_mangrove");
+    public static final ResourceKey<PlacedFeature> CORRUPTED_BAMBOO_VEGETATION = registerKey("corrupted_bamboo_vegetation");
+    public static final ResourceKey<PlacedFeature> CORRUPTED_MUSHROOM_ISLAND_VEGETATION = registerKey("corrupted_mushroom_island_vegetation");
     private static final PlacementModifier TREE_THRESHOLD = SurfaceWaterDepthFilter.forMaxDepth(0);
 
 
@@ -157,6 +159,8 @@ public class ModPlacedFeatures {
         Holder<ConfiguredFeature<?, ?>> holder43 = holdergetter.getOrThrow(ModConfiguredFeatures.CORRUPTED_TREES_OLD_GROWTH_SPRUCE_TAIGA);
         Holder<ConfiguredFeature<?, ?>> holder44 = holdergetter.getOrThrow(ModConfiguredFeatures.CORRUPTED_TREES_OLD_GROWTH_PINE_TAIGA);
         Holder<ConfiguredFeature<?, ?>> holder45 = holdergetter.getOrThrow(ModConfiguredFeatures.CORRUPTED_TREES_JUNGLE);
+        Holder<ConfiguredFeature<?, ?>> holder46 = holdergetter.getOrThrow(ModConfiguredFeatures.CORRUPTED_BAMBOO_VEGETATION);
+        Holder<ConfiguredFeature<?, ?>> holder47 = holdergetter.getOrThrow(ModConfiguredFeatures.CORRUPTED_MUSHROOM_ISLAND_VEGETATION);
         Holder<ConfiguredFeature<?, ?>> holder48 = holdergetter.getOrThrow(ModConfiguredFeatures.CORRUPTED_MANGROVE_VEGETATION);
 
        register(context, CORRUPTED_PATCH_GRASS_PLAIN, holder5, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
@@ -197,6 +201,8 @@ public class ModPlacedFeatures {
        register(context, CORRUPTED_TREES_OLD_GROWTH_PINE_TAIGA, holder44, treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
        register(context, CORRUPTED_TREES_JUNGLE, holder45, treePlacement(PlacementUtils.countExtra(50, 0.1F, 1)));
        register(context, CORRUPTED_TREES_MANGROVE, holder48, CountPlacement.of(25), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(5), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(ModBlocks.CORRUPTED_MANGROVE_PROPAGULE.get().defaultBlockState(), BlockPos.ZERO)));
+       register(context, CORRUPTED_BAMBOO_VEGETATION, holder46, treePlacement(PlacementUtils.countExtra(30, 0.1F, 1)));
+       register(context, CORRUPTED_MUSHROOM_ISLAND_VEGETATION, holder47, InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
 
     }

@@ -55,6 +55,22 @@ public class ModBiomeDefaultFeatures {
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_PATCH_GRASS_TAIGA_2);
     }
 
+    public static void addBambooVegetation(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_BAMBOO_VEGETATION);
+    }
+
+    public static void addJungleGrass(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_PATCH_GRASS_JUNGLE);
+    }
+
+    public static void addJungleTrees(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_JUNGLE);
+    }
+
+    public static void addSparseJungleTrees(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_SPARSE_JUNGLE);
+    }
+
     public static void addMountainTrees(BiomeGenerationSettings.Builder pBuilder) {
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_WINDSWEPT_HILLS);
     }
@@ -70,6 +86,9 @@ public class ModBiomeDefaultFeatures {
     public static void addWaterTrees(BiomeGenerationSettings.Builder pBuilder) {
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_WATER);
     }
+    public static void addBadlandsTrees(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_BADLANDS);
+    }
 
     public static void addBirchTrees(BiomeGenerationSettings.Builder pBuilder) {
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_BIRCH);
@@ -81,6 +100,21 @@ public class ModBiomeDefaultFeatures {
 
     public static void addTallBirchTrees(BiomeGenerationSettings.Builder pBuilder) {
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_BIRCH_TALL);
+    }
+
+    public static void addBadlandGrass(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_PATCH_GRASS_BADLANDS);
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_PATCH_DEAD_BUSH_BADLANDS);
+    }
+
+    public static void addCherryGroveVegetation(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_PATCH_GRASS_PLAIN);
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_CHERRY);
+    }
+
+    public static void addMeadowVegetation(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_PATCH_GRASS_PLAIN);
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_MEADOW);
     }
 
     public static void addFerns(BiomeGenerationSettings.Builder pBuilder) {

@@ -1,10 +1,7 @@
 package net.alberdrocs.darkaethercorruptionmod.block;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
-import net.alberdrocs.darkaethercorruptionmod.block.custom.AetherNeutralizerBlock;
-import net.alberdrocs.darkaethercorruptionmod.block.custom.CorruptedDirtBlock;
-import net.alberdrocs.darkaethercorruptionmod.block.custom.InactiveDarkAetherPortalBlock;
-import net.alberdrocs.darkaethercorruptionmod.block.custom.ModFlammableRotatedPillarBlock;
+import net.alberdrocs.darkaethercorruptionmod.block.custom.*;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.alberdrocs.darkaethercorruptionmod.worldgen.tree.*;
 import net.minecraft.sounds.SoundEvents;
@@ -115,6 +112,10 @@ public class ModBlocks {
                     () -> new InactiveDarkAetherPortalBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL)
                     .noLootTable()
                     .noOcclusion()));
+
+    public static final RegistryObject<Block> ACTIVE_DARK_AETHER_PORTAL = registerBlock("active_dark_aether_portal",
+            () -> new ActiveDarkAetherPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noLootTable().noOcclusion().noCollission()));
+
 
 
 

@@ -3,6 +3,7 @@ package net.alberdrocs.darkaethercorruptionmod.datagen;
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.worldgen.*;
 import net.alberdrocs.darkaethercorruptionmod.worldgen.biome.ModBiomes;
+import net.alberdrocs.darkaethercorruptionmod.worldgen.dimension.ModDimensions;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -15,10 +16,9 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModWorldGenProvider extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
+            .add(Registries.DIMENSION_TYPE, ModDimensions::bootstrapType)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
-            //.add(Registries.CONFIGURED_FEATURE, ModTreeFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
-            //.add(Registries.PLACED_FEATURE, ModTreePlacements::bootstrap)
             .add(ForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
             .add(Registries.BIOME, ModBiomes::boostrap);
 

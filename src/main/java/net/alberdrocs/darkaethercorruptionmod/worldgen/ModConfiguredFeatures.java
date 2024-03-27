@@ -102,6 +102,8 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_TREES_OLD_GROWTH_PINE_TAIGA = registerKey("corrupted_trees_old_growth_pine_taiga");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_TREES_JUNGLE = registerKey("corrupted_trees_jungle");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_MANGROVE_VEGETATION = registerKey("corrupted_mangrove_vegetation");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_BAMBOO_VEGETATION = registerKey("corrupted_bamboo_vegetation");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_MUSHROOM_ISLAND_VEGETATION = registerKey("corrupted_mushroom_island_vegetation");
 
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
@@ -150,7 +152,7 @@ public class ModConfiguredFeatures {
         Holder<PlacedFeature> holder28 = holdergetter1.getOrThrow(ModPlacedFeatures.CORRUPTED_JUNGLE_TREE_CHECKED);
         Holder<PlacedFeature> holder29 = holdergetter1.getOrThrow(ModPlacedFeatures.CORRUPTED_MANGROVE_CHECKED);
         register(context, CORRUPTED_PATCH_TAIGA_GRASS, Feature.RANDOM_PATCH, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRASS.defaultBlockState(), 1).add(Blocks.FERN.defaultBlockState(), 4)), 32));
-        register(context, CORRUPTED_PATCH_GRASS, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(ModBlocks.CORRUPTED_GRASS_BLOCK.get()), 32));
+        register(context, CORRUPTED_PATCH_GRASS, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(Blocks.GRASS), 32));
         register(context, CORRUPTED_PATCH_GRASS_JUNGLE, Feature.RANDOM_PATCH, new RandomPatchConfiguration(32, 7, 3, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRASS.defaultBlockState(), 3).add(Blocks.FERN.defaultBlockState(), 1))), BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))))));
         register(context, CORRUPTED_SINGLE_PIECE_OF_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.GRASS.defaultBlockState())));
         register(context, CORRUPTED_PATCH_DEAD_BUSH, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(Blocks.DEAD_BUSH), 4));
@@ -180,6 +182,8 @@ public class ModConfiguredFeatures {
         register(context, CORRUPTED_TREES_OLD_GROWTH_PINE_TAIGA, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(holder19, 0.025641026F), new WeightedPlacedFeature(holder20, 0.30769232F), new WeightedPlacedFeature(holder11, 0.33333334F)), holder12));
         register(context, CORRUPTED_TREES_JUNGLE, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(holder7, 0.1F), new WeightedPlacedFeature(holder18, 0.5F), new WeightedPlacedFeature(holder21, 0.33333334F)), holder28));
         register(context, CORRUPTED_MANGROVE_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(holder22, 0.85F)), holder29));
+        register(context, CORRUPTED_BAMBOO_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(holder7, 0.05F), new WeightedPlacedFeature(holder18, 0.15F), new WeightedPlacedFeature(holder21, 0.7F)), PlacementUtils.inlinePlaced(holder4)));
+        register(context, CORRUPTED_MUSHROOM_ISLAND_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(Collections.emptyList(), holder23));
 
     }
 
