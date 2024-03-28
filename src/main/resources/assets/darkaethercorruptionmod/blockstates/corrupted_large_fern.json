@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "darkaethercorruptionmod:block/corrupted_large_fern_bottom"
+    },
+    "half=upper": {
+      "model": "darkaethercorruptionmod:block/corrupted_large_fern_top"
+    }
+  }
+}

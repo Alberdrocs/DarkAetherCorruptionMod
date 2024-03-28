@@ -33,6 +33,18 @@ public class ModBlocks {
     public static final RegistryObject<Block> CORRUPTED_SAND = registerBlock
             ("corrupted_sand", () -> new SandBlock(1, BlockBehaviour.Properties.copy(Blocks.SAND)));
 
+    public static final RegistryObject<Block> CORRUPTED_GRASS = registerBlock
+            ("corrupted_grass", () -> new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).noLootTable()));
+    public static final RegistryObject<Block> CORRUPTED_FERN = registerBlock
+            ("corrupted_fern", () -> new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.FERN).noLootTable()));
+    public static final RegistryObject<Block> CORRUPTED_DEAD_BUSH = registerBlock
+            ("corrupted_dead_bush", () -> new DeadBushBlock(BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH).noLootTable()));
+    public static final RegistryObject<Block> CORRUPTED_TALL_GRASS = registerBlock
+            ("corrupted_tall_grass", () -> new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS).noLootTable()));
+    public static final RegistryObject<Block> CORRUPTED_LARGE_FERN = registerBlock
+            ("corrupted_large_fern", () -> new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.LARGE_FERN).noLootTable()));
+
+
     //************************
     // DIRT
     //************************

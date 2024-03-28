@@ -3,6 +3,7 @@ package net.alberdrocs.darkaethercorruptionmod.worldgen.biome;
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.worldgen.ModPlacedFeatures;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -198,18 +199,19 @@ public class ModBiomes {
     @NotNull
     private static Biome getBiomeBuild(BiomeGenerationSettings.Builder biomegenerationsettings$builder, MobSpawnSettings.Builder mobspawnsettings$builder, Music music) {
         return new Biome.BiomeBuilder()
-                .hasPrecipitation(true)
+                .hasPrecipitation(false)
                 .downfall(0.8f)
                 .temperature(0.7f)
                 .generationSettings(biomegenerationsettings$builder.build())
                 .mobSpawnSettings(mobspawnsettings$builder.build())
                 .specialEffects((new BiomeSpecialEffects.Builder())
-                        .waterColor(0xe82e3b)
-                        .waterFogColor(0xbf1b26)
-                        .skyColor(0x30c918)
+                        .waterColor(0x36074d)
+                        .waterFogColor(0x5c0985)
+                        .skyColor(0x2f0847)
                         .grassColorOverride(0x7f03fc)
                         .foliageColorOverride(0xd203fc)
-                        .fogColor(0x22a1e6)
+                        .fogColor(0x2d053b)
+                        .ambientParticle(new AmbientParticleSettings(ParticleTypes.PORTAL, 0.5f))
                         .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                         .backgroundMusic(music).build())
                 .build();

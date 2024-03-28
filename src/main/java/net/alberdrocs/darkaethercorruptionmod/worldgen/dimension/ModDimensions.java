@@ -24,7 +24,7 @@ public class ModDimensions {
 
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(DARK_AETHER_DIMENSION_DIM_TYPE, new DimensionType(
-                OptionalLong.of(12000), // fixedTime
+                OptionalLong.of(18000), // fixedTime
                 false, // hasSkylight
                 false, // hasCeiling
                 false, // ultraWarm
@@ -36,7 +36,7 @@ public class ModDimensions {
                 256, // height
                 256, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
-                BuiltinDimensionTypes.OVERWORLD_EFFECTS, // effectsLocation
+                BuiltinDimensionTypes.END_EFFECTS, // effectsLocation
                 1.0f, // ambientLight
                 new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
     }

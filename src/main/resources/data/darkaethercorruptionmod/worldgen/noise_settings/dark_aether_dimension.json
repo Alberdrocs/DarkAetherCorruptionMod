@@ -457,7 +457,7 @@
                             "then_run": {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "minecraft:coarse_dirt"
+                                "Name": "darkaethercorruptionmod:corrupted_dirt"
                               }
                             }
                           },
@@ -472,7 +472,7 @@
                             "then_run": {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "minecraft:coarse_dirt"
+                                "Name": "darkaethercorruptionmod:corrupted_dirt"
                               }
                             }
                           },
@@ -487,7 +487,7 @@
                             "then_run": {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "minecraft:coarse_dirt"
+                                "Name": "darkaethercorruptionmod:corrupted_dirt"
                               }
                             }
                           },
@@ -1055,7 +1055,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:snow_block"
+                                    "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                   }
                                 }
                               }
@@ -1104,7 +1104,7 @@
                                   "then_run": {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:powder_snow"
+                                      "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                     }
                                   }
                                 }
@@ -1120,7 +1120,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:snow_block"
+                                    "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                   }
                                 }
                               }
@@ -1161,7 +1161,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:snow_block"
+                                    "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                   }
                                 }
                               }
@@ -1198,7 +1198,7 @@
                                   "then_run": {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:powder_snow"
+                                      "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                     }
                                   }
                                 }
@@ -1214,7 +1214,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:snow_block"
+                                    "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                   }
                                 }
                               }
@@ -1467,7 +1467,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:coarse_dirt"
+                                    "Name": "darkaethercorruptionmod:corrupted_dirt"
                                   }
                                 }
                               }
@@ -1627,7 +1627,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:coarse_dirt"
+                                    "Name": "darkaethercorruptionmod:corrupted_dirt"
                                   }
                                 }
                               },
@@ -1671,7 +1671,7 @@
                             "then_run": {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "minecraft:snow_block"
+                                "Name": "darkaethercorruptionmod:corrupted_grass_block"
                               }
                             }
                           }
@@ -1866,7 +1866,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:snow_block"
+                                    "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                   }
                                 }
                               }
@@ -1915,7 +1915,7 @@
                                   "then_run": {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:powder_snow"
+                                      "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                     }
                                   }
                                 }
@@ -1931,7 +1931,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:snow_block"
+                                    "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                   }
                                 }
                               }
@@ -1983,7 +1983,7 @@
                                   "then_run": {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:powder_snow"
+                                      "Name": "darkaethercorruptionmod:corrupted_grass_block"
                                     }
                                   }
                                 }

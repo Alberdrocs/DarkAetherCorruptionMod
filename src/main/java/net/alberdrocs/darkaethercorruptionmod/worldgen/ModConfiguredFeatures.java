@@ -151,13 +151,13 @@ public class ModConfiguredFeatures {
         Holder<PlacedFeature> holder23 = holdergetter1.getOrThrow(ModPlacedFeatures.CORRUPTED_OAK_CHECKED);
         Holder<PlacedFeature> holder28 = holdergetter1.getOrThrow(ModPlacedFeatures.CORRUPTED_JUNGLE_TREE_CHECKED);
         Holder<PlacedFeature> holder29 = holdergetter1.getOrThrow(ModPlacedFeatures.CORRUPTED_MANGROVE_CHECKED);
-        register(context, CORRUPTED_PATCH_TAIGA_GRASS, Feature.RANDOM_PATCH, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRASS.defaultBlockState(), 1).add(Blocks.FERN.defaultBlockState(), 4)), 32));
-        register(context, CORRUPTED_PATCH_GRASS, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(Blocks.GRASS), 32));
-        register(context, CORRUPTED_PATCH_GRASS_JUNGLE, Feature.RANDOM_PATCH, new RandomPatchConfiguration(32, 7, 3, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRASS.defaultBlockState(), 3).add(Blocks.FERN.defaultBlockState(), 1))), BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))))));
-        register(context, CORRUPTED_SINGLE_PIECE_OF_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.GRASS.defaultBlockState())));
-        register(context, CORRUPTED_PATCH_DEAD_BUSH, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(Blocks.DEAD_BUSH), 4));
-        register(context, CORRUPTED_PATCH_TALL_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.TALL_GRASS))));
-        register(context, CORRUPTED_PATCH_LARGE_FERN, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.LARGE_FERN))));
+        register(context, CORRUPTED_PATCH_TAIGA_GRASS, Feature.RANDOM_PATCH, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(ModBlocks.CORRUPTED_GRASS.get().defaultBlockState(), 1).add(ModBlocks.CORRUPTED_FERN.get().defaultBlockState(), 4)), 16));
+        register(context, CORRUPTED_PATCH_GRASS, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(ModBlocks.CORRUPTED_GRASS.get()), 16));
+        register(context, CORRUPTED_PATCH_GRASS_JUNGLE, Feature.RANDOM_PATCH, new RandomPatchConfiguration(32, 7, 3, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(ModBlocks.CORRUPTED_GRASS.get().defaultBlockState(), 3).add(ModBlocks.CORRUPTED_FERN.get().defaultBlockState(), 1))), BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))))));
+        register(context, CORRUPTED_SINGLE_PIECE_OF_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CORRUPTED_GRASS.get().defaultBlockState())));
+        register(context, CORRUPTED_PATCH_DEAD_BUSH, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(ModBlocks.CORRUPTED_DEAD_BUSH.get()), 4));
+        register(context, CORRUPTED_PATCH_TALL_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CORRUPTED_TALL_GRASS.get()))));
+        register(context, CORRUPTED_PATCH_LARGE_FERN, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CORRUPTED_LARGE_FERN.get()))));
         SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
 
         for(int i = 1; i <= 4; ++i) {

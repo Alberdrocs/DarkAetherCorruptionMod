@@ -3,9 +3,11 @@ package net.alberdrocs.darkaethercorruptionmod.datagen;
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -29,6 +31,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.ACTIVE_DARK_AETHER_PORTAL);
 
 
+        simpleBlockWithItem(ModBlocks.CORRUPTED_GRASS.get(), models().cross(blockTexture(ModBlocks.CORRUPTED_GRASS.get()).getPath(),
+                blockTexture(ModBlocks.CORRUPTED_GRASS.get())).renderType("cutout"));
+        simpleBlockWithItem(ModBlocks.CORRUPTED_FERN.get(), models().cross(blockTexture(ModBlocks.CORRUPTED_FERN.get()).getPath(),
+                blockTexture(ModBlocks.CORRUPTED_FERN.get())).renderType("cutout"));
+        simpleBlockWithItem(ModBlocks.CORRUPTED_DEAD_BUSH.get(), models().cross(blockTexture(ModBlocks.CORRUPTED_DEAD_BUSH.get()).getPath(),
+                blockTexture(ModBlocks.CORRUPTED_DEAD_BUSH.get())).renderType("cutout"));
+
+
+
         stairsBlock(((StairBlock) ModBlocks.AETHER_STONE_STAIRS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
         slabBlock(((SlabBlock) ModBlocks.AETHER_STONE_SLAB.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()), blockTexture(ModBlocks.AETHER_STONE_BRICKS.get()));
 
@@ -40,6 +51,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
         //TODO: add grass block
+        grassBlock(ModBlocks.CORRUPTED_GRASS_BLOCK);
 
         //************************
         // OAK BLOCKS
@@ -84,6 +96,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
+    private void grassBlock(RegistryObject<Block> blockRegistryObject){
+        simpleBlockWithItem(blockRegistryObject.get(), cubeBottomTop(blockRegistryObject.get()));
+    }
+
+    public ModelFile cubeBottomTop(Block block) {
+        return models().cubeBottomTop(ForgeRegistries.BLOCKS.getKey(block).getPath(), blockTexture(block, "_side"),
+                blockTexture(ModBlocks.CORRUPTED_DIRT.get(), ""), blockTexture(block, "_top"));
+    }
+
+    public ResourceLocation blockTexture(Block block, String face) {
+        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(block);
+        return new ResourceLocation(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/" + name.getPath() + face);
     }
 
 }

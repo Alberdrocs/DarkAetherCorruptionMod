@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "darkaethercorruptionmod:block/corrupted_large_fern_bottom"
+  }
+}
