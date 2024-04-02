@@ -32,6 +32,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CORRUPTED_SAND = registerBlock
             ("corrupted_sand", () -> new SandBlock(1, BlockBehaviour.Properties.copy(Blocks.SAND)));
+    public static final RegistryObject<Block> CORRUPTED_SANDSTONE = registerBlock
+            ("corrupted_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
 
     public static final RegistryObject<Block> CORRUPTED_GRASS = registerBlock
             ("corrupted_grass", () -> new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).noLootTable()));

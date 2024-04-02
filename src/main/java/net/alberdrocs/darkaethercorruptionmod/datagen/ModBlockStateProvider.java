@@ -26,6 +26,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.AETHER_STONE_BRICKS);
         blockWithItem(ModBlocks.CORRUPTED_DIRT);
         blockWithItem(ModBlocks.CORRUPTED_SAND);
+        blockWithBottomTop(ModBlocks.CORRUPTED_SANDSTONE);
 
         blockWithItem(ModBlocks.INACTIVE_DARK_AETHER_PORTAL);
         blockWithItem(ModBlocks.ACTIVE_DARK_AETHER_PORTAL);
@@ -98,13 +99,30 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
     }
 
-    private void grassBlock(RegistryObject<Block> blockRegistryObject){
+    private void blockWithTop(RegistryObject<Block> blockRegistryObject){
+        simpleBlockWithItem(blockRegistryObject.get(), cubeTop(blockRegistryObject.get()));
+    }
+
+    private void blockWithBottomTop(RegistryObject<Block> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(), cubeBottomTop(blockRegistryObject.get()));
+    }
+
+    private void grassBlock(RegistryObject<Block> blockRegistryObject){
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().cubeBottomTop(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(),
+                        blockTexture(blockRegistryObject.get(), "_side"),
+                        blockTexture(ModBlocks.CORRUPTED_DIRT.get(), ""),
+                        blockTexture(blockRegistryObject.get(), "_top")));
+    }
+
+    public ModelFile cubeTop(Block block) {
+        return models().cubeTop(ForgeRegistries.BLOCKS.getKey(block).getPath(), blockTexture(block, "_side"),
+                blockTexture(block, "_top"));
     }
 
     public ModelFile cubeBottomTop(Block block) {
         return models().cubeBottomTop(ForgeRegistries.BLOCKS.getKey(block).getPath(), blockTexture(block, "_side"),
-                blockTexture(ModBlocks.CORRUPTED_DIRT.get(), ""), blockTexture(block, "_top"));
+                blockTexture(block, "_bottom"), blockTexture(block, "_top"));
     }
 
     public ResourceLocation blockTexture(Block block, String face) {

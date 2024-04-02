@@ -22,6 +22,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.AETHER_NEUTRALIZER.get());
         this.dropSelf(ModBlocks.CORRUPTED_DIRT.get());
         this.dropSelf(ModBlocks.CORRUPTED_SAND.get());
+        this.dropSelf(ModBlocks.CORRUPTED_SANDSTONE.get());
 
         //************************
         // OAK BLOCKS

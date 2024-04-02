@@ -1364,14 +1364,14 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "darkaethercorruptionmod:corrupted_sandstone"
                                       }
                                     }
                                   },
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "darkaethercorruptionmod:corrupted_sand"
                                     }
                                   }
                                 ]
@@ -1400,14 +1400,14 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "darkaethercorruptionmod:corrupted_sandstone"
                                       }
                                     }
                                   },
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "darkaethercorruptionmod:corrupted_sand"
                                     }
                                   }
                                 ]
@@ -2140,14 +2140,14 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "darkaethercorruptionmod:corrupted_sandstone"
                                       }
                                     }
                                   },
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "darkaethercorruptionmod:corrupted_sand"
                                     }
                                   }
                                 ]
@@ -2176,14 +2176,14 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "darkaethercorruptionmod:corrupted_sandstone"
                                       }
                                     }
                                   },
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "darkaethercorruptionmod:corrupted_sand"
                                     }
                                   }
                                 ]
@@ -2383,7 +2383,7 @@
                       "then_run": {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:sandstone"
+                          "Name": "darkaethercorruptionmod:corrupted_sandstone"
                         }
                       }
                     }
@@ -2408,7 +2408,7 @@
                       "then_run": {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:sandstone"
+                          "Name": "darkaethercorruptionmod:corrupted_sandstone"
                         }
                       }
                     }
@@ -2469,14 +2469,14 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:sandstone"
+                              "Name": "darkaethercorruptionmod:corrupted_sandstone"
                             }
                           }
                         },
                         {
                           "type": "minecraft:block",
                           "result_state": {
-                            "Name": "minecraft:sand"
+                            "Name": "darkaethercorruptionmod:corrupted_sand"
                           }
                         }
                       ]

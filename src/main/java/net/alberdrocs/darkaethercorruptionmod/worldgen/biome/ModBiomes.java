@@ -231,7 +231,7 @@ public class ModBiomes {
 
         ModBiomeDefaultFeatures.addPlainVegetation(biomegenerationsettings$builder);
 
-        //BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
+        //ModBiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
 
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
 

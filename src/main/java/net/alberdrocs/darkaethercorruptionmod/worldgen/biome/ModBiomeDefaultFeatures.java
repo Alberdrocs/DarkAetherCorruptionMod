@@ -14,10 +14,10 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class ModBiomeDefaultFeatures {
     public static void darkAetherSpawns(MobSpawnSettings.Builder pBuilder) {
-        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.DARK_AETHER_ZOMBIE.get(), 7, 4, 12));
-        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.SCREAMER.get(), 5, 3, 10));
-        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.TEMPEST.get(), 4, 2, 6));
-        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.MIMIC.get(), 2, 1, 5));
+        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.DARK_AETHER_ZOMBIE.get(), 100, 4, 10));
+        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.SCREAMER.get(), 100, 3, 8));
+        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.TEMPEST.get(), 100, 1, 2));
+        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.MIMIC.get(), 100, 1, 5));
     }
 
     public static void addPlainGrass(BiomeGenerationSettings.Builder pBuilder) {
@@ -27,6 +27,11 @@ public class ModBiomeDefaultFeatures {
     public static void addPlainVegetation(BiomeGenerationSettings.Builder pBuilder) {
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_TREES_PLAINS);
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_PATCH_GRASS_PLAIN);
+    }
+
+    public static void addDefaultMushrooms(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.BROWN_MUSHROOM_NORMAL);
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.RED_MUSHROOM_NORMAL);
     }
 
     public static void addDefaultGrass(BiomeGenerationSettings.Builder pBuilder) {

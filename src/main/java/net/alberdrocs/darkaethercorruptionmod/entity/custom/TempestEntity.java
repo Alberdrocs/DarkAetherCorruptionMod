@@ -102,6 +102,11 @@ public class TempestEntity extends FlyingMob {
         this.entityData.define(TELEPORTING, false);
     }
 
+    @Override
+    protected boolean shouldDespawnInPeaceful() {
+        return true;
+    }
+
     public void setAttacking(boolean attacking){
         this.entityData.set(ATTACKING, attacking);
     }

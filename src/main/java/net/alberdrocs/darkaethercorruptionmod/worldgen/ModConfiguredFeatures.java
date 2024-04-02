@@ -104,6 +104,8 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_MANGROVE_VEGETATION = registerKey("corrupted_mangrove_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_BAMBOO_VEGETATION = registerKey("corrupted_bamboo_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_MUSHROOM_ISLAND_VEGETATION = registerKey("corrupted_mushroom_island_vegetation");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_PATCH_BROWN_MUSHROOM = registerKey("corrupted_patch_brown_mushroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_PATCH_RED_MUSHROOM = registerKey("corrupted_patch_red_mushroom");
 
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {

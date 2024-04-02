@@ -3,12 +3,14 @@ package net.alberdrocs.darkaethercorruptionmod.entity.custom;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic.MimicAttackGoal;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic.MimicHideGoal;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic.MimicRangedAttackGoal;
+import net.alberdrocs.darkaethercorruptionmod.worldgen.dimension.ModDimensions;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Pose;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -16,6 +18,8 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 
 public class MimicEntity extends Monster {
     private static final EntityDataAccessor<Boolean> ATTACKING =
@@ -181,6 +185,39 @@ public class MimicEntity extends Monster {
                 .add(Attributes.ATTACK_DAMAGE, 6.0f)
                 .add(Attributes.ATTACK_SPEED, 2.0f)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0.8f);
+    }
+
+    public static boolean isDarkEnoughToSpawn(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pLevel.getLevel().dimensionTypeId() == ModDimensions.DARK_AETHER_DIMENSION_DIM_TYPE){
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+    public static boolean checkMobSpawnRules(EntityType<? extends Mob> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        return true;
+    }
+
+    /**
+     * Static predicate for determining whether a monster can spawn at the provided location, incorporating a check of
+     * the current light level at the location.
+     */
+
+    public static boolean checkMonsterSpawnRules(EntityType<? extends Monster> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn(pLevel, pPos, pRandom) && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
+    }
+
+    /**
+     * Static predicate for determining whether a monster can spawn at the provided location.
+     */
+    public static boolean checkAnyLightMonsterSpawnRules(EntityType<? extends Monster> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        return pLevel.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
+    }
+
+    @Override
+    public boolean checkSpawnRules(LevelAccessor pLevel, MobSpawnType pSpawnReason) {
+        return true;
     }
 
 

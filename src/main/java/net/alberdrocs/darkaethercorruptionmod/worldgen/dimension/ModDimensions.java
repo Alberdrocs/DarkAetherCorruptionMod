@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
@@ -32,12 +33,12 @@ public class ModDimensions {
                 1.0, // coordinateScale
                 false, // bedWorks
                 false, // respawnAnchorWorks
-                0, // minY
-                256, // height
-                256, // logicalHeight
+                -64, // minY
+                384, // height
+                384, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
                 BuiltinDimensionTypes.END_EFFECTS, // effectsLocation
                 1.0f, // ambientLight
-                new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
+                new DimensionType.MonsterSettings(false, false, UniformInt.of(0,10), 0)));
     }
 }
