@@ -1,6 +1,7 @@
 package net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest;
 
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.TempestEntity;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -49,6 +50,7 @@ public class TempestTeleportGoal extends Goal {
 
             if (isTimeToTeleport()){
                 performTeleport();
+                this.entity.playSound(ModSounds.TEMPEST_TELEPORT.get());
             }
         } else {
             this.entity.setTeleporting(false);

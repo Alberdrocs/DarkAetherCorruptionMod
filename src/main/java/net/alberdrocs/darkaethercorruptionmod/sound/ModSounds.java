@@ -19,6 +19,14 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> SCREAMER_CHASE = registerSoundEvents("screamer_chase");
     public static final RegistryObject<SoundEvent> SCREAMER_EXPLOSION = registerSoundEvents("screamer_explosion");
 
+    public static final RegistryObject<SoundEvent> TEMPEST_AMBIENT = registerSoundEvents("tempest_ambient");
+    public static final RegistryObject<SoundEvent> TEMPEST_TELEPORT = registerSoundEvents("tempest_teleport");
+    public static final RegistryObject<SoundEvent> TEMPEST_DEATH = registerSoundEvents("tempest_death");
+
+    public static final RegistryObject<SoundEvent> MIMIC_ATTACK = registerSoundEvents("mimic_attack");
+    public static final RegistryObject<SoundEvent> MIMIC_DEATH = registerSoundEvents("mimic_death");
+    public static final RegistryObject<SoundEvent> MIMIC_SPAWN = registerSoundEvents("mimic_spawn");
+
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name,

@@ -3,11 +3,14 @@ package net.alberdrocs.darkaethercorruptionmod.entity.custom;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic.MimicAttackGoal;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic.MimicHideGoal;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic.MimicRangedAttackGoal;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.alberdrocs.darkaethercorruptionmod.worldgen.dimension.ModDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
@@ -20,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import org.jetbrains.annotations.Nullable;
 
 public class MimicEntity extends Monster {
     private static final EntityDataAccessor<Boolean> ATTACKING =
@@ -185,6 +189,12 @@ public class MimicEntity extends Monster {
                 .add(Attributes.ATTACK_DAMAGE, 6.0f)
                 .add(Attributes.ATTACK_SPEED, 2.0f)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0.8f);
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.MIMIC_DEATH.get();
     }
 
     public static boolean isDarkEnoughToSpawn(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {

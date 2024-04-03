@@ -20,6 +20,21 @@ public class ActiveDarkAetherPortalBlock extends Block {
         super(pProperties);
     }
 
+
+    @Override
+    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+        if (pEntity.canChangeDimensions()) {
+            if (pEntity.isOnPortalCooldown()) {
+                pEntity.setPortalCooldown();
+            } else {
+                pEntity.handleInsidePortal(pPos);
+                if (pEntity instanceof Player player) {
+                    handleDarkAetherPortal(player, pPos);
+                }
+            }
+        }
+    }
+
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pPlayer.canChangeDimensions()) {

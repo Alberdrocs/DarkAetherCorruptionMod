@@ -2,6 +2,7 @@ package net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic;
 
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
@@ -72,6 +73,7 @@ public class MimicAttackGoal extends MeleeAttackGoal {
         this.resetAttackCooldown();
         this.mob.swing(InteractionHand.MAIN_HAND);
         this.mob.doHurtTarget(pEnemy);
+        this.entity.playSound(ModSounds.MIMIC_ATTACK.get());
     }
 
     @Override

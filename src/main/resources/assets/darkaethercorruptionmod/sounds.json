@@ -24,5 +24,41 @@
     "sounds": [
       "darkaethercorruptionmod:screamer_explosion"
     ]
+  },
+  "tempest_ambient" : {
+    "subtitle": "sounds.darkaethercorruptionmod.tempest_ambient",
+    "sounds": [
+      "darkaethercorruptionmod:tempest_ambient"
+    ]
+  },
+  "tempest_teleport" : {
+    "subtitle": "sounds.darkaethercorruptionmod.tempest_teleport",
+    "sounds": [
+      "darkaethercorruptionmod:tempest_teleport"
+    ]
+  },
+  "tempest_death" : {
+    "subtitle": "sounds.darkaethercorruptionmod.tempest_death",
+    "sounds": [
+      "darkaethercorruptionmod:tempest_death"
+    ]
+  },
+  "mimic_attack" : {
+    "subtitle": "sounds.darkaethercorruptionmod.mimic_attack",
+    "sounds": [
+      "darkaethercorruptionmod:mimic_attack"
+    ]
+  },
+  "mimic_death" : {
+    "subtitle": "sounds.darkaethercorruptionmod.mimic_death",
+    "sounds": [
+      "darkaethercorruptionmod:mimic_death"
+    ]
+  },
+  "mimic_spawn" : {
+    "subtitle": "sounds.darkaethercorruptionmod.mimic_spawn",
+    "sounds": [
+      "darkaethercorruptionmod:mimic_spawn"
+    ]
   }
 }

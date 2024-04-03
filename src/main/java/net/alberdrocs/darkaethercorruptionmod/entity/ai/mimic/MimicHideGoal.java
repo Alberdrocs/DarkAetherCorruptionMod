@@ -1,6 +1,7 @@
 package net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic;
 
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.player.Player;
 
@@ -30,5 +31,6 @@ public class MimicHideGoal extends Goal {
     @Override
     public void stop() {
         this.entity.hideMimic(false);
+        this.entity.playSound(ModSounds.MIMIC_SPAWN.get());
     }
 }

@@ -4,9 +4,11 @@ import net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest.TempestAttackGoa
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest.TempestFloatAroundGoal;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest.TempestLookGoal;
 import net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest.TempestTeleportGoal;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
@@ -20,6 +22,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 
 public class TempestEntity extends FlyingMob {
     private static final EntityDataAccessor<Boolean> ATTACKING =
@@ -121,6 +124,18 @@ public class TempestEntity extends FlyingMob {
 
     public boolean isTeleporting(){
         return this.entityData.get(TELEPORTING);
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.TEMPEST_AMBIENT.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.TEMPEST_DEATH.get();
     }
 
     static class TempestMoveControl extends MoveControl{

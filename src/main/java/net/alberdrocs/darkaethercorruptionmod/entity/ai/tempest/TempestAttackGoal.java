@@ -1,6 +1,7 @@
 package net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest;
 
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.TempestEntity;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.player.Player;
