@@ -26,8 +26,11 @@ public class ModBlocks {
     //TODO: Change block properties
     public static final RegistryObject<Block> DARK_AETHER_CRYSTAL_BLOCK = registerBlock
             ("dark_aether_crystal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK)));
-    public static final RegistryObject<Block> DARK_AETHER_CRYSTAL_ORE = registerBlock
-            ("dark_aether_crystal_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE)
+    public static final RegistryObject<Block> DARK_AETHER_CRYSTAL_ORE_SMALL = registerBlock
+            ("dark_aether_crystal_ore", () -> new DarkAetherCrystalOreBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)
+                    .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
+    public static final RegistryObject<Block> DARK_AETHER_CRYSTAL_ORE_BIG = registerBlock
+            ("dark_aether_crystal_ore_big", () -> new DarkAetherCrystalOreBigBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
 
     public static final RegistryObject<Block> CORRUPTED_SAND = registerBlock

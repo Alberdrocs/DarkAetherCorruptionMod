@@ -226,6 +226,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         ModBiomeDefaultFeatures.addPlainGrass(biomegenerationsettings$builder);
 
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
 
@@ -245,6 +246,7 @@ public class ModBiomes {
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         //BiomeDefaultFeatures.addFossilDecoration(biomegenerationsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultFlowers(biomegenerationsettings$builder);
@@ -263,6 +265,7 @@ public class ModBiomes {
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         //BiomeDefaultFeatures.addFossilDecoration(biomegenerationsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addSwampClayDisk(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addSwampVegetation(biomegenerationsettings$builder);
@@ -280,6 +283,7 @@ public class ModBiomes {
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         //BiomeDefaultFeatures.addFossilDecoration(biomegenerationsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addSwampClayDisk(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addSwampVegetation(biomegenerationsettings$builder);
@@ -296,6 +300,7 @@ public class ModBiomes {
         globalOverworldGeneration(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_FOREST);
 
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         if (pIsFlowerForest) {
@@ -329,6 +334,7 @@ public class ModBiomes {
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         globalOverworldGeneration(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addFerns(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addTaigaTrees(biomegenerationsettings$builder);
@@ -347,6 +353,7 @@ public class ModBiomes {
         globalOverworldGeneration(biomegenerationsettings$builder);
         biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.CORRUPTED_DARK_FOREST_VEGETATION);
         //BiomeDefaultFeatures.addForestFlowers(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultFlowers(biomegenerationsettings$builder);
@@ -366,6 +373,7 @@ public class ModBiomes {
         globalOverworldGeneration(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addMossyStoneBlock(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addFerns(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, pIsSpruce ? ModPlacedFeatures.CORRUPTED_TREES_OLD_GROWTH_SPRUCE_TAIGA : ModPlacedFeatures.CORRUPTED_TREES_OLD_GROWTH_PINE_TAIGA);
@@ -385,7 +393,7 @@ public class ModBiomes {
         if (!pIsShatteredSavanna) {
             ModBiomeDefaultFeatures.addSavannaGrass(biomegenerationsettings$builder);
         }
-
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         if (pIsShatteredSavanna) {
@@ -414,6 +422,7 @@ public class ModBiomes {
         BiomeGenerationSettings.Builder biomegenerationsettings$builder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         if (pIsForest) {
@@ -453,6 +462,7 @@ public class ModBiomes {
     private static Biome daBaseJungle(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pWorldCarvers, float pDownfall, boolean pIsBambooJungle, boolean pIsSparse, boolean pAddBamboo, MobSpawnSettings.Builder pMobSpawnSettings, Music pBackgroudMusic) {
         BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         if (pIsBambooJungle) {
@@ -481,6 +491,7 @@ public class ModBiomes {
         BiomeGenerationSettings.Builder biomegenerationsettings$builder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addExtraGold(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
@@ -502,6 +513,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addPlainGrass(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         if (pIsCherryGrove) {
@@ -523,6 +535,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addFrozenSprings(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addGroveTrees(biomegenerationsettings$builder);
@@ -540,6 +553,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addFrozenSprings(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
@@ -555,6 +569,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addFrozenSprings(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
@@ -569,6 +584,7 @@ public class ModBiomes {
         MobSpawnSettings.Builder mobspawnsettings$builder = new MobSpawnSettings.Builder();
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
@@ -584,6 +600,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         globalOverworldGeneration(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addFrozenSprings(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
@@ -599,6 +616,7 @@ public class ModBiomes {
         BiomeGenerationSettings.Builder biomegenerationsettings$builder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addWaterTrees(biomegenerationsettings$builder);
@@ -616,6 +634,7 @@ public class ModBiomes {
         BiomeGenerationSettings.Builder biomegenerationsettings$builder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultFlowers(biomegenerationsettings$builder);
@@ -699,6 +718,7 @@ public class ModBiomes {
         BiomeGenerationSettings.Builder biomegenerationsettings$builder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         globalOverworldGeneration(biomegenerationsettings$builder);
+        ModBiomeDefaultFeatures.addDarkAetherOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addMushroomFieldVegetation(biomegenerationsettings$builder);

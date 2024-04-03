@@ -108,6 +108,10 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_PATCH_RED_MUSHROOM = registerKey("corrupted_patch_red_mushroom");
 
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DARK_AETHER_CRYSTAL_ORE_SMALL = registerKey("patch_dark_aether_crystal_ore_small");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DARK_AETHER_CRYSTAL_ORE_BIG = registerKey("patch_dark_aether_crystal_ore_big");
+
+
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<Block> treeFreaturesHolderGetter = context.lookup(Registries.BLOCK);
         //************************
@@ -187,6 +191,9 @@ public class ModConfiguredFeatures {
         register(context, CORRUPTED_BAMBOO_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(holder7, 0.05F), new WeightedPlacedFeature(holder18, 0.15F), new WeightedPlacedFeature(holder21, 0.7F)), PlacementUtils.inlinePlaced(holder4)));
         register(context, CORRUPTED_MUSHROOM_ISLAND_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(Collections.emptyList(), holder23));
 
+
+        register(context, PATCH_DARK_AETHER_CRYSTAL_ORE_SMALL, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get()), 1));
+        register(context, PATCH_DARK_AETHER_CRYSTAL_ORE_BIG, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get()))));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

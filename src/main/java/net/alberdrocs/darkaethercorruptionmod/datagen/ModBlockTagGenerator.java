@@ -20,15 +20,17 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE.get(),
-                        ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get());
+                .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(),
+                        ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get())
+                .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(),
+                        ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get())
+                .add(ModBlocks.AETHER_NEUTRALIZER.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE.get(),
+                .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(),
+                        ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get())
+                .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(),
                         ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get());
-
-        this.tag(ModTags.Blocks.NEEDS_AETHERIUM_TOOL).
-                add(ModBlocks.AETHER_NEUTRALIZER.get());
 
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.AETHER_STONE_FENCE.get());

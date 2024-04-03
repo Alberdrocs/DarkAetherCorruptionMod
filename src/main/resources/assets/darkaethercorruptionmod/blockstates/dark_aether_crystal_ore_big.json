@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "darkaethercorruptionmod:block/dark_aether_crystal_ore_bottom"
+    },
+    "half=upper": {
+      "model": "darkaethercorruptionmod:block/dark_aether_crystal_ore_top"
+    }
+  }
+}

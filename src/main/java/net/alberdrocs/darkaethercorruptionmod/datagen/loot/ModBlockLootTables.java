@@ -3,9 +3,7 @@ package net.alberdrocs.darkaethercorruptionmod.datagen.loot;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -64,8 +62,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.CORRUPTED_GRASS_BLOCK.get(),
                 block -> createGrassDrops(ModBlocks.CORRUPTED_DIRT.get()));
 
-        this.add(ModBlocks.DARK_AETHER_CRYSTAL_ORE.get(),
-                block -> createOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE.get(), ModItems.DARK_AETHER_CRYSTAL.get()));
+        this.add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(),
+                block -> createOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(), ModItems.DARK_AETHER_CRYSTAL.get()));
+
+        this.add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(),
+                block -> createOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(), ModItems.DARK_AETHER_CRYSTAL.get()));
 
 
     }

@@ -93,6 +93,8 @@ public class ModPlacedFeatures {
     private static final PlacementModifier TREE_THRESHOLD = SurfaceWaterDepthFilter.forMaxDepth(0);
 
 
+    public static final ResourceKey<PlacedFeature> PATCH_SMALL_DARK_AETHER_CRYSTAL_ORE = registerKey("patch_small_dark_aether_crystal_ore");
+    public static final ResourceKey<PlacedFeature> PATCH_BIG_DARK_AETHER_CRYSTAL_ORE = registerKey("patch_big_dark_aether_crystal_ore");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holdergetter = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -204,6 +206,10 @@ public class ModPlacedFeatures {
        register(context, CORRUPTED_BAMBOO_VEGETATION, holder46, treePlacement(PlacementUtils.countExtra(30, 0.1F, 1)));
        register(context, CORRUPTED_MUSHROOM_ISLAND_VEGETATION, holder47, InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
+        Holder<ConfiguredFeature<?, ?>> holder50 = holdergetter.getOrThrow(ModConfiguredFeatures.PATCH_DARK_AETHER_CRYSTAL_ORE_SMALL);
+        Holder<ConfiguredFeature<?, ?>> holder51 = holdergetter.getOrThrow(ModConfiguredFeatures.PATCH_DARK_AETHER_CRYSTAL_ORE_BIG);
+        register(context, PATCH_SMALL_DARK_AETHER_CRYSTAL_ORE, holder50, NoiseThresholdCountPlacement.of(-0.8D, 2, 5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+        register(context, PATCH_BIG_DARK_AETHER_CRYSTAL_ORE, holder51, NoiseThresholdCountPlacement.of(-0.8D, 0, 3), RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
     }
 

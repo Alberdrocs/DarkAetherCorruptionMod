@@ -157,6 +157,11 @@ public class ModBiomeDefaultFeatures {
         pBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, MiscOverworldPlacements.DISK_GRAVEL);
     }
 
+    public static void addDarkAetherOres(BiomeGenerationSettings.Builder pBuilder) {
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.PATCH_SMALL_DARK_AETHER_CRYSTAL_ORE);
+        pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.PATCH_BIG_DARK_AETHER_CRYSTAL_ORE);
+    }
+
     public static void addDefaultOres(BiomeGenerationSettings.Builder pBuilder) {
         addDefaultOres(pBuilder, false);
     }

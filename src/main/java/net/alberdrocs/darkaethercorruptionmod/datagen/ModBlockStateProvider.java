@@ -20,7 +20,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK);
-        blockWithItem(ModBlocks.DARK_AETHER_CRYSTAL_ORE);
         blockWithItem(ModBlocks.AETHER_NEUTRALIZER);
         blockWithItem(ModBlocks.CORRUPTED_STONE);
         blockWithItem(ModBlocks.AETHER_STONE_BRICKS);
@@ -31,6 +30,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.INACTIVE_DARK_AETHER_PORTAL);
         blockWithItem(ModBlocks.ACTIVE_DARK_AETHER_PORTAL);
 
+        simpleBlockWithItem(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(),
+                models().cross(blockTexture(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get()).getPath(),
+                blockTexture(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get())).renderType("cutout"));
 
         simpleBlockWithItem(ModBlocks.CORRUPTED_GRASS.get(), models().cross(blockTexture(ModBlocks.CORRUPTED_GRASS.get()).getPath(),
                 blockTexture(ModBlocks.CORRUPTED_GRASS.get())).renderType("cutout"));
