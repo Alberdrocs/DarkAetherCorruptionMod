@@ -2,6 +2,7 @@ package net.alberdrocs.darkaethercorruptionmod;
 
 import com.mojang.logging.LogUtils;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
+import net.alberdrocs.darkaethercorruptionmod.entity.EFIncursion;
 import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.alberdrocs.darkaethercorruptionmod.entity.client.darkaetherzombie.DarkAetherZombieRenderer;
 import net.alberdrocs.darkaethercorruptionmod.entity.client.mimic.MimicRenderer;
@@ -14,6 +15,8 @@ import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.alberdrocs.darkaethercorruptionmod.worldgen.biome.surface.ModSurfaceRules;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerEntity;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -35,6 +38,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import terrablender.api.SurfaceRuleManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(DarkAetherCorruptionMod.MOD_ID)
 public class DarkAetherCorruptionMod
@@ -43,6 +49,8 @@ public class DarkAetherCorruptionMod
     public static final String MOD_ID = "darkaethercorruptionmod";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    public static final List<EFIncursion> FACILITIES_INCURSIONS = new ArrayList<>();
 
     public DarkAetherCorruptionMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

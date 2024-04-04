@@ -18,6 +18,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         this.dropSelf(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get());
         this.dropSelf(ModBlocks.AETHER_NEUTRALIZER.get());
+        this.dropSelf(ModBlocks.AETHER_REFINER.get());
         this.dropSelf(ModBlocks.CORRUPTED_DIRT.get());
         this.dropSelf(ModBlocks.CORRUPTED_SAND.get());
         this.dropSelf(ModBlocks.CORRUPTED_SANDSTONE.get());

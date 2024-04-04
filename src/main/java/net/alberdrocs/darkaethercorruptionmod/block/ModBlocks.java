@@ -121,6 +121,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> AETHER_INFUSED_DOOR = registerBlock("aether_infused_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST).noOcclusion(), BlockSetType.IRON));
 
+
+    public static final RegistryObject<Block> AETHER_REFINER = registerBlock
+            ("aether_refiner", () -> new AetherRefinerBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
     public static final RegistryObject<Block> AETHER_NEUTRALIZER = registerBlock
             ("aether_neutralizer", () -> new AetherNeutralizerBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
