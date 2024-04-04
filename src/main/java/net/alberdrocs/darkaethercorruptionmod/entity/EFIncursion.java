@@ -5,7 +5,10 @@ import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -15,7 +18,7 @@ public class EFIncursion {
     private static final int ZOMBIES_AMOUNT = 10;
     private static final int SCREAMERS_AMOUNT = 5;
     private static final int MIMIC_AMOUNT = 2;
-    private static final int AMOUNT_KILLED_FOR_NEXT_WAVE = 7;
+    private static final int[] AMOUNT_KILLED_FOR_NEXT_WAVE = {0, 6, 12, 17};
     private Entity[] zombieList;
     private Entity[] screamerList;
     private Entity[] mimicList;
@@ -24,7 +27,7 @@ public class EFIncursion {
     private boolean ended = false;
     private final int id;
     private int currentWave = 0;
-    private int killedEnemies = 10;
+    private int killedEnemies = 0;
 
     public EFIncursion(int pId, ServerLevel pLevel, BlockPos pCenter) {
         this.id = pId;
@@ -37,10 +40,15 @@ public class EFIncursion {
 
     public static void createIncursion(ServerLevel pLevel, BlockPos pCenter){
         DarkAetherCorruptionMod.FACILITIES_INCURSIONS.add(new EFIncursion(DarkAetherCorruptionMod.FACILITIES_INCURSIONS.size(), pLevel, pCenter));
+        Minecraft.getInstance().player.sendSystemMessage(Component.literal("Defeat all enemies to active portal"));
     }
 
     public int getId() {
         return id;
+    }
+
+    public int getKilledEnemies() {
+        return killedEnemies;
     }
 
     public void updateKilledEnemies(){
@@ -92,26 +100,26 @@ public class EFIncursion {
     public void tick() {
         if (!ended){
             switch (currentWave) {
-                case 0 -> checkAndBeginWave(1, zombieList);
-                case 1 -> checkAndBeginWave(2, screamerList);
-                case 2 -> checkAndBeginWave(3, mimicList);
+                case 0 -> checkAndBeginWave(currentWave, zombieList);
+                case 1 -> checkAndBeginWave(currentWave, screamerList);
+                case 2 -> checkAndBeginWave(currentWave, mimicList);
                 case 3 -> endIncursion(checkIfAllKilled());
             }
         }
     }
 
     private boolean checkIfAllKilled(){
-        return currentWave == 3 && killedEnemies == 2;
+        return currentWave == 3 && killedEnemies >= AMOUNT_KILLED_FOR_NEXT_WAVE[3];
     }
 
     private void checkAndBeginWave(int wave, Entity[] entities) {
-        if(killedEnemies >= AMOUNT_KILLED_FOR_NEXT_WAVE){
+        if(killedEnemies >= AMOUNT_KILLED_FOR_NEXT_WAVE[wave]){
             for (Entity entity : entities) {
                 entity.addTag("incursion_spawned_" + id);
                 level.addFreshEntity(entity);
             }
-            currentWave = wave;
-            killedEnemies = 0;
+            currentWave++;
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal("Starting wave " + currentWave));
             System.out.println("Starting wave " + currentWave);
         }
     }

@@ -111,7 +111,7 @@ public class ScreamerEntity extends Monster {
 
     public static AttributeSupplier.Builder createAttributes(){
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 50)
+                .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.MOVEMENT_SPEED, 0.27f)
                 .add(Attributes.ARMOR_TOUGHNESS, 0.4f)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.5f)
@@ -122,8 +122,8 @@ public class ScreamerEntity extends Monster {
     public void explodeScreamer(){
         if (!this.level().isClientSide) {
             this.dead = true;
-            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2.0F, true, Level.ExplosionInteraction.NONE);
-            this.discard();
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2.0F, false, Level.ExplosionInteraction.NONE);
+            this.kill();
             this.spawnAnim(); //Spawns an explosion particle
             this.playSound(ModSounds.SCREAMER_EXPLOSION.get());
         }

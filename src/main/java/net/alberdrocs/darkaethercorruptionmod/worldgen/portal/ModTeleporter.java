@@ -45,7 +45,7 @@ public class ModTeleporter implements ITeleporter {
         entity.setPos(destinationPos.getX(), destinationPos.getY(), destinationPos.getZ());
 
         if (insideDimension) {
-            boolean doSetBlock = true;
+            /*boolean doSetBlock = true;
             for (BlockPos checkPos : BlockPos.betweenClosed(destinationPos.below(10).west(10),
                     destinationPos.above(10).east(10))) {
                 if (destinationWorld.getBlockState(checkPos).getBlock() instanceof ActiveDarkAetherPortalBlock) {
@@ -55,7 +55,13 @@ public class ModTeleporter implements ITeleporter {
             }
             if (doSetBlock) {
                 destinationWorld.setBlock(destinationPos, ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState(), 3);
+            }*/
+            for (int x = destinationPos.getX()-12; x < destinationPos.getX()-8; x++) {
+                for (int y2 = destinationPos.getY() - 2; y2 < destinationPos.getY() + 2; y2++) {
+                    destinationWorld.setBlockAndUpdate(new BlockPos(x , y2, destinationPos.getZ()), ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState());
+                }
             }
+            //destinationWorld.setBlockAndUpdate(destinationPos, ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState());
         }
 
         return entity;

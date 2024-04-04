@@ -109,7 +109,7 @@ public class DarkAetherZombieEntity extends Monster {
 
     public static AttributeSupplier.Builder createAttributes(){
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 50)
+                .add(Attributes.MAX_HEALTH, 25)
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
                 .add(Attributes.ARMOR_TOUGHNESS, 0.4f)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.5f)

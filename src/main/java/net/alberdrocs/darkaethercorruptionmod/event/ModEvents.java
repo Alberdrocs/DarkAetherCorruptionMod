@@ -22,6 +22,7 @@ public class ModEvents {
     public static void onEntityKilled(LivingDeathEvent event){
         for (EFIncursion incursion : DarkAetherCorruptionMod.FACILITIES_INCURSIONS) {
             if (event.getEntity().getTags().contains("incursion_spawned_" + incursion.getId())){
+                System.out.println("Killed enemies: " + incursion.getKilledEnemies());
                 incursion.updateKilledEnemies();
             }
         }
