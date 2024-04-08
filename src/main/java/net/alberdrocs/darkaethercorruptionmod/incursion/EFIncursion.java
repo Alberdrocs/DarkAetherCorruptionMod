@@ -1,14 +1,14 @@
-package net.alberdrocs.darkaethercorruptionmod.entity;
+package net.alberdrocs.darkaethercorruptionmod.incursion;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
+import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -40,7 +40,7 @@ public class EFIncursion {
 
     public static void createIncursion(ServerLevel pLevel, BlockPos pCenter){
         DarkAetherCorruptionMod.FACILITIES_INCURSIONS.add(new EFIncursion(DarkAetherCorruptionMod.FACILITIES_INCURSIONS.size(), pLevel, pCenter));
-        Minecraft.getInstance().player.sendSystemMessage(Component.literal("Defeat all enemies to active portal"));
+        Minecraft.getInstance().player.sendSystemMessage(Component.literal("Defeat all enemies to activate portal"));
     }
 
     public int getId() {

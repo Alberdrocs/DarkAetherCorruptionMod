@@ -1,9 +1,8 @@
 package net.alberdrocs.darkaethercorruptionmod.event;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
-import net.alberdrocs.darkaethercorruptionmod.entity.EFIncursion;
+import net.alberdrocs.darkaethercorruptionmod.incursion.EFIncursion;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

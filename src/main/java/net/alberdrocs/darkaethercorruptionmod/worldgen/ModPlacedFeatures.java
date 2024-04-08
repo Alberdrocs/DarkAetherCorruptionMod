@@ -209,7 +209,7 @@ public class ModPlacedFeatures {
         Holder<ConfiguredFeature<?, ?>> holder50 = holdergetter.getOrThrow(ModConfiguredFeatures.PATCH_DARK_AETHER_CRYSTAL_ORE_SMALL);
         Holder<ConfiguredFeature<?, ?>> holder51 = holdergetter.getOrThrow(ModConfiguredFeatures.PATCH_DARK_AETHER_CRYSTAL_ORE_BIG);
         register(context, PATCH_SMALL_DARK_AETHER_CRYSTAL_ORE, holder50, NoiseThresholdCountPlacement.of(-0.8D, 2, 5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
-        register(context, PATCH_BIG_DARK_AETHER_CRYSTAL_ORE, holder51, NoiseThresholdCountPlacement.of(-0.8D, 0, 3), RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, PATCH_BIG_DARK_AETHER_CRYSTAL_ORE, holder51, NoiseThresholdCountPlacement.of(-0.8D, 0, 3), RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
     }
 

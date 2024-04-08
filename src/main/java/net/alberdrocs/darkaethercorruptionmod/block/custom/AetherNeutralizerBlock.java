@@ -1,17 +1,11 @@
 package net.alberdrocs.darkaethercorruptionmod.block.custom;
 
-import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
-import net.alberdrocs.darkaethercorruptionmod.entity.EFIncursion;
-import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
-import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
-import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
-import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
+import net.alberdrocs.darkaethercorruptionmod.incursion.EFIncursion;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
