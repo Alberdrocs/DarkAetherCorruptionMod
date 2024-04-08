@@ -1,6 +1,6 @@
 package net.alberdrocs.darkaethercorruptionmod.worldgen.tree;
 
-import net.alberdrocs.darkaethercorruptionmod.worldgen.ModTreeFeatures;
+import net.alberdrocs.darkaethercorruptionmod.worldgen.ModConfiguredFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractMegaTreeGrower;
@@ -11,12 +11,12 @@ public class CorruptedJungleTreeGrower extends AbstractMegaTreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
-        return ModTreeFeatures.CORRUPTED_JUNGLE_TREE_NO_VINE_KEY;
+        return ModConfiguredFeatures.CORRUPTED_JUNGLE_TREE_NO_VINE_KEY;
     }
 
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource pRandom) {
-        return ModTreeFeatures.CORRUPTED_MEGA_JUNGLE_TREE_KEY;
+        return ModConfiguredFeatures.CORRUPTED_MEGA_JUNGLE_TREE_KEY;
     }
 }
