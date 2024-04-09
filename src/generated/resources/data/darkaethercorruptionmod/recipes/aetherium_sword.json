@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "darkaethercorruptionmod:refined_dark_aether_crystal"
+    }
+  },
+  "pattern": [
+    " S ",
+    " S ",
+    " # "
+  ],
+  "result": {
+    "item": "darkaethercorruptionmod:aetherium_sword"
+  },
+  "show_notification": true
+}

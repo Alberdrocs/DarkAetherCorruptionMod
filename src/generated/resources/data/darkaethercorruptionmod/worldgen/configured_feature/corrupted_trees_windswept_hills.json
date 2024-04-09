@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "darkaethercorruptionmod:corrupted_oak_checked",
+    "features": [
+      {
+        "chance": 0.666,
+        "feature": "darkaethercorruptionmod:corrupted_spruce_checked"
+      },
+      {
+        "chance": 0.1,
+        "feature": "darkaethercorruptionmod:corrupted_fancy_oak_checked"
+      }
+    ]
+  }
+}

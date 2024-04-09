@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": {
+      "item": "darkaethercorruptionmod:refined_dark_aether_crystal"
+    }
+  },
+  "pattern": [
+    "   ",
+    "SSS",
+    "S S"
+  ],
+  "result": {
+    "item": "darkaethercorruptionmod:aetherium_helmet"
+  },
+  "show_notification": true
+}

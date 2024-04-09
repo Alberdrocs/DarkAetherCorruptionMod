@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "darkaethercorruptionmod:corrupted_patch_grass_jungle",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.05,
+        "feature": "darkaethercorruptionmod:corrupted_fancy_oak_checked"
+      },
+      {
+        "chance": 0.15,
+        "feature": "darkaethercorruptionmod:corrupted_jungle_bush"
+      },
+      {
+        "chance": 0.7,
+        "feature": "darkaethercorruptionmod:corrupted_mega_jungle_tree_checked"
+      }
+    ]
+  }
+}

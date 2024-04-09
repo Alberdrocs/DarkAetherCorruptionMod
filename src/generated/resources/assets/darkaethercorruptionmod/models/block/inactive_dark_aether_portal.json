@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "darkaethercorruptionmod:block/inactive_dark_aether_portal"
+  }
+}

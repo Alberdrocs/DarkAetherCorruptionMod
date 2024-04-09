@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": {
+      "item": "darkaethercorruptionmod:refined_dark_aether_crystal"
+    }
+  },
+  "pattern": [
+    "   ",
+    "S S",
+    "S S"
+  ],
+  "result": {
+    "item": "darkaethercorruptionmod:aetherium_boots"
+  },
+  "show_notification": true
+}

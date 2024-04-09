@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "darkaethercorruptionmod:item/refined_dark_aether_crystal"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "darkaethercorruptionmod:block/aether_stone_bricks"
+  }
+}

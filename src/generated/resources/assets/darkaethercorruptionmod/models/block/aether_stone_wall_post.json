@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "wall": "darkaethercorruptionmod:block/aether_stone_bricks"
+  }
+}

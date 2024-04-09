@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "darkaethercorruptionmod:block/corrupted_birch_log_top",
+    "side": "darkaethercorruptionmod:block/corrupted_birch_log"
+  }
+}

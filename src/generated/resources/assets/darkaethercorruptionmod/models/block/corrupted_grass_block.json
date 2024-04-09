@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "darkaethercorruptionmod:block/corrupted_dirt",
+    "side": "darkaethercorruptionmod:block/corrupted_grass_block_side",
+    "top": "darkaethercorruptionmod:block/corrupted_grass_block_top"
+  }
+}

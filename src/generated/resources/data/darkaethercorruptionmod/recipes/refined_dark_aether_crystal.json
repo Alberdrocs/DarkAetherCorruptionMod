@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "darkaethercorruptionmod:dark_aether_crystal"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "result": {
+    "item": "darkaethercorruptionmod:refined_dark_aether_crystal"
+  },
+  "show_notification": true
+}

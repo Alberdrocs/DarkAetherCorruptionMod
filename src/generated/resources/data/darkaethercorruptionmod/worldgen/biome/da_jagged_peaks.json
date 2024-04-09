@@ -1,0 +1,131 @@
+{
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "downfall": 0.8,
+  "effects": {
+    "fog_color": 2950459,
+    "foliage_color": 13763580,
+    "grass_color": 8324092,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2.0,
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000
+    },
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:ambient.cave"
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:portal"
+      },
+      "probability": 0.5
+    },
+    "sky_color": 3082311,
+    "water_color": 3540813,
+    "water_fog_color": 6031749
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [
+      "minecraft:amethyst_geode"
+    ],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
+    [],
+    [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_andesite_lower",
+      "minecraft:ore_tuff",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_iron_small",
+      "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
+      "minecraft:ore_redstone",
+      "minecraft:ore_redstone_lower",
+      "minecraft:ore_diamond",
+      "minecraft:ore_diamond_large",
+      "minecraft:ore_diamond_buried",
+      "minecraft:ore_lapis",
+      "minecraft:ore_lapis_buried",
+      "minecraft:ore_copper",
+      "minecraft:underwater_magma",
+      "minecraft:disk_sand",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel"
+    ],
+    [],
+    [
+      "minecraft:spring_water",
+      "minecraft:spring_lava",
+      "minecraft:spring_lava_frozen"
+    ],
+    [
+      "minecraft:glow_lichen",
+      "darkaethercorruptionmod:patch_small_dark_aether_crystal_ore",
+      "darkaethercorruptionmod:patch_big_dark_aether_crystal_ore"
+    ]
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [
+      {
+        "type": "darkaethercorruptionmod:dark_aether_zombie",
+        "maxCount": 10,
+        "minCount": 4,
+        "weight": 100
+      },
+      {
+        "type": "darkaethercorruptionmod:screamer",
+        "maxCount": 8,
+        "minCount": 3,
+        "weight": 100
+      },
+      {
+        "type": "darkaethercorruptionmod:tempest",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 100
+      },
+      {
+        "type": "darkaethercorruptionmod:mimic",
+        "maxCount": 5,
+        "minCount": 1,
+        "weight": 100
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.7
+}

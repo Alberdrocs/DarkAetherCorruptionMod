@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "darkaethercorruptionmod:block/aether_stone_slab"
+    },
+    "type=double": {
+      "model": "darkaethercorruptionmod:block/aether_stone_bricks"
+    },
+    "type=top": {
+      "model": "darkaethercorruptionmod:block/aether_stone_slab_top"
+    }
+  }
+}
