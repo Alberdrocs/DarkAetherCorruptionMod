@@ -20,8 +20,8 @@
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
-      "replace_current_music": false,
-      "sound": "minecraft:ambient.cave"
+      "replace_current_music": true,
+      "sound": "darkaethercorruptionmod:ambient_dark_aether_music"
     },
     "particle": {
       "options": {

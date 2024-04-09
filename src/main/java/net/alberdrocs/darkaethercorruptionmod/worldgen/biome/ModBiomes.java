@@ -1,6 +1,7 @@
 package net.alberdrocs.darkaethercorruptionmod.worldgen.biome;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.alberdrocs.darkaethercorruptionmod.worldgen.ModPlacedFeatures;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.particles.ParticleTypes;
@@ -212,7 +213,7 @@ public class ModBiomes {
                         .fogColor(0x2d053b)
                         .ambientParticle(new AmbientParticleSettings(ParticleTypes.PORTAL, 0.5f))
                         .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
-                        .backgroundMusic(Musics.createGameMusic(SoundEvents.AMBIENT_CAVE)).build())
+                        .backgroundMusic(new Music(ModSounds.DARK_AETHER_AMBIENT_MUSIC.getHolder().get(), 12000, 24000, true)).build())
                 .build();
     }
 
@@ -272,6 +273,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addSwampExtraVegetation(biomegenerationsettings$builder);
         //biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP);
+        music.replaceCurrentMusic();
         return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
         }
 
