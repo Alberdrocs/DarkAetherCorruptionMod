@@ -28,8 +28,23 @@ public class ActiveDarkAetherPortalBlock extends Block {
                 pEntity.setPortalCooldown();
             } else {
                 pEntity.handleInsidePortal(pPos);
-                if (pEntity instanceof Player player) {
-                    handleDarkAetherPortal(player, pPos);
+
+                Level entityWorld = pEntity.level();
+                MinecraftServer minecraftserver = entityWorld.getServer();
+                ResourceKey<Level> destination = pEntity.level().dimension() == ModDimensions.DARK_AETHER_DIMENSION_LEVEL_KEY
+                        ? Level.OVERWORLD : ModDimensions.DARK_AETHER_DIMENSION_LEVEL_KEY;
+                if(minecraftserver != null) {
+                    ServerLevel destinationWorld = minecraftserver.getLevel(destination);
+                    if(destinationWorld != null && minecraftserver.isNetherEnabled() && !pEntity.isPassenger()) {
+                        pEntity.level().getProfiler().push("dark_aether_portal");
+                        pEntity.setPortalCooldown();
+                        if(destination == ModDimensions.DARK_AETHER_DIMENSION_LEVEL_KEY) {
+                            pEntity.changeDimension(destinationWorld, new ModTeleporter(pPos, true));
+                        } else {
+                            pEntity.changeDimension(destinationWorld, new ModTeleporter(pPos, false));
+                        }
+                        pEntity.level().getProfiler().pop();
+                    }
                 }
             }
         }
@@ -38,7 +53,7 @@ public class ActiveDarkAetherPortalBlock extends Block {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pPlayer.canChangeDimensions()) {
-            handleDarkAetherPortal(pPlayer, pPos);
+            //handleDarkAetherPortal(pPlayer, pPos);
             return InteractionResult.SUCCESS;
         } else {
             return InteractionResult.CONSUME;

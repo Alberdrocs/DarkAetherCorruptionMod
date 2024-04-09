@@ -17,6 +17,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REFINED_DARK_AETHER_CRYSTAL.get())
+                .pattern("SSS")
+                .pattern("SSS")
+                .pattern("SSS")
+                .define('S', ModItems.DARK_AETHER_CRYSTAL.get())
+                .unlockedBy(getHasName(ModItems.DARK_AETHER_CRYSTAL.get()), has(ModItems.DARK_AETHER_CRYSTAL.get()))
+                .save(pWriter);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get())
                 .pattern("SSS")
                 .pattern("SSS")
@@ -25,10 +33,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.REFINED_DARK_AETHER_CRYSTAL.get()), has(ModItems.REFINED_DARK_AETHER_CRYSTAL.get()))
                 .save(pWriter);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.REFINED_DARK_AETHER_CRYSTAL.get(), 9)
-                .requires(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get()), has(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get()))
-                .save(pWriter);
 
         //Armor and tools
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.AETHERIUM_HELMET.get())

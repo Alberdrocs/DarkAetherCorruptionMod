@@ -26,6 +26,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.CORRUPTED_DIRT);
         blockWithItem(ModBlocks.CORRUPTED_SAND);
         blockWithBottomTop(ModBlocks.CORRUPTED_SANDSTONE);
+        blockWithItem(ModBlocks.CORRUPTED_TERRACOTA);
 
         simpleBlockWithItem(ModBlocks.AETHER_REFINER.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/aether_refiner")));

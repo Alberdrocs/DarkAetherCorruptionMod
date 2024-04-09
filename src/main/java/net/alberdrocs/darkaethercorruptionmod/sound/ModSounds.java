@@ -13,6 +13,8 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DarkAetherCorruptionMod.MOD_ID);
 
+    public static final RegistryObject<SoundEvent> DARK_AETHER_AMBIENT_MUSIC = registerSoundEvents("ambient_dark_aether_music");
+
     public static final RegistryObject<SoundEvent> DARK_AETHER_ZOMBIE_AMBIENT = registerSoundEvents("dark_aether_zombie_ambient");
     public static final RegistryObject<SoundEvent> DARK_AETHER_ZOMBIE_ATTACK = registerSoundEvents("dark_aether_zombie_attack");
 

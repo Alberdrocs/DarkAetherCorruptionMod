@@ -669,7 +669,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:orange_terracotta"
+                              "Name": "darkaethercorruptionmod:corrupted_terracota"
                             }
                           }
                         },
@@ -697,7 +697,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:terracotta"
+                                    "Name": "darkaethercorruptionmod:corrupted_terracota"
                                   }
                                 }
                               },
@@ -712,7 +712,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:terracotta"
+                                    "Name": "darkaethercorruptionmod:corrupted_terracota"
                                   }
                                 }
                               },
@@ -727,7 +727,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:terracotta"
+                                    "Name": "darkaethercorruptionmod:corrupted_terracota"
                                   }
                                 }
                               },
@@ -784,7 +784,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:orange_terracotta"
+                              "Name": "darkaethercorruptionmod:corrupted_terracota"
                             }
                           }
                         },
@@ -799,7 +799,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:white_terracotta"
+                              "Name": "darkaethercorruptionmod:corrupted_terracota"
                             }
                           }
                         },
@@ -872,7 +872,7 @@
                             "then_run": {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "minecraft:orange_terracotta"
+                                "Name": "darkaethercorruptionmod:corrupted_terracota"
                               }
                             }
                           }
@@ -903,7 +903,7 @@
                       "then_run": {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:white_terracotta"
+                          "Name": "darkaethercorruptionmod:corrupted_terracota"
                         }
                       }
                     }

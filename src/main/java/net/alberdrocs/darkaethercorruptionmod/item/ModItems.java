@@ -25,13 +25,13 @@ public class ModItems {
     //************************
     public static final RegistryObject<Item> AETHERIUM_SWORD =
             ITEMS.register("aetherium_sword", () -> new SwordItem(
-                    ModToolTiers.AETHERIUM, 4, 2, new Item.Properties()));
+                    ModToolTiers.AETHERIUM, 5, 2, new Item.Properties()));
     public static final RegistryObject<Item> AETHERIUM_PICKAXE =
             ITEMS.register("aetherium_pickaxe", () -> new PickaxeItem(
                     ModToolTiers.AETHERIUM, 1, 1, new Item.Properties()));
     public static final RegistryObject<Item> AETHERIUM_AXE =
             ITEMS.register("aetherium_axe", () -> new AxeItem(
-                    ModToolTiers.AETHERIUM, 6, 3, new Item.Properties()));
+                    ModToolTiers.AETHERIUM, 7, 3, new Item.Properties()));
     public static final RegistryObject<Item> AETHERIUM_SHOVEL =
             ITEMS.register("aetherium_shovel", () -> new ShovelItem(
                     ModToolTiers.AETHERIUM, 0, 0, new Item.Properties()));

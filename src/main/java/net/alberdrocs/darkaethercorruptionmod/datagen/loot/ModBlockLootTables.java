@@ -4,7 +4,15 @@ import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -22,6 +30,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CORRUPTED_DIRT.get());
         this.dropSelf(ModBlocks.CORRUPTED_SAND.get());
         this.dropSelf(ModBlocks.CORRUPTED_SANDSTONE.get());
+        this.dropSelf(ModBlocks.CORRUPTED_TERRACOTA.get());
 
         //************************
         // OAK BLOCKS
@@ -67,7 +76,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(), ModItems.DARK_AETHER_CRYSTAL.get()));
 
         this.add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(),
-                block -> createOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(), ModItems.DARK_AETHER_CRYSTAL.get()));
+                block -> createDarkAetherCrystalOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(), ModItems.DARK_AETHER_CRYSTAL.get(), 2));
 
 
     }
@@ -75,5 +84,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+    }
+
+    protected LootTable.Builder createDarkAetherCrystalOreDrop(Block pBlock, Item pItem, int count) {
+        return createSilkTouchDispatchTable(pBlock, this.applyExplosionDecay(pBlock, LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(count))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
     }
 }

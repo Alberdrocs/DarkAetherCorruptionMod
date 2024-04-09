@@ -14,7 +14,7 @@ import java.util.List;
 public class ModToolTiers {
 
     public static final Tier AETHERIUM = TierSortingRegistry.registerTier(
-            new ForgeTier(5, 1500, 5f, 4f, 25,
+            new ForgeTier(5, 1500, 25f, 4f, 25,
                     ModTags.Blocks.NEEDS_AETHERIUM_TOOL, () -> Ingredient.of(ModItems.REFINED_DARK_AETHER_CRYSTAL.get())),
             new ResourceLocation(DarkAetherCorruptionMod.MOD_ID, "aetherium"), List.of(Tiers.NETHERITE), List.of());
 

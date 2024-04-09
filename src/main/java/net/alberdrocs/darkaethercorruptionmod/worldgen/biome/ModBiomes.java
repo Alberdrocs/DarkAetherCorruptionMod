@@ -8,7 +8,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.Carvers;
-import net.minecraft.data.worldgen.biome.OverworldBiomes;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -197,7 +196,7 @@ public class ModBiomes {
     }
 
     @NotNull
-    private static Biome getBiomeBuild(BiomeGenerationSettings.Builder biomegenerationsettings$builder, MobSpawnSettings.Builder mobspawnsettings$builder, Music music) {
+    private static Biome getBiomeBuild(BiomeGenerationSettings.Builder biomegenerationsettings$builder, MobSpawnSettings.Builder mobspawnsettings$builder) {
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
                 .downfall(0.8f)
@@ -213,7 +212,7 @@ public class ModBiomes {
                         .fogColor(0x2d053b)
                         .ambientParticle(new AmbientParticleSettings(ParticleTypes.PORTAL, 0.5f))
                         .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
-                        .backgroundMusic(music).build())
+                        .backgroundMusic(Musics.createGameMusic(SoundEvents.AMBIENT_CAVE)).build())
                 .build();
     }
 
@@ -236,7 +235,7 @@ public class ModBiomes {
 
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
 
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, Musics.createGameMusic(SoundEvents.AMBIENT_CAVE));
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     private static Biome daDesert(BootstapContext<Biome> context) {
@@ -255,7 +254,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDesertExtraVegetation(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDesertExtraDecoration(biomegenerationsettings$builder);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, Musics.createGameMusic(SoundEvents.MUSIC_BIOME_DESERT));
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     private static Biome daSwamp(BootstapContext<Biome> context) {
@@ -273,7 +272,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addSwampExtraVegetation(biomegenerationsettings$builder);
         //biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
         }
 
     private static Biome daMangroveSwamp(BootstapContext<Biome> context) {
@@ -291,7 +290,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addSwampExtraVegetation(biomegenerationsettings$builder);
         //biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     private static Biome daForest(BootstapContext<Biome> context, boolean pIsBirchForest, boolean pTallBirchTrees, boolean pIsFlowerForest) {
@@ -324,7 +323,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         MobSpawnSettings.Builder mobspawnsettings$builder = new MobSpawnSettings.Builder();
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daTaiga(BootstapContext<Biome> context) {
@@ -342,7 +341,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.addTaigaGrass(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_FOREST);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daDarkForest(BootstapContext<Biome> context) {
@@ -361,7 +360,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_FOREST);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     private static Biome daOldGrowthTaiga(BootstapContext<Biome> context, boolean pIsSpruce) {
@@ -383,7 +382,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addCommonBerryBushes(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_OLD_GROWTH_TAIGA);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daSavanna(BootstapContext<Biome> context, boolean pIsShatteredSavanna) {
@@ -411,7 +410,7 @@ public class ModBiomes {
         MobSpawnSettings.Builder mobspawnsettings$builder = new MobSpawnSettings.Builder();
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_OLD_GROWTH_TAIGA);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
 
@@ -438,7 +437,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addInfestedStone(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_OLD_GROWTH_TAIGA);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daSparseJungle(BootstapContext<Biome> context) {
@@ -482,7 +481,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addJungleVines(biomegenerationsettings$builder);
 
 
-        return getBiomeBuild(biomegenerationsettings$builder, pMobSpawnSettings, pBackgroudMusic);
+        return getBiomeBuild(biomegenerationsettings$builder, pMobSpawnSettings);
     }
 
     public static Biome daBadlands(BootstapContext<Biome> context, boolean pTrees) {
@@ -503,7 +502,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addBadlandExtraVegetation(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_OLD_GROWTH_TAIGA);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daMeadowOrCherryGrove(BootstapContext<Biome> context, boolean pIsCherryGrove) {
@@ -525,7 +524,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addInfestedStone(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(pIsCherryGrove ? SoundEvents.MUSIC_BIOME_CHERRY_GROVE : SoundEvents.MUSIC_BIOME_MEADOW);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daGrove(BootstapContext<Biome> context) {
@@ -543,7 +542,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addInfestedStone(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_GROVE);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daFrozenPeaks(BootstapContext<Biome> context) {
@@ -559,7 +558,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addInfestedStone(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_FROZEN_PEAKS);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daJaggedPeaks(BootstapContext<Biome> context) {
@@ -575,7 +574,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addInfestedStone(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_JAGGED_PEAKS);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daStonyPeaks(BootstapContext<Biome> context) {
@@ -590,7 +589,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addInfestedStone(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_STONY_PEAKS);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daSnowySlopes(BootstapContext<Biome> context) {
@@ -607,11 +606,11 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addExtraEmeralds(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addInfestedStone(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SNOWY_SLOPES);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daRiver(BootstapContext<Biome> context) {
-        MobSpawnSettings.Builder mobspawnsettings$builder = (new MobSpawnSettings.Builder()).addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SQUID, 2, 1, 4)).addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.SALMON, 5, 1, 5));
+        MobSpawnSettings.Builder mobspawnsettings$builder = new MobSpawnSettings.Builder();
         ModBiomeDefaultFeatures.darkAetherSpawns(mobspawnsettings$builder);
         BiomeGenerationSettings.Builder biomegenerationsettings$builder =
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
@@ -625,7 +624,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SNOWY_SLOPES);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daBeach(BootstapContext<Biome> context) {
@@ -642,12 +641,12 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SNOWY_SLOPES);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     private static Biome baseOcean(MobSpawnSettings.Builder pMobSpawnSettings, int pWaterColor, int pWaterFogColor, BiomeGenerationSettings.Builder pGenerationSettings) {
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SNOWY_SLOPES);
-        return getBiomeBuild(pGenerationSettings, pMobSpawnSettings, music);
+        return getBiomeBuild(pGenerationSettings, pMobSpawnSettings);
     }
 
     private static BiomeGenerationSettings.Builder baseOceanGeneration(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pWorldCarvers) {
@@ -696,7 +695,7 @@ public class ModBiomes {
     }
 
     public static Biome daFrozenOcean(BootstapContext<Biome> context, boolean pIsDeep) {
-        MobSpawnSettings.Builder mobspawnsettings$builder = (new MobSpawnSettings.Builder()).addSpawn(MobCategory.WATER_CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SQUID, 1, 1, 4)).addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.SALMON, 15, 1, 5)).addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.POLAR_BEAR, 1, 1, 2));
+        MobSpawnSettings.Builder mobspawnsettings$builder = new MobSpawnSettings.Builder();
         float f = pIsDeep ? 0.5F : 0.0F;
         BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
         BiomeDefaultFeatures.addIcebergs(biomegenerationsettings$builder);
@@ -709,7 +708,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.addDefaultGrass(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP));
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daMushroomFields(BootstapContext<Biome> context) {
@@ -723,7 +722,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addMushroomFieldVegetation(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, Musics.createGameMusic(SoundEvents.MUSIC_BIOME_MEADOW));
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daDripstoneCaves(BootstapContext<Biome> context) {
@@ -740,7 +739,7 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addDripstone(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_DRIPSTONE_CAVES);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daLushCaves(BootstapContext<Biome> context) {
@@ -755,7 +754,7 @@ public class ModBiomes {
         ModBiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
         //BiomeDefaultFeatures.addLushCavesVegetationFeatures(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_LUSH_CAVES);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 
     public static Biome daDeepDark(BootstapContext<Biome> context) {
@@ -778,6 +777,6 @@ public class ModBiomes {
         //BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addSculk(biomegenerationsettings$builder);
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_DEEP_DARK);
-        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder, music);
+        return getBiomeBuild(biomegenerationsettings$builder, mobspawnsettings$builder);
     }
 }

@@ -2,10 +2,13 @@ package net.alberdrocs.darkaethercorruptionmod.entity.ai.tempest;
 
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.TempestEntity;
 import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.entity.projectile.LargeFireball;
+import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
@@ -55,7 +58,7 @@ public class TempestAttackGoal extends Goal {
                     double d4 = livingentity.getZ() - (this.entity.getZ() + vec3.z * 4.0D);
 
                     //TODO: Create a custom projectile for the Tempest
-                    LargeFireball largefireball = new LargeFireball(level, this.entity, d2, d3, d4, 1);
+                    SmallFireball largefireball = new SmallFireball(level, this.entity, d2, d3, d4);
                     largefireball.setPos(this.entity.getX() + vec3.x * 4.0D, this.entity.getY(0.5D) + 0.5D, largefireball.getZ() + vec3.z * 4.0D);
                     level.addFreshEntity(largefireball);
                     this.attackCharge = -100;

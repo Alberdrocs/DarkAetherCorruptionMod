@@ -27,16 +27,18 @@ public class ModBlocks {
     public static final RegistryObject<Block> DARK_AETHER_CRYSTAL_BLOCK = registerBlock
             ("dark_aether_crystal_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK)));
     public static final RegistryObject<Block> DARK_AETHER_CRYSTAL_ORE_SMALL = registerBlock
-            ("dark_aether_crystal_ore", () -> new DarkAetherCrystalOreBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)
+            ("dark_aether_crystal_ore", () -> new DarkAetherCrystalOreBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> DARK_AETHER_CRYSTAL_ORE_BIG = registerBlock
-            ("dark_aether_crystal_ore_big", () -> new DarkAetherCrystalOreBigBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)
+            ("dark_aether_crystal_ore_big", () -> new DarkAetherCrystalOreBigBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
 
     public static final RegistryObject<Block> CORRUPTED_SAND = registerBlock
             ("corrupted_sand", () -> new SandBlock(1, BlockBehaviour.Properties.copy(Blocks.SAND)));
     public static final RegistryObject<Block> CORRUPTED_SANDSTONE = registerBlock
             ("corrupted_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
+    public static final RegistryObject<Block> CORRUPTED_TERRACOTA = registerBlock
+            ("corrupted_terracota", () -> new Block(BlockBehaviour.Properties.copy(Blocks.TERRACOTTA)));
 
     public static final RegistryObject<Block> CORRUPTED_GRASS = registerBlock
             ("corrupted_grass", () -> new TallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).noLootTable()));
@@ -104,7 +106,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CORRUPTED_STONE = registerBlock
             ("corrupted_stone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> AETHER_STONE_BRICKS = registerBlock
-            ("aether_stone_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+            ("aether_stone_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).strength(80.0F,1200.0F)));
     public static final RegistryObject<Block> AETHER_STONE_STAIRS = registerBlock
             ("aether_stone_stairs", () -> new StairBlock(() -> ModBlocks.AETHER_STONE_BRICKS.get().defaultBlockState(),
                     BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));

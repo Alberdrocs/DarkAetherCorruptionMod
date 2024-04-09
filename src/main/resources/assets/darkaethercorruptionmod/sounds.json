@@ -1,4 +1,11 @@
 {
+  "ambient_dark_aether_music" : {
+    "sounds": [
+      "darkaethercorruptionmod:damned_5",
+      "darkaethercorruptionmod:der_anfang_starting_theme",
+      "darkaethercorruptionmod:mauer_der_toten_starting_theme"
+    ]
+  },
   "dark_aether_zombie_ambient" : {
     "subtitle": "sounds.darkaethercorruptionmod.dark_aether_zombie_ambient",
     "sounds": [

@@ -39,6 +39,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CORRUPTED_DIRT.get());
                         pOutput.accept(ModBlocks.CORRUPTED_SAND.get());
                         pOutput.accept(ModBlocks.CORRUPTED_SANDSTONE.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_TERRACOTA.get());
                         pOutput.accept(ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
                         pOutput.accept(ModBlocks.CORRUPTED_STONE.get());
                         pOutput.accept(ModBlocks.AETHER_STONE_BRICKS.get());
