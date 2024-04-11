@@ -56,6 +56,13 @@ public class ModTeleporter implements ITeleporter {
             if (doSetBlock) {
                 destinationWorld.setBlock(destinationPos, ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState(), 3);
             }*/
+            for (int x = destinationPos.getX()-3; x < destinationPos.getX()+3; x++) {
+                for (int y2 = destinationPos.getY()-3; y2 < destinationPos.getY() + 3; y2++) {
+                    for (int z = destinationPos.getZ() - 3; z < destinationPos.getZ() + 3; z++) {
+                        destinationWorld.setBlockAndUpdate(new BlockPos(x , y2, z), Blocks.AIR.defaultBlockState());
+                    }
+                }
+            }
             for (int x = destinationPos.getX()-2; x < destinationPos.getX()+2; x++) {
                 for (int y2 = destinationPos.getY(); y2 < destinationPos.getY() + 4; y2++) {
                     destinationWorld.setBlockAndUpdate(new BlockPos(x , y2, destinationPos.getZ()), ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState());
