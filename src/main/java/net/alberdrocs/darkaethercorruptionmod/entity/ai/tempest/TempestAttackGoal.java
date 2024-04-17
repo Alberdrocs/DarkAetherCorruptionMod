@@ -45,7 +45,7 @@ public class TempestAttackGoal extends Goal {
         LivingEntity livingentity = this.entity.getTarget();
         if (livingentity != null) {
             double d0 = 64.0D;
-            if (livingentity.distanceToSqr(this.entity) < 4096.0D && this.entity.hasLineOfSight(livingentity)) {
+            if (livingentity.distanceToSqr(this.entity) < 2500.0D && this.entity.hasLineOfSight(livingentity)) {
                 this.entity.setAttacking(attackCharge >= 0);
                 Level level = this.entity.level();
                 ++this.attackCharge;

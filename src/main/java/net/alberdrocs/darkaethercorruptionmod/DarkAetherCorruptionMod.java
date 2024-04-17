@@ -8,6 +8,7 @@ import net.alberdrocs.darkaethercorruptionmod.entity.client.darkaetherzombie.Dar
 import net.alberdrocs.darkaethercorruptionmod.entity.client.mimic.MimicRenderer;
 import net.alberdrocs.darkaethercorruptionmod.entity.client.screamer.ScreamerRenderer;
 import net.alberdrocs.darkaethercorruptionmod.entity.client.tempest.TempestRenderer;
+import net.alberdrocs.darkaethercorruptionmod.incursion.OverworldIncursion;
 import net.alberdrocs.darkaethercorruptionmod.item.ModCreativeModTabs;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.alberdrocs.darkaethercorruptionmod.loot.ModLootModifiers;
@@ -40,6 +41,7 @@ public class DarkAetherCorruptionMod
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public static final List<EFIncursion> FACILITIES_INCURSIONS = new ArrayList<>();
+    public static final List<OverworldIncursion> OVERWORLD_INCURSIONS = new ArrayList<>();
 
     public DarkAetherCorruptionMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
