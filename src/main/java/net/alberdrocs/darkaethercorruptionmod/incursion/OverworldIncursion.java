@@ -176,6 +176,7 @@ public class OverworldIncursion {
             spawingTimeout++;
         } else {
             checkAndSpawnEnemy();
+            spawingTimeout = 0;
         }
 
     }
