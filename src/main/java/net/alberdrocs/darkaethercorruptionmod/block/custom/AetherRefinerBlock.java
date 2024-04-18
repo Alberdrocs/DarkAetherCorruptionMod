@@ -1,5 +1,6 @@
 package net.alberdrocs.darkaethercorruptionmod.block.custom;
 
+import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.incursion.EFIncursion;
 import net.alberdrocs.darkaethercorruptionmod.incursion.OverworldIncursion;
 import net.minecraft.core.BlockPos;
@@ -44,7 +45,7 @@ public class AetherRefinerBlock extends BaseEntityBlock {
     public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
 
         if (!level.isClientSide) {
-            OverworldIncursion.createIncursion((ServerLevel) level, pos);
+            DarkAetherCorruptionMod.incursions.createIncursion((ServerLevel) level, pos);
         }
 
         return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);

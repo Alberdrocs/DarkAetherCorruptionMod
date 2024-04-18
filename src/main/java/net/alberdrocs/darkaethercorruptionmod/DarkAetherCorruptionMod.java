@@ -8,14 +8,19 @@ import net.alberdrocs.darkaethercorruptionmod.entity.client.darkaetherzombie.Dar
 import net.alberdrocs.darkaethercorruptionmod.entity.client.mimic.MimicRenderer;
 import net.alberdrocs.darkaethercorruptionmod.entity.client.screamer.ScreamerRenderer;
 import net.alberdrocs.darkaethercorruptionmod.entity.client.tempest.TempestRenderer;
+import net.alberdrocs.darkaethercorruptionmod.incursion.Incursions;
 import net.alberdrocs.darkaethercorruptionmod.incursion.OverworldIncursion;
 import net.alberdrocs.darkaethercorruptionmod.item.ModCreativeModTabs;
 import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.alberdrocs.darkaethercorruptionmod.loot.ModLootModifiers;
 import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.alberdrocs.darkaethercorruptionmod.worldgen.biome.surface.ModSurfaceRules;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.raid.Raids;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -41,7 +46,9 @@ public class DarkAetherCorruptionMod
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public static final List<EFIncursion> FACILITIES_INCURSIONS = new ArrayList<>();
-    public static final List<OverworldIncursion> OVERWORLD_INCURSIONS = new ArrayList<>();
+    //public static final List<OverworldIncursion> OVERWORLD_INCURSIONS = new ArrayList<>();
+
+    public static Incursions incursions;
 
     public DarkAetherCorruptionMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -65,11 +72,14 @@ public class DarkAetherCorruptionMod
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         //SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+
     }
 
     // Add the example block item to the building blocks tab
@@ -85,6 +95,12 @@ public class DarkAetherCorruptionMod
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
+        ServerLevel level = event.getServer().getLevel(Level.OVERWORLD);
+        incursions = level.getDataStorage().computeIfAbsent((p_184095_) -> {
+            return Incursions.load(level, p_184095_);
+        }, () -> {
+            return new Incursions(level);
+        }, Incursions.getFileId());
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

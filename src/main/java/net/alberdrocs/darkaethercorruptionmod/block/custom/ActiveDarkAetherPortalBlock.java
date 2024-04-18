@@ -23,6 +23,8 @@ public class ActiveDarkAetherPortalBlock extends Block {
 
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+        if (pEntity.getTags().contains("overworld_incursion_spawned"))
+            return;
         if (pEntity.canChangeDimensions()) {
             if (pEntity.isOnPortalCooldown()) {
                 pEntity.setPortalCooldown();

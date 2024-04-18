@@ -1,6 +1,5 @@
 package net.alberdrocs.darkaethercorruptionmod.incursion;
 
-import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
@@ -9,22 +8,19 @@ import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.SectionPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.LevelChunkSection;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class OverworldIncursion {
     public enum ENEMY_TYPES {
@@ -36,12 +32,9 @@ public class OverworldIncursion {
     private static final int[] MIMIC_THRESHOLD_SPAWN_LIMIT = {0, 1, 3, 6};
     private int currentZombiesAmount = 0;
     private int currentScreamersAmount = 0;
-    private int currentMimicAmounts = 0;
-    private static final int TICKS_FOR_NEXT_SPAWN = 120;
+    private int currentMimicAmount = 0;
+    private static final int TICKS_FOR_NEXT_SPAWN = 1000;
     private int spawingTimeout = 0;
-    private Entity[] zombieList;
-    private Entity[] screamerList;
-    private Entity[] mimicList;
     private final BlockPos center;
     private final ServerLevel level;
     private boolean ended = false;
@@ -80,11 +73,20 @@ public class OverworldIncursion {
         this.id = pId;
     }
 
-    public static void createIncursion(ServerLevel pLevel, BlockPos pCenter){
-        OverworldIncursion incursion = new OverworldIncursion(DarkAetherCorruptionMod.OVERWORLD_INCURSIONS.size(), pLevel, pCenter);
-        incursion.startCorruption();
-        incursion.spawnPortal();
-        DarkAetherCorruptionMod.OVERWORLD_INCURSIONS.add(incursion);
+    public OverworldIncursion(ServerLevel pLevel, CompoundTag tag){
+        this.level = pLevel;
+        this.currentZombiesAmount = tag.getInt("currentZombiesAmount");
+        this.currentScreamersAmount = tag.getInt("currentScreamersAmount");
+        this.currentMimicAmount = tag.getInt("currentMimicAmount");
+        this.center = new BlockPos(tag.getInt("pos_x"), tag.getInt("pos_y"), tag.getInt("pos_z"));
+        this.id = tag.getInt("id");
+        this.currentLevel = tag.getInt("currentLevel");
+        this.blocksSpread = tag.getInt("blocksSpread");
+    }
+
+    public void startIncursion(){
+        startCorruption();
+        spawnPortal();
     }
 
     private void startCorruption(){
@@ -114,62 +116,55 @@ public class OverworldIncursion {
         return blocksSpread;
     }
 
+    public boolean isEnded(){
+        return ended;
+    }
+
     private void spawnEnemy(ENEMY_TYPES type){
         Entity entity;
         switch (type) {
             case SCREAMER -> {
                 entity = new ScreamerEntity(ModEntities.SCREAMER.get(), level);
                 entity.addTag("screamer_incursion_" + id);
+                entity.addTag("overworld_incursion_spawned");
                 currentScreamersAmount++;
             } case MIMIC -> {
                 entity = new MimicEntity(ModEntities.MIMIC.get(), level);
                 entity.addTag("mimic_incursion_" + id);
-                currentMimicAmounts++;
+                entity.addTag("overworld_incursion_spawned");
+                currentMimicAmount++;
             }
             default -> {
                 entity = new DarkAetherZombieEntity(ModEntities.DARK_AETHER_ZOMBIE.get(), level);
                 entity.addTag("zombie_incursion_" + id);
+                entity.addTag("overworld_incursion_spawned");
                 currentZombiesAmount++;
             }
         }
         entity.setPos(center.getCenter());
         level.addFreshEntity(entity);
+        System.out.println("Spawned enemy");
     }
 
     public void updateKilledEnemy(ENEMY_TYPES type){
         switch (type){
             case SCREAMER -> currentScreamersAmount--;
-            case MIMIC -> currentMimicAmounts--;
+            case MIMIC -> currentMimicAmount--;
             default -> currentZombiesAmount--;
         }
     }
 
-    private void initializeEnemies(Level level, BlockPos pos, int currentLevel) {
-        zombieList = new Entity[ZOMBIES_THRESHOLD_SPAWN_LIMIT[currentLevel]];
-        screamerList = new Entity[SCREAMER_THRESHOLD_SPAWN_LIMIT[currentLevel]];
-        mimicList = new Entity[MIMIC_THRESHOLD_SPAWN_LIMIT[currentLevel]];
-        for (int i = 0; i < zombieList.length; i++) {
-            Entity zombie = new DarkAetherZombieEntity(ModEntities.DARK_AETHER_ZOMBIE.get(), level);
-            zombie.setPos(pos.getCenter());
-            zombieList[i] = zombie;
-        }
-        for (int i = 0; i < screamerList.length; i++) {
-            Entity screamer = new ScreamerEntity(ModEntities.SCREAMER.get(), level);
-            screamer.setPos(pos.getCenter());
-            screamerList[i] = screamer;
-        }
-        for (int i = 0; i < mimicList.length; i++) {
-            Entity mimic = new MimicEntity(ModEntities.MIMIC.get(), level);
-            mimic.setPos(pos.getCenter());
-            mimicList[i] = mimic;
-        }
-    }
-
     public void tick(){
-        tickChunk(level.getGameRules().getInt(GameRules.RULE_RANDOMTICKING));
+        for (int x = level.getChunk(center).getPos().x - 2; x <= level.getChunk(center).getPos().x + 2; x++) {
+            for (int z = level.getChunk(center).getPos().z - 2; z <= level.getChunk(center).getPos().z + 2; z++) {
+                tickChunk(level.getChunk(x, z), level.getGameRules().getInt(GameRules.RULE_RANDOMTICKING));
+            }
+        }
 
-        if (blocksSpread > (currentLevel + 1) * 50){
-            currentLevel++;
+        if (currentLevel < 3){
+            if (blocksSpread > (currentLevel + 1) * 500){
+                currentLevel++;
+            }
         }
 
         if (spawingTimeout < TICKS_FOR_NEXT_SPAWN){
@@ -186,7 +181,7 @@ public class OverworldIncursion {
             spawnEnemy(ENEMY_TYPES.ZOMBIE);
         if (currentScreamersAmount < SCREAMER_THRESHOLD_SPAWN_LIMIT[currentLevel])
             spawnEnemy(ENEMY_TYPES.SCREAMER);
-        if (currentMimicAmounts < MIMIC_THRESHOLD_SPAWN_LIMIT[currentLevel])
+        if (currentMimicAmount < MIMIC_THRESHOLD_SPAWN_LIMIT[currentLevel])
             spawnEnemy(ENEMY_TYPES.MIMIC);
     }
 
@@ -218,26 +213,41 @@ public class OverworldIncursion {
         }
     }
 
-    public void tickChunk(int pRandomTickSpeed){
-        ChunkAccess chunk = level.getChunk(center);
-        int i = chunk.getPos().getMinBlockX();
-        int j = chunk.getPos().getMinBlockZ();
+    public void tickChunk(LevelChunk pChunk, int pRandomTickSpeed){
+        int i = pChunk.getPos().getMinBlockX();
+        int j = pChunk.getPos().getMinBlockZ();
 
-        LevelChunkSection[] alevelchunksection = chunk.getSections();
+        LevelChunkSection[] alevelchunksection = pChunk.getSections();
 
         for(int l = 0; l < alevelchunksection.length; ++l) {
             LevelChunkSection levelchunksection = alevelchunksection[l];
             if (levelchunksection.isRandomlyTicking()) {
-                int j1 = chunk.getSectionYFromSectionIndex(l);
+                int j1 = pChunk.getSectionYFromSectionIndex(l);
                 int k1 = SectionPos.sectionToBlockCoord(j1);
                 for (int l1 = 0; l1 < pRandomTickSpeed; ++l1) {
                     BlockPos blockpos3 = level.getBlockRandomPos(i, k1, j, 15);
-                    //BlockState blockstate2 = levelchunksection.getBlockState(blockpos3.getX() - i, blockpos3.getY() - k1, blockpos3.getZ() - j);
-                    randomTick(blockpos3, level.random);
+                    BlockState blockstate2 = levelchunksection.getBlockState(blockpos3.getX() - i, blockpos3.getY() - k1, blockpos3.getZ() - j);
+                    if (blockstate2.isRandomlyTicking()){
+                        randomTick(blockpos3, level.random);
+                    }
+
                 }
             }
         }
     }
 
+    public CompoundTag deserializer(){
+        CompoundTag tag = new CompoundTag();
+        tag.putInt("currentZombiesAmount", currentZombiesAmount);
+        tag.putInt("currentScreamersAmount", currentScreamersAmount);
+        tag.putInt("currentMimicAmount", currentMimicAmount);
+        tag.putInt("currentLevel", currentLevel);
+        tag.putInt("blocksSpread", blocksSpread);
+        tag.putInt("id", id);
+        tag.putInt("pos_x", center.getX());
+        tag.putInt("pos_y", center.getY());
+        tag.putInt("pos_z", center.getZ());
+        return tag;
+    }
 
 }
