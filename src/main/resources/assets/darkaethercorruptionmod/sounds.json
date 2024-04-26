@@ -3,7 +3,14 @@
     "sounds": [
       "darkaethercorruptionmod:damned_5",
       "darkaethercorruptionmod:der_anfang_starting_theme",
-      "darkaethercorruptionmod:mauer_der_toten_starting_theme"
+      "darkaethercorruptionmod:mauer_der_toten_starting_theme",
+      "darkaethercorruptionmod:der_anfang_game_over_theme",
+      "darkaethercorruptionmod:mwz_underscore"
+    ]
+  },
+  "incursion_containment_music" : {
+    "sounds": [
+      "darkaethercorruptionmod:tribes_of_the_dark_aether"
     ]
   },
   "dark_aether_zombie_ambient" : {

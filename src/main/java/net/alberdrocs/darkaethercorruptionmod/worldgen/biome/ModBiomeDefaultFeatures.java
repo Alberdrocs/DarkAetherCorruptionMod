@@ -16,7 +16,7 @@ public class ModBiomeDefaultFeatures {
     public static void darkAetherSpawns(MobSpawnSettings.Builder pBuilder) {
         pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.DARK_AETHER_ZOMBIE.get(), 100, 4, 10));
         pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.SCREAMER.get(), 100, 3, 8));
-        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.TEMPEST.get(), 100, 1, 2));
+        pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.TEMPEST.get(), 50, 1, 2));
         pBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.MIMIC.get(), 100, 1, 5));
     }
 

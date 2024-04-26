@@ -1,6 +1,5 @@
 package net.alberdrocs.darkaethercorruptionmod.entity.ai.mimic;
 
-import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
 import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.world.InteractionHand;
@@ -10,7 +9,7 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
 public class MimicAttackGoal extends MeleeAttackGoal {
     private final MimicEntity entity;
-    private int attackDelay = 10;
+    private int attackDelay = 20;
     private int ticksUntilNextAttack = 5;
     private boolean shouldCountTillNextAttack = false;
 

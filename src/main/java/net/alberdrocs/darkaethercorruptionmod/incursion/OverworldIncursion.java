@@ -5,11 +5,16 @@ import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
+import net.alberdrocs.darkaethercorruptionmod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.SectionPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.game.ClientboundSoundPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.GameRules;
@@ -27,26 +32,32 @@ public class OverworldIncursion {
         ZOMBIE, SCREAMER, MIMIC
     }
     private static final String[] CORRUPTION_LEVELS = {"SMALL", "ADVANCED", "CRITICAL", "APOCALYPTIC"};
-    private static final int[] ZOMBIES_THRESHOLD_SPAWN_LIMIT = {3, 8, 15, 25};
-    private static final int[] SCREAMER_THRESHOLD_SPAWN_LIMIT = {1, 3, 7, 13};
+    private static final int[] ZOMBIES_THRESHOLD_SPAWN_LIMIT = {5, 15, 25, 35};
+    private static final int[] SCREAMER_THRESHOLD_SPAWN_LIMIT = {2, 4, 7, 13};
     private static final int[] MIMIC_THRESHOLD_SPAWN_LIMIT = {0, 1, 3, 6};
     private int currentZombiesAmount = 0;
     private int currentScreamersAmount = 0;
     private int currentMimicAmount = 0;
-    private static final int TICKS_FOR_NEXT_SPAWN = 1000;
-    private int spawingTimeout = 0;
+    private static final int TICKS_FOR_NEXT_SPAWN = 1250;
+    private static final int TICKS_FOR_CONTAINMENT = 2000;
+    private int spawningTimeout = 0;
+    private int containmentTimer = 0;
     private final BlockPos center;
     private final ServerLevel level;
     private boolean ended = false;
+    private boolean containmentStarted = false;
     private final int id;
     private int currentLevel = 0;
     private int blocksSpread = 0;
+    private final RandomSource random = RandomSource.create();
     private static final HashMap<Block, Block> BLOCKS_COUNTERPARTS = new HashMap<>() {{
         put(Blocks.DIRT, ModBlocks.CORRUPTED_DIRT.get());
         put(Blocks.GRASS_BLOCK, ModBlocks.CORRUPTED_GRASS_BLOCK.get());
         put(Blocks.GRASS, ModBlocks.CORRUPTED_GRASS.get());
         put(Blocks.FERN, ModBlocks.CORRUPTED_FERN.get());
         put(Blocks.DEAD_BUSH, ModBlocks.CORRUPTED_DEAD_BUSH.get());
+        put(Blocks.TALL_GRASS, ModBlocks.CORRUPTED_TALL_GRASS.get());
+        put(Blocks.LARGE_FERN, ModBlocks.CORRUPTED_LARGE_FERN.get());
         put(Blocks.SAND, ModBlocks.CORRUPTED_SAND.get());
         put(Blocks.SANDSTONE, ModBlocks.CORRUPTED_SANDSTONE.get());
         put(Blocks.STONE, ModBlocks.CORRUPTED_STONE.get());
@@ -99,13 +110,39 @@ public class OverworldIncursion {
         }
     }
 
-
     private void spawnPortal(){
         for (int x = center.getX()-2; x < center.getX()+2; x++) {
             for (int y = center.getY()+1; y < center.getY() + 5; y++) {
                 level.setBlockAndUpdate(new BlockPos(x , y, center.getZ()), ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState());
             }
         }
+    }
+
+    public boolean isNeutralizerAtCorrectPos(BlockPos pos){
+        System.out.println("Checking position:");
+        System.out.println("\tNeutralizer: " + pos.getCenter().x + ", " + pos.getCenter().y + ", " + pos.getCenter().z);
+        System.out.println("\tCenter: " + center.getCenter().x + ", " + center.getCenter().y + ", " + center.getCenter().z);
+        return pos.getCenter().distanceToSqr(center.getCenter()) <= 100.0D;
+    }
+
+    public void beginContainment(){
+        containmentStarted = true;
+        System.out.println("Containment Started");
+        for (ServerPlayer serverplayer : this.level.players()){
+            if (serverplayer.position().distanceToSqr(center.getCenter()) < 90000.0D){
+                serverplayer.connection.send(new ClientboundSoundPacket(ModSounds.INCURSION_CONTAINMENT_MUSIC.getHolder().get(),
+                        SoundSource.MUSIC, serverplayer.getX(), serverplayer.getY(), serverplayer.getZ(), 64.0F, 1.0F, this.random.nextLong()));
+                //level.playSound(serverplayer, serverplayer.blockPosition(), ModSounds.INCURSION_CONTAINMENT_MUSIC.get(), SoundSource.MUSIC);
+            }
+        }
+    }
+
+    public void endIncursion(){
+        ended = true;
+    }
+
+    private void killAllEnemies(){
+
     }
 
     public int getId() {
@@ -118,6 +155,77 @@ public class OverworldIncursion {
 
     public boolean isEnded(){
         return ended;
+    }
+
+    public void tick(){
+        if (isEnded())
+            return;
+
+        if (containmentStarted){
+            if (containmentTimer < TICKS_FOR_CONTAINMENT){
+                containmentTimer++;
+            } else {
+                ended = true;
+            }
+        }
+
+        for (int x = level.getChunk(center).getPos().x - 2; x <= level.getChunk(center).getPos().x + 2; x++) {
+            for (int z = level.getChunk(center).getPos().z - 2; z <= level.getChunk(center).getPos().z + 2; z++) {
+                tickChunk(level.getChunk(x, z), level.getGameRules().getInt(GameRules.RULE_RANDOMTICKING));
+            }
+        }
+
+        if (currentLevel < 3){
+            if (blocksSpread > (currentLevel + 1) * 500){
+                currentLevel++;
+            }
+        }
+
+        if (spawningTimeout < ((containmentStarted) ? TICKS_FOR_NEXT_SPAWN / 2 : TICKS_FOR_NEXT_SPAWN)){
+            spawningTimeout++;
+        } else {
+            checkAndSpawnEnemy();
+            spawningTimeout = 0;
+        }
+    }
+
+    public void tickChunk(LevelChunk pChunk, int pRandomTickSpeed){
+        int i = pChunk.getPos().getMinBlockX();
+        int j = pChunk.getPos().getMinBlockZ();
+
+        LevelChunkSection[] alevelchunksection = pChunk.getSections();
+
+        for(int l = 0; l < alevelchunksection.length; ++l) {
+            LevelChunkSection levelchunksection = alevelchunksection[l];
+            if (levelchunksection.isRandomlyTicking()) {
+                int k = SectionPos.sectionToBlockCoord(pChunk.getSectionYFromSectionIndex(l));
+                for (int c = 0; c < pRandomTickSpeed; ++c) {
+                    BlockPos blockpos = level.getBlockRandomPos(i, k, j, 15);
+                    BlockState blockstate = levelchunksection.getBlockState(blockpos.getX() - i, blockpos.getY() - k, blockpos.getZ() - j);
+                    if (blockstate.isRandomlyTicking()){
+                        randomTick(blockpos, level.random);
+                    }
+                }
+            }
+        }
+    }
+
+    public void randomTick(BlockPos pPos, RandomSource pRandom){
+        if (canBeCorrupted(pPos)){
+            for(int i = 0; i < 4; ++i) {
+                BlockPos blockpos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(5) - 3, pRandom.nextInt(3) - 1);
+                spreadToBlock(blockpos);
+            }
+        }
+    }
+
+    private void checkAndSpawnEnemy(){
+        if (currentZombiesAmount < ZOMBIES_THRESHOLD_SPAWN_LIMIT[currentLevel])
+            spawnEnemy(ENEMY_TYPES.ZOMBIE);
+        if (currentScreamersAmount < SCREAMER_THRESHOLD_SPAWN_LIMIT[currentLevel])
+            spawnEnemy(ENEMY_TYPES.SCREAMER);
+        if (currentMimicAmount < MIMIC_THRESHOLD_SPAWN_LIMIT[currentLevel])
+            spawnEnemy(ENEMY_TYPES.MIMIC);
     }
 
     private void spawnEnemy(ENEMY_TYPES type){
@@ -154,37 +262,6 @@ public class OverworldIncursion {
         }
     }
 
-    public void tick(){
-        for (int x = level.getChunk(center).getPos().x - 2; x <= level.getChunk(center).getPos().x + 2; x++) {
-            for (int z = level.getChunk(center).getPos().z - 2; z <= level.getChunk(center).getPos().z + 2; z++) {
-                tickChunk(level.getChunk(x, z), level.getGameRules().getInt(GameRules.RULE_RANDOMTICKING));
-            }
-        }
-
-        if (currentLevel < 3){
-            if (blocksSpread > (currentLevel + 1) * 500){
-                currentLevel++;
-            }
-        }
-
-        if (spawingTimeout < TICKS_FOR_NEXT_SPAWN){
-            spawingTimeout++;
-        } else {
-            checkAndSpawnEnemy();
-            spawingTimeout = 0;
-        }
-
-    }
-
-    private void checkAndSpawnEnemy(){
-        if (currentZombiesAmount < ZOMBIES_THRESHOLD_SPAWN_LIMIT[currentLevel])
-            spawnEnemy(ENEMY_TYPES.ZOMBIE);
-        if (currentScreamersAmount < SCREAMER_THRESHOLD_SPAWN_LIMIT[currentLevel])
-            spawnEnemy(ENEMY_TYPES.SCREAMER);
-        if (currentMimicAmount < MIMIC_THRESHOLD_SPAWN_LIMIT[currentLevel])
-            spawnEnemy(ENEMY_TYPES.MIMIC);
-    }
-
     public boolean canBeCorrupted(BlockPos pPos){
         for(Direction direction : Direction.values()) {
             BlockPos blockpos = pPos.relative(direction);
@@ -202,38 +279,6 @@ public class OverworldIncursion {
         level.setBlockAndUpdate(pos, BLOCKS_COUNTERPARTS.get(block).defaultBlockState());
         blocksSpread++;
         return true;
-    }
-
-    public void randomTick(BlockPos pPos, RandomSource pRandom){
-        if (canBeCorrupted(pPos)){
-            for(int i = 0; i < 4; ++i) {
-                BlockPos blockpos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(5) - 3, pRandom.nextInt(3) - 1);
-                spreadToBlock(blockpos);
-            }
-        }
-    }
-
-    public void tickChunk(LevelChunk pChunk, int pRandomTickSpeed){
-        int i = pChunk.getPos().getMinBlockX();
-        int j = pChunk.getPos().getMinBlockZ();
-
-        LevelChunkSection[] alevelchunksection = pChunk.getSections();
-
-        for(int l = 0; l < alevelchunksection.length; ++l) {
-            LevelChunkSection levelchunksection = alevelchunksection[l];
-            if (levelchunksection.isRandomlyTicking()) {
-                int j1 = pChunk.getSectionYFromSectionIndex(l);
-                int k1 = SectionPos.sectionToBlockCoord(j1);
-                for (int l1 = 0; l1 < pRandomTickSpeed; ++l1) {
-                    BlockPos blockpos3 = level.getBlockRandomPos(i, k1, j, 15);
-                    BlockState blockstate2 = levelchunksection.getBlockState(blockpos3.getX() - i, blockpos3.getY() - k1, blockpos3.getZ() - j);
-                    if (blockstate2.isRandomlyTicking()){
-                        randomTick(blockpos3, level.random);
-                    }
-
-                }
-            }
-        }
     }
 
     public CompoundTag deserializer(){

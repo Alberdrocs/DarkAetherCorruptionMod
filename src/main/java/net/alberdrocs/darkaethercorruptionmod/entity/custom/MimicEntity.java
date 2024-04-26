@@ -10,7 +10,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
@@ -34,9 +33,6 @@ public class MimicEntity extends Monster {
             SynchedEntityData.defineId(MimicEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> HIDING =
             SynchedEntityData.defineId(MimicEntity.class, EntityDataSerializers.BOOLEAN);
-    private WaterAvoidingRandomStrollGoal waterAvoidStrollGoal;
-    private LookAtPlayerGoal lookAtPlayerGoal;
-    private RandomLookAroundGoal lookAroundGoal;
 
     public MimicEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -134,31 +130,6 @@ public class MimicEntity extends Monster {
         return this.entityData.get(HIDING);
     }
 
-    public void hideMimic(boolean isHiding){
-        setHiding(isHiding);
-        /*if (isHiding){
-            this.goalSelector.removeGoal(waterAvoidStrollGoal);
-            this.goalSelector.removeGoal(lookAtPlayerGoal);
-            this.goalSelector.removeGoal(lookAroundGoal);
-        } else {
-            this.goalSelector.removeAllGoals(new Predicate<net.minecraft.world.entity.ai.goal.Goal>() {
-                @Override
-                public boolean test(net.minecraft.world.entity.ai.goal.Goal goal) {
-                    return true;
-                }
-            });
-
-            this.goalSelector.addGoal(1, new MimicAttackGoal(this, 1.0D, true));
-            this.goalSelector.addGoal(2, new MimicHideGoal(this));
-            this.goalSelector.addGoal(3, waterAvoidStrollGoal);
-            this.goalSelector.addGoal(4, lookAtPlayerGoal);
-            this.goalSelector.addGoal(5, lookAroundGoal);
-
-            this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-
-        }*/
-    }
-
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
@@ -170,9 +141,6 @@ public class MimicEntity extends Monster {
 
     @Override
     protected void registerGoals() {
-        //waterAvoidStrollGoal = new WaterAvoidingRandomStrollGoal(this, 1.0D);
-        //lookAtPlayerGoal = new LookAtPlayerGoal(this, Player.class, 15.0f);
-        //lookAroundGoal = new RandomLookAroundGoal(this);
         this.goalSelector.addGoal(0, new MimicRangedAttackGoal(this));
         this.goalSelector.addGoal(1, new MimicAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(2, new MimicHideGoal(this));
@@ -198,11 +166,7 @@ public class MimicEntity extends Monster {
     }
 
     public static boolean isDarkEnoughToSpawn(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (pLevel.getLevel().dimensionTypeId() == ModDimensions.DARK_AETHER_DIMENSION_DIM_TYPE){
-            return true;
-        } else {
-            return true;
-        }
+        return true;
     }
 
     public static boolean checkMobSpawnRules(EntityType<? extends Mob> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {

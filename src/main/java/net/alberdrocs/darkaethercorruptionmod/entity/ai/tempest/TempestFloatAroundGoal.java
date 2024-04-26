@@ -37,9 +37,9 @@ public class TempestFloatAroundGoal extends Goal {
     @Override
     public void start() {
         RandomSource randomsource = this.tempest.getRandom();
-        double d0 = this.tempest.getX() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 4.0F);
-        double d1 = this.tempest.getY() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 2.0F);
-        double d2 = this.tempest.getZ() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 4.0F);
+        double d0 = this.tempest.getX() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 3.0F);
+        double d1 = this.tempest.getY() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 1.5F);
+        double d2 = this.tempest.getZ() + (double)((randomsource.nextFloat() * 2.0F - 1.0F) * 3.0F);
         this.tempest.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
 
     }

@@ -58,6 +58,13 @@ public class Incursions extends SavedData {
         return incursion;
     }
 
+    public void checkAndStartIncursionContainment(BlockPos pos){
+        for (OverworldIncursion incursion:this.incursionMap.values()) {
+            if (incursion.isNeutralizerAtCorrectPos(pos))
+                incursion.beginContainment();
+        }
+    }
+
     public static Incursions load(ServerLevel pLevel, CompoundTag pTag) {
         Incursions incursions = new Incursions(pLevel);
         incursions.nextAvailableID = pTag.getInt("NextAvailableID");

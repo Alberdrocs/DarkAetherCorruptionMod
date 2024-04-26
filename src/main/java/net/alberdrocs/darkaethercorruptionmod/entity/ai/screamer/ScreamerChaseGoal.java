@@ -9,7 +9,7 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
 public class ScreamerChaseGoal extends MeleeAttackGoal {
     private final ScreamerEntity entity;
-    private int explosionDelay = 15;
+    private int explosionDelay = 30;
     private boolean immolationStarted = false;
 
     public ScreamerChaseGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
@@ -20,7 +20,7 @@ public class ScreamerChaseGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        explosionDelay = 15;
+        explosionDelay = 30;
         immolationStarted = false;
         entity.setChasing(true);
     }
