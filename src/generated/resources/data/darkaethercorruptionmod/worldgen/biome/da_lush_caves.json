@@ -112,7 +112,7 @@
         "type": "darkaethercorruptionmod:tempest",
         "maxCount": 2,
         "minCount": 1,
-        "weight": 100
+        "weight": 50
       },
       {
         "type": "darkaethercorruptionmod:mimic",
