@@ -33,6 +33,13 @@ public class ModBlocks {
             ("dark_aether_crystal_ore_big", () -> new DarkAetherCrystalOreBigBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
 
+    public static final RegistryObject<Block> CORRUPTED_MUD = registerBlock
+            ("corrupted_mud", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD)));
+    public static final RegistryObject<Block> CORRUPTED_GRAVEL = registerBlock
+            ("corrupted_gravel", () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRAVEL)));
+    public static final RegistryObject<Block> CORRUPTED_CALCITE = registerBlock
+            ("corrupted_calcite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
+
     public static final RegistryObject<Block> CORRUPTED_SAND = registerBlock
             ("corrupted_sand", () -> new SandBlock(1, BlockBehaviour.Properties.copy(Blocks.SAND)));
     public static final RegistryObject<Block> CORRUPTED_SANDSTONE = registerBlock
@@ -103,6 +110,8 @@ public class ModBlocks {
     //************************
     // STONE
     //************************
+    public static final RegistryObject<Block> CORRUPTED_DEEPSLATE = registerBlock
+            ("corrupted_deepslate", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
     public static final RegistryObject<Block> CORRUPTED_STONE = registerBlock
             ("corrupted_stone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> AETHER_STONE_BRICKS = registerBlock

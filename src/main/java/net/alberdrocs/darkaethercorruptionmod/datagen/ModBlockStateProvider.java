@@ -21,6 +21,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.DARK_AETHER_CRYSTAL_BLOCK);
         blockWithItem(ModBlocks.AETHER_NEUTRALIZER);
+        blockWithItem(ModBlocks.CORRUPTED_MUD);
+        blockWithItem(ModBlocks.CORRUPTED_GRAVEL);
+        blockWithItem(ModBlocks.CORRUPTED_CALCITE);
+        blockWithItem(ModBlocks.CORRUPTED_DEEPSLATE);
         blockWithItem(ModBlocks.CORRUPTED_STONE);
         blockWithItem(ModBlocks.AETHER_STONE_BRICKS);
         blockWithItem(ModBlocks.CORRUPTED_DIRT);

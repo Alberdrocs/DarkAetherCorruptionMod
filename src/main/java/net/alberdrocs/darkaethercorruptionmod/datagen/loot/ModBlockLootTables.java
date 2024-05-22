@@ -54,6 +54,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CORRUPTED_CHERRY_SAPLING.get());
         this.dropSelf(ModBlocks.CORRUPTED_MANGROVE_PROPAGULE.get());
 
+        this.dropSelf(ModBlocks.CORRUPTED_MUD.get());
+        this.dropSelf(ModBlocks.CORRUPTED_GRAVEL.get());
+        this.dropSelf(ModBlocks.CORRUPTED_CALCITE.get());
+        this.dropSelf(ModBlocks.CORRUPTED_DEEPSLATE.get());
         this.dropSelf(ModBlocks.CORRUPTED_STONE.get());
         this.dropSelf(ModBlocks.AETHER_STONE_BRICKS.get());
 

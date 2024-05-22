@@ -41,7 +41,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CORRUPTED_SANDSTONE.get());
                         pOutput.accept(ModBlocks.CORRUPTED_TERRACOTA.get());
                         pOutput.accept(ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_MUD.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_CALCITE.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_GRAVEL.get());
                         pOutput.accept(ModBlocks.CORRUPTED_STONE.get());
+                        pOutput.accept(ModBlocks.CORRUPTED_DEEPSLATE.get());
                         pOutput.accept(ModBlocks.AETHER_STONE_BRICKS.get());
 
                         pOutput.accept(ModBlocks.AETHER_STONE_STAIRS.get());
@@ -59,14 +63,6 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.AETHER_NEUTRALIZER.get());
                         pOutput.accept(ModBlocks.AETHER_REFINER.get());
                         pOutput.accept(ModBlocks.INACTIVE_DARK_AETHER_PORTAL.get());
-
-                        pOutput.accept(ModBlocks.CORRUPTED_OAK_SAPLING.get());
-                        pOutput.accept(ModBlocks.CORRUPTED_DARK_OAK_SAPLING.get());
-                        pOutput.accept(ModBlocks.CORRUPTED_BIRCH_SAPLING.get());
-                        pOutput.accept(ModBlocks.CORRUPTED_ACACIA_SAPLING.get());
-                        pOutput.accept(ModBlocks.CORRUPTED_SPRUCE_SAPLING.get());
-                        pOutput.accept(ModBlocks.CORRUPTED_CHERRY_SAPLING.get());
-                        pOutput.accept(ModBlocks.CORRUPTED_MANGROVE_PROPAGULE.get());
 
 
                     })

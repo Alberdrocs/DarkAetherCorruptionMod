@@ -760,14 +760,14 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:red_sandstone"
+                                    "Name": "darkaethercorruptionmod:corrupted_sandstone"
                                   }
                                 }
                               },
                               {
                                 "type": "minecraft:block",
                                 "result_state": {
-                                  "Name": "minecraft:red_sand"
+                                  "Name": "darkaethercorruptionmod:corrupted_sand"
                                 }
                               }
                             ]
@@ -825,7 +825,7 @@
                             {
                               "type": "minecraft:block",
                               "result_state": {
-                                "Name": "minecraft:gravel"
+                                "Name": "darkaethercorruptionmod:corrupted_gravel"
                               }
                             }
                           ]
@@ -1246,7 +1246,7 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:calcite"
+                                        "Name": "darkaethercorruptionmod:corrupted_calcite"
                                       }
                                     }
                                   },
@@ -1300,7 +1300,7 @@
                                         {
                                           "type": "minecraft:block",
                                           "result_state": {
-                                            "Name": "minecraft:gravel"
+                                            "Name": "darkaethercorruptionmod:corrupted_gravel"
                                           }
                                         }
                                       ]
@@ -1515,7 +1515,7 @@
                                     {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:gravel"
+                                        "Name": "darkaethercorruptionmod:corrupted_gravel"
                                       }
                                     }
                                   ]
@@ -1596,7 +1596,7 @@
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:gravel"
+                                      "Name": "darkaethercorruptionmod:corrupted_gravel"
                                     }
                                   }
                                 ]
@@ -1642,7 +1642,7 @@
                                 "then_run": {
                                   "type": "minecraft:block",
                                   "result_state": {
-                                    "Name": "minecraft:podzol",
+                                    "Name": "darkaethercorruptionmod:corrupted_dirt",
                                     "Properties": {
                                       "snowy": "false"
                                     }
@@ -1687,7 +1687,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:mud"
+                              "Name": "darkaethercorruptionmod:corrupted_mud"
                             }
                           }
                         },
@@ -1702,7 +1702,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:mycelium",
+                              "Name": "darkaethercorruptionmod:corrupted_grass",
                               "Properties": {
                                 "snowy": "false"
                               }
@@ -2022,7 +2022,7 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:calcite"
+                                        "Name": "darkaethercorruptionmod:corrupted_calcite"
                                       }
                                     }
                                   },
@@ -2076,7 +2076,7 @@
                                         {
                                           "type": "minecraft:block",
                                           "result_state": {
-                                            "Name": "minecraft:gravel"
+                                            "Name": "darkaethercorruptionmod:corrupted_gravel"
                                           }
                                         }
                                       ]
@@ -2271,7 +2271,7 @@
                                     {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:gravel"
+                                        "Name": "darkaethercorruptionmod:corrupted_gravel"
                                       }
                                     }
                                   ]
@@ -2329,7 +2329,7 @@
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:gravel"
+                                      "Name": "darkaethercorruptionmod:corrupted_gravel"
                                     }
                                   }
                                 ]
@@ -2348,7 +2348,7 @@
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
-                              "Name": "minecraft:mud"
+                              "Name": "darkaethercorruptionmod:corrupted_mud"
                             }
                           }
                         },
@@ -2504,7 +2504,7 @@
                       {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:gravel"
+                          "Name": "darkaethercorruptionmod:corrupted_gravel"
                         }
                       }
                     ]
@@ -2530,7 +2530,7 @@
         "then_run": {
           "type": "minecraft:block",
           "result_state": {
-            "Name": "minecraft:deepslate",
+            "Name": "darkaethercorruptionmod:corrupted_deepslate",
             "Properties": {
               "axis": "y"
             }

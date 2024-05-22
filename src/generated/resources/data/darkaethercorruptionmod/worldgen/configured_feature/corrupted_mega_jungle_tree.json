@@ -3,13 +3,6 @@
   "config": {
     "decorators": [
       {
-        "type": "minecraft:trunk_vine"
-      },
-      {
-        "type": "minecraft:leave_vine",
-        "probability": 0.25
-      },
-      {
         "type": "minecraft:alter_ground",
         "provider": {
           "type": "minecraft:simple_state_provider",
