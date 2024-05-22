@@ -85,22 +85,18 @@ public class DarkAetherCorruptionMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.DARK_AETHER_CRYSTAL);
-            event.accept(ModItems.REFINED_DARK_AETHER_CRYSTAL);
-        }
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
+
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
+        //Get all the saved incursions
         ServerLevel level = event.getServer().getLevel(Level.OVERWORLD);
-        incursions = level.getDataStorage().computeIfAbsent((tag) -> {
-            return Incursions.load(level, tag);
-        }, () -> {
-            return new Incursions(level);
-        }, Incursions.getFileId());
+        incursions = level.getDataStorage().computeIfAbsent(
+                (tag) -> Incursions.load(level, tag),
+                () -> new Incursions(level),
+                Incursions.getFileId());
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

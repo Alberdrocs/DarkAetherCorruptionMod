@@ -4,7 +4,6 @@ import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.incursion.EFIncursion;
 import net.alberdrocs.darkaethercorruptionmod.incursion.OverworldIncursion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -39,7 +38,7 @@ public class ModEvents {
             }
         }
 
-        for (OverworldIncursion incursion: DarkAetherCorruptionMod.incursions.getAll()){
+        for (OverworldIncursion incursion: DarkAetherCorruptionMod.incursions.getAllOverworldIncursions()){
             if (event.getEntity().getTags().contains("zombie_incursion_" + incursion.getId())){
                 incursion.updateKilledEnemy(OverworldIncursion.ENEMY_TYPES.ZOMBIE);
             } else if (event.getEntity().getTags().contains("screamer_incursion_" + incursion.getId())){

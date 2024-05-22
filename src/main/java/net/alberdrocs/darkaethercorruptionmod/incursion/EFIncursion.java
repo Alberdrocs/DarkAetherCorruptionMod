@@ -8,6 +8,7 @@ import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -33,14 +34,24 @@ public class EFIncursion {
         this.id = pId;
         this.level = pLevel;
         this.center = pCenter;
-        //Beware ServerLevel instead of Level
         initializeEnemies(pLevel, pCenter);
         System.out.println("Incursion created");
     }
 
+    public EFIncursion(ServerLevel pLevel, CompoundTag tag) {
+        this.level = pLevel;
+        this.center = new BlockPos(tag.getInt("pos_x"), tag.getInt("pos_y"), tag.getInt("pos_z"));
+        this.id = tag.getInt("id");
+        this.currentWave = tag.getInt("currentWave");
+        this.killedEnemies = tag.getInt("killedEnemies");
+        initializeEnemies(pLevel, center);
+    }
+
     public static void createIncursion(ServerLevel pLevel, BlockPos pCenter){
         DarkAetherCorruptionMod.FACILITIES_INCURSIONS.add(new EFIncursion(DarkAetherCorruptionMod.FACILITIES_INCURSIONS.size(), pLevel, pCenter));
-        Minecraft.getInstance().player.sendSystemMessage(Component.literal("Defeat all enemies to activate portal"));
+        if (Minecraft.getInstance().player != null) {
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal("Defeat all enemies to activate portal"));
+        }
     }
 
     public int getId() {
@@ -53,6 +64,10 @@ public class EFIncursion {
 
     public void updateKilledEnemies(){
         killedEnemies++;
+    }
+
+    public boolean isEnded(){
+        return ended;
     }
 
     private void initializeEnemies(Level level, BlockPos pos) {
@@ -119,8 +134,21 @@ public class EFIncursion {
                 level.addFreshEntity(entity);
             }
             currentWave++;
-            Minecraft.getInstance().player.sendSystemMessage(Component.literal("Starting wave " + currentWave));
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.sendSystemMessage(Component.literal("Starting wave " + currentWave));
+            }
             System.out.println("Starting wave " + currentWave);
         }
+    }
+
+    public CompoundTag deserializer(){
+        CompoundTag tag = new CompoundTag();
+        tag.putInt("currentWave", currentWave);
+        tag.putInt("killedEnemies", killedEnemies);
+        tag.putInt("id", id);
+        tag.putInt("pos_x", center.getX());
+        tag.putInt("pos_y", center.getY());
+        tag.putInt("pos_z", center.getZ());
+        return tag;
     }
 }

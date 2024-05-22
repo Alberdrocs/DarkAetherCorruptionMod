@@ -50,33 +50,7 @@ public class OverworldIncursion {
     private int currentLevel = 0;
     private int blocksSpread = 0;
     private final RandomSource random = RandomSource.create();
-    private static final HashMap<Block, Block> BLOCKS_COUNTERPARTS = new HashMap<>() {{
-        put(Blocks.DIRT, ModBlocks.CORRUPTED_DIRT.get());
-        put(Blocks.GRASS_BLOCK, ModBlocks.CORRUPTED_GRASS_BLOCK.get());
-        put(Blocks.GRASS, ModBlocks.CORRUPTED_GRASS.get());
-        put(Blocks.FERN, ModBlocks.CORRUPTED_FERN.get());
-        put(Blocks.DEAD_BUSH, ModBlocks.CORRUPTED_DEAD_BUSH.get());
-        put(Blocks.TALL_GRASS, ModBlocks.CORRUPTED_TALL_GRASS.get());
-        put(Blocks.LARGE_FERN, ModBlocks.CORRUPTED_LARGE_FERN.get());
-        put(Blocks.SAND, ModBlocks.CORRUPTED_SAND.get());
-        put(Blocks.SANDSTONE, ModBlocks.CORRUPTED_SANDSTONE.get());
-        put(Blocks.STONE, ModBlocks.CORRUPTED_STONE.get());
-        put(Blocks.TERRACOTTA, ModBlocks.CORRUPTED_TERRACOTA.get());
-        put(Blocks.RED_TERRACOTTA, ModBlocks.CORRUPTED_TERRACOTA.get());
-        put(Blocks.ORANGE_TERRACOTTA, ModBlocks.CORRUPTED_TERRACOTA.get());
-        put(Blocks.BROWN_TERRACOTTA, ModBlocks.CORRUPTED_TERRACOTA.get());
-        put(Blocks.YELLOW_TERRACOTTA, ModBlocks.CORRUPTED_TERRACOTA.get());
-        put(Blocks.WHITE_TERRACOTTA, ModBlocks.CORRUPTED_TERRACOTA.get());
-        put(Blocks.LIGHT_GRAY_TERRACOTTA, ModBlocks.CORRUPTED_TERRACOTA.get());
-        put(Blocks.OAK_LOG, ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
-        put(Blocks.DARK_OAK_LOG, ModBlocks.CORRUPTED_DARK_OAK_LOG.get());
-        put(Blocks.BIRCH_LOG, ModBlocks.CORRUPTED_BIRCH_LOG.get());
-        put(Blocks.ACACIA_LOG, ModBlocks.CORRUPTED_ACACIA_LOG.get());
-        put(Blocks.CHERRY_LOG, ModBlocks.CORRUPTED_CHERRY_LOG.get());
-        put(Blocks.MANGROVE_LOG, ModBlocks.CORRUPTED_MANGROVE_LOG.get());
-        put(Blocks.JUNGLE_LOG, ModBlocks.CORRUPTED_JUNGLE_LOG.get());
-        put(Blocks.SPRUCE_LOG, ModBlocks.CORRUPTED_SPRUCE_LOG.get());
-    }};
+
 
     public OverworldIncursion(int pId, ServerLevel pLevel, BlockPos pCenter) {
         this.center = pCenter;
@@ -169,8 +143,8 @@ public class OverworldIncursion {
             }
         }
 
-        for (int x = level.getChunk(center).getPos().x - 2; x <= level.getChunk(center).getPos().x + 2; x++) {
-            for (int z = level.getChunk(center).getPos().z - 2; z <= level.getChunk(center).getPos().z + 2; z++) {
+        for (int x = level.getChunk(center).getPos().x - 3; x <= level.getChunk(center).getPos().x + 3; x++) {
+            for (int z = level.getChunk(center).getPos().z - 3; z <= level.getChunk(center).getPos().z + 3; z++) {
                 tickChunk(level.getChunk(x, z), level.getGameRules().getInt(GameRules.RULE_RANDOMTICKING));
             }
         }
@@ -266,7 +240,9 @@ public class OverworldIncursion {
         for(Direction direction : Direction.values()) {
             BlockPos blockpos = pPos.relative(direction);
             BlockState blockstate = level.getBlockState(blockpos);
-            if (BLOCKS_COUNTERPARTS.containsValue(blockstate.getBlock()))
+            if (blockstate.getBlock() == Blocks.AIR)
+                continue;
+            if (Incursions.BLOCKS_COUNTERPARTS.containsValue(blockstate.getBlock()))
                 return true;
         }
         return false;
@@ -274,9 +250,9 @@ public class OverworldIncursion {
 
     private boolean spreadToBlock(BlockPos pos){
         Block block = level.getBlockState(pos).getBlock();
-        if (!BLOCKS_COUNTERPARTS.containsKey(block))
+        if (!Incursions.BLOCKS_COUNTERPARTS.containsKey(block))
             return false;
-        level.setBlockAndUpdate(pos, BLOCKS_COUNTERPARTS.get(block).defaultBlockState());
+        level.setBlockAndUpdate(pos, Incursions.BLOCKS_COUNTERPARTS.get(block).defaultBlockState());
         blocksSpread++;
         return true;
     }
