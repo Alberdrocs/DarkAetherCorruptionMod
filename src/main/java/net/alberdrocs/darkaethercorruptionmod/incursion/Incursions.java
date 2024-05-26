@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Incursions extends SavedData {
-    private int ticksUntilNextIncursion = 300;
+    private int ticksUntilNextIncursion = 2000;
     private boolean accessedDarkAether = false;
     private boolean overworldIncursionInPlace = false;
 
@@ -151,8 +151,8 @@ public class Incursions extends SavedData {
             this.ticksUntilNextIncursion = Math.max(this.ticksUntilNextIncursion - 1, 0);
         } else {
             System.out.println("Timer at 0.");
-            //25% chance of triggering an incursion
-            if (random.nextInt(4) == 0){
+            //10% chance of triggering an incursion
+            if (random.nextInt(10) == 0){
                 //Check if any player is in the Overworld
                 for (Player player:level.getServer().getPlayerList().getPlayers()) {
                     if (player.level().dimension() == Level.OVERWORLD){
