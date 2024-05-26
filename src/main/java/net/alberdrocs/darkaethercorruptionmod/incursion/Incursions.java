@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Incursions extends SavedData {
-    private int ticksUntilNextIncursion = 2000;
+    private int ticksUntilNextIncursion = 3000;
     private boolean accessedDarkAether = false;
     private boolean overworldIncursionInPlace = false;
 
@@ -166,7 +166,7 @@ public class Incursions extends SavedData {
                     }
                 }
             }
-            ticksUntilNextIncursion = 300;
+            ticksUntilNextIncursion = 3000;
         }
     }
 
