@@ -34,7 +34,7 @@ public class AetherNeutralizerBlock extends Block {
         System.out.println("Aether Neutralizer broken");
 
         if (!level.isClientSide && !placedByPlayer) {
-            EFIncursion.createIncursion((ServerLevel) level, pos);
+            DarkAetherCorruptionMod.incursions.createEFIncursion((ServerLevel) level, pos);
         }
         //changeBlock(level, pos, ModBlocks.INACTIVE_DARK_AETHER_PORTAL.get(), ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get());
         return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);

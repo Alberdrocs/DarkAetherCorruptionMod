@@ -80,7 +80,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(), ModItems.DARK_AETHER_CRYSTAL.get()));
 
         this.add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(),
-                block -> createDarkAetherCrystalOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(), ModItems.DARK_AETHER_CRYSTAL.get(), 2));
+                block -> createOreDrop(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(), ModItems.DARK_AETHER_CRYSTAL.get()));
 
 
     }

@@ -5,6 +5,7 @@ import net.alberdrocs.darkaethercorruptionmod.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
@@ -30,6 +31,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("SSS")
                 .pattern("SSS")
                 .define('S', ModItems.REFINED_DARK_AETHER_CRYSTAL.get())
+                .unlockedBy(getHasName(ModItems.REFINED_DARK_AETHER_CRYSTAL.get()), has(ModItems.REFINED_DARK_AETHER_CRYSTAL.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.AETHER_NEUTRALIZER.get())
+                .pattern(" X ")
+                .pattern("XSX")
+                .pattern(" X ")
+                .define('S', ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get())
+                .define('X', Blocks.IRON_BLOCK)
                 .unlockedBy(getHasName(ModItems.REFINED_DARK_AETHER_CRYSTAL.get()), has(ModItems.REFINED_DARK_AETHER_CRYSTAL.get()))
                 .save(pWriter);
 

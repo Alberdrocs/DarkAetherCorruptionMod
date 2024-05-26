@@ -1,25 +1,23 @@
 package net.alberdrocs.darkaethercorruptionmod.incursion;
 
-import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.block.ModBlocks;
 import net.alberdrocs.darkaethercorruptionmod.entity.ModEntities;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.DarkAetherZombieEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.MimicEntity;
 import net.alberdrocs.darkaethercorruptionmod.entity.custom.ScreamerEntity;
+import net.alberdrocs.darkaethercorruptionmod.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 public class EFIncursion {
-    private static final int ZOMBIES_AMOUNT = 10;
-    private static final int SCREAMERS_AMOUNT = 5;
-    private static final int MIMIC_AMOUNT = 2;
-    private static final int[] AMOUNT_KILLED_FOR_NEXT_WAVE = {0, 6, 12, 17};
     private Entity[] zombieList;
     private Entity[] screamerList;
     private Entity[] mimicList;
@@ -47,10 +45,24 @@ public class EFIncursion {
         initializeEnemies(pLevel, center);
     }
 
-    public static void createIncursion(ServerLevel pLevel, BlockPos pCenter){
-        DarkAetherCorruptionMod.FACILITIES_INCURSIONS.add(new EFIncursion(DarkAetherCorruptionMod.FACILITIES_INCURSIONS.size(), pLevel, pCenter));
+    public void createIncursion(){
         if (Minecraft.getInstance().player != null) {
             Minecraft.getInstance().player.sendSystemMessage(Component.literal("Defeat all enemies to activate portal"));
+        }
+        ServerLevel destinationWorld = level.getServer().getLevel(ModDimensions.DARK_AETHER_DIMENSION_LEVEL_KEY);
+        BlockPos destinationPos = center;
+        for (int x = destinationPos.getX()-5; x < destinationPos.getX()+5; x++) {
+            for (int y2 = destinationPos.getY() - 1; y2 < destinationPos.getY() + 3; y2++) {
+                for (int z = destinationPos.getZ() - 5; z < destinationPos.getZ() + 5; z++) {
+                    destinationWorld.setBlockAndUpdate(new BlockPos(x , y2, z), (y2 == destinationPos.getY()-1) ?
+                            ModBlocks.AETHER_STONE_BRICKS.get().defaultBlockState() : Blocks.AIR.defaultBlockState());
+                }
+            }
+        }
+        for (int x = destinationPos.getX()-2; x < destinationPos.getX()+2; x++) {
+            for (int y2 = destinationPos.getY(); y2 < destinationPos.getY() + 4; y2++) {
+                destinationWorld.setBlockAndUpdate(new BlockPos(x , y2, destinationPos.getZ()), ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState());
+            }
         }
     }
 
@@ -70,10 +82,14 @@ public class EFIncursion {
         return ended;
     }
 
+    public BlockPos getCenter() {
+        return center;
+    }
+
     private void initializeEnemies(Level level, BlockPos pos) {
-        zombieList = new Entity[ZOMBIES_AMOUNT];
-        screamerList = new Entity[SCREAMERS_AMOUNT];
-        mimicList = new Entity[MIMIC_AMOUNT];
+        zombieList = new Entity[Incursions.ZOMBIES_AMOUNT];
+        screamerList = new Entity[Incursions.SCREAMERS_AMOUNT];
+        mimicList = new Entity[Incursions.MIMIC_AMOUNT];
         for (int i = 0; i < zombieList.length; i++) {
             Entity zombie = new DarkAetherZombieEntity(ModEntities.DARK_AETHER_ZOMBIE.get(), level);
             zombie.setPos(pos.getCenter());
@@ -124,11 +140,11 @@ public class EFIncursion {
     }
 
     private boolean checkIfAllKilled(){
-        return currentWave == 3 && killedEnemies >= AMOUNT_KILLED_FOR_NEXT_WAVE[3];
+        return currentWave == 3 && killedEnemies >= Incursions.AMOUNT_KILLED_FOR_NEXT_WAVE[3];
     }
 
     private void checkAndBeginWave(int wave, Entity[] entities) {
-        if(killedEnemies >= AMOUNT_KILLED_FOR_NEXT_WAVE[wave]){
+        if(killedEnemies >= Incursions.AMOUNT_KILLED_FOR_NEXT_WAVE[wave]){
             for (Entity entity : entities) {
                 entity.addTag("incursion_spawned_" + id);
                 level.addFreshEntity(entity);

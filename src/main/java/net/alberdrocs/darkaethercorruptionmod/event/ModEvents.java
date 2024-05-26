@@ -2,6 +2,7 @@ package net.alberdrocs.darkaethercorruptionmod.event;
 
 import net.alberdrocs.darkaethercorruptionmod.DarkAetherCorruptionMod;
 import net.alberdrocs.darkaethercorruptionmod.incursion.EFIncursion;
+import net.alberdrocs.darkaethercorruptionmod.incursion.Incursions;
 import net.alberdrocs.darkaethercorruptionmod.incursion.OverworldIncursion;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
@@ -13,13 +14,10 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = DarkAetherCorruptionMod.MOD_ID)
 public class ModEvents {
 
-
     @SubscribeEvent
     public static void onServerTick(TickEvent.ServerTickEvent event){
-        for (EFIncursion incursion : DarkAetherCorruptionMod.FACILITIES_INCURSIONS) {
-            incursion.tick();
-        }
         DarkAetherCorruptionMod.incursions.tick();
+
     }
 
     @SubscribeEvent
@@ -31,7 +29,7 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onEntityKilled(LivingDeathEvent event){
-        for (EFIncursion incursion : DarkAetherCorruptionMod.FACILITIES_INCURSIONS) {
+        for (EFIncursion incursion : DarkAetherCorruptionMod.incursions.getAllEFIncursions()) {
             if (event.getEntity().getTags().contains("incursion_spawned_" + incursion.getId())){
                 System.out.println("Killed enemies: " + incursion.getKilledEnemies());
                 incursion.updateKilledEnemies();
@@ -40,11 +38,11 @@ public class ModEvents {
 
         for (OverworldIncursion incursion: DarkAetherCorruptionMod.incursions.getAllOverworldIncursions()){
             if (event.getEntity().getTags().contains("zombie_incursion_" + incursion.getId())){
-                incursion.updateKilledEnemy(OverworldIncursion.ENEMY_TYPES.ZOMBIE);
+                incursion.updateKilledEnemy(Incursions.ENEMY_TYPES.ZOMBIE);
             } else if (event.getEntity().getTags().contains("screamer_incursion_" + incursion.getId())){
-                incursion.updateKilledEnemy(OverworldIncursion.ENEMY_TYPES.SCREAMER);
+                incursion.updateKilledEnemy(Incursions.ENEMY_TYPES.SCREAMER);
             } else if (event.getEntity().getTags().contains("mimic_incursion_" + incursion.getId())){
-                incursion.updateKilledEnemy(OverworldIncursion.ENEMY_TYPES.MIMIC);
+                incursion.updateKilledEnemy(Incursions.ENEMY_TYPES.MIMIC);
             }
         }
 

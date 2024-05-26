@@ -25,7 +25,7 @@ public class ModTeleporter implements ITeleporter {
     public Entity placeEntity(Entity entity, ServerLevel currentWorld, ServerLevel destinationWorld,
                               float yaw, Function<Boolean, Entity> repositionEntity) {
         entity = repositionEntity.apply(false);
-        int y = 61;
+        int y = thisPos.getY();
 
         if (!insideDimension) {
             y = thisPos.getY();
@@ -33,14 +33,14 @@ public class ModTeleporter implements ITeleporter {
 
         BlockPos destinationPos = new BlockPos(thisPos.getX(), y, thisPos.getZ());
 
-        int tries = 0;
+        /*int tries = 0;
         while ((destinationWorld.getBlockState(destinationPos).getBlock() != Blocks.AIR) &&
                 !destinationWorld.getBlockState(destinationPos).canBeReplaced(Fluids.WATER) &&
                 (destinationWorld.getBlockState(destinationPos.above()).getBlock()  != Blocks.AIR) &&
                 !destinationWorld.getBlockState(destinationPos.above()).canBeReplaced(Fluids.WATER) && (tries < 25)) {
             destinationPos = destinationPos.above(2);
             tries++;
-        }
+        }*/
 
         entity.setPos(destinationPos.getX(), destinationPos.getY(), destinationPos.getZ());
 
@@ -55,7 +55,7 @@ public class ModTeleporter implements ITeleporter {
             }
             if (doSetBlock) {
                 destinationWorld.setBlock(destinationPos, ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState(), 3);
-            }*/
+            }
             for (int x = destinationPos.getX()-3; x < destinationPos.getX()+3; x++) {
                 for (int y2 = destinationPos.getY()-3; y2 < destinationPos.getY() + 3; y2++) {
                     for (int z = destinationPos.getZ() - 3; z < destinationPos.getZ() + 3; z++) {
@@ -67,7 +67,7 @@ public class ModTeleporter implements ITeleporter {
                 for (int y2 = destinationPos.getY(); y2 < destinationPos.getY() + 4; y2++) {
                     destinationWorld.setBlockAndUpdate(new BlockPos(x , y2, destinationPos.getZ()), ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState());
                 }
-            }
+            }*/
             //destinationWorld.setBlockAndUpdate(destinationPos, ModBlocks.ACTIVE_DARK_AETHER_PORTAL.get().defaultBlockState());
         }
 

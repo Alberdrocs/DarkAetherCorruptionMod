@@ -26,8 +26,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(),
                         ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get())
                 .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_BIG.get(),
-                        ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get())
-                .add(ModBlocks.AETHER_NEUTRALIZER.get());
+                        ModBlocks.DARK_AETHER_CRYSTAL_BLOCK.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.DARK_AETHER_CRYSTAL_ORE_SMALL.get(),

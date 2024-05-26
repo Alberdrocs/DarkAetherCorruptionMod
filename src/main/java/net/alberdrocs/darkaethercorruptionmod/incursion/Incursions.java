@@ -5,8 +5,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.saveddata.SavedData;
 
 import java.util.HashMap;
@@ -15,14 +20,34 @@ import java.util.List;
 import java.util.Map;
 
 public class Incursions extends SavedData {
+    private int ticksUntilNextIncursion = 300;
+    private boolean accessedDarkAether = false;
+    private boolean overworldIncursionInPlace = false;
+
     private final Map<Integer, OverworldIncursion> overworldIncursionMap = new HashMap<>();
     private final Map<Integer, EFIncursion> efIncursionMap = new HashMap<>();
     private final ServerLevel level;
     private int nextOverworldAvailableID;
     private int nextEFAvailableID;
     private int tick;
+    private final RandomSource random = RandomSource.create();
+
+    //EFIncursions
+    static final int ZOMBIES_AMOUNT = 10;
+    static final int SCREAMERS_AMOUNT = 5;
+    static final int MIMIC_AMOUNT = 2;
+    static final int[] AMOUNT_KILLED_FOR_NEXT_WAVE = {0, 6, 12, 17};
+
+    //Overworld Incursions
+    static final String[] CORRUPTION_LEVELS = {"SMALL", "ADVANCED", "CRITICAL", "APOCALYPTIC"};
+    static final int[] ZOMBIES_THRESHOLD_SPAWN_LIMIT = {5, 15, 25, 35};
+    static final int[] SCREAMER_THRESHOLD_SPAWN_LIMIT = {2, 4, 7, 13};
+    static final int[] MIMIC_THRESHOLD_SPAWN_LIMIT = {0, 1, 3, 6};
+    static final int TICKS_FOR_NEXT_SPAWN = 600;
+    static final int TICKS_FOR_CONTAINMENT = 3500;
     public static final HashMap<Block, Block> BLOCKS_COUNTERPARTS = new HashMap<>() {{
         put(Blocks.DIRT, ModBlocks.CORRUPTED_DIRT.get());
+        put(Blocks.PODZOL, ModBlocks.CORRUPTED_DIRT.get());
         put(Blocks.GRASS_BLOCK, ModBlocks.CORRUPTED_GRASS_BLOCK.get());
         put(Blocks.GRASS, ModBlocks.CORRUPTED_GRASS.get());
         put(Blocks.FERN, ModBlocks.CORRUPTED_FERN.get());
@@ -57,11 +82,15 @@ public class Incursions extends SavedData {
         put(Blocks.MANGROVE_LEAVES, Blocks.AIR);
         put(Blocks.OAK_LEAVES, Blocks.AIR);
         put(Blocks.SPRUCE_LEAVES, Blocks.AIR);
+        put(Blocks.PINK_PETALS, Blocks.AIR);
+        put(Blocks.SWEET_BERRY_BUSH, Blocks.AIR);
+        put(Blocks.SNOW, Blocks.AIR);
     }};
 
     public Incursions(ServerLevel level) {
         this.level = level;
         this.nextOverworldAvailableID = 1;
+        this.nextEFAvailableID = 1;
         this.setDirty();
     }
 
@@ -73,7 +102,16 @@ public class Incursions extends SavedData {
         return overworldIncursionMap.values().stream().toList();
     }
 
+    public List<EFIncursion> getAllEFIncursions(){
+        return efIncursionMap.values().stream().toList();
+    }
+
+
     public void tick() {
+        //Randomly start an Overworld Incursion if an EFIncursion has been completed
+        if (accessedDarkAether && !overworldIncursionInPlace)
+            randomOverworldIncursion();
+
         ++this.tick;
         //Tick EF incursions
         Iterator<EFIncursion> iteratorEF = this.efIncursionMap.values().iterator();
@@ -82,6 +120,7 @@ public class Incursions extends SavedData {
 
             if (incursion.isEnded()) {
                 iteratorEF.remove();
+                accessedDarkAether = true;
                 this.setDirty();
             } else {
                 incursion.tick();
@@ -93,8 +132,9 @@ public class Incursions extends SavedData {
         while(iteratorOverworld.hasNext()) {
             OverworldIncursion incursion = iteratorOverworld.next();
 
-            if (incursion.isEnded()) {
+            if (incursion.isContained()) {
                 iteratorOverworld.remove();
+                overworldIncursionInPlace = false;
                 this.setDirty();
             } else {
                 incursion.tick();
@@ -106,11 +146,41 @@ public class Incursions extends SavedData {
         }
     }
 
-    public OverworldIncursion createOverworldIncursion(ServerLevel pLevel, BlockPos pCenter){
-        OverworldIncursion incursion = new OverworldIncursion(getUniqueId(), pLevel, pCenter);
+    private void randomOverworldIncursion() {
+        if (ticksUntilNextIncursion > 0){
+            this.ticksUntilNextIncursion = Math.max(this.ticksUntilNextIncursion - 1, 0);
+        } else {
+            System.out.println("Timer at 0.");
+            //25% chance of triggering an incursion
+            if (random.nextInt(4) == 0){
+                //Check if any player is in the Overworld
+                for (Player player:level.getServer().getPlayerList().getPlayers()) {
+                    if (player.level().dimension() == Level.OVERWORLD){
+                        //Get a random chunk surrounding the player in a 10 chunk distance
+                        LevelChunk chunk = level.getChunk(player.chunkPosition().x + random.nextInt(10),
+                                player.chunkPosition().z + random.nextInt(10));
+                        //Create the incursion in a random position of the selected chunk
+                        BlockPos randomPos = getRandomSurfaceBlock(chunk);
+                        if (randomPos != null)
+                            createOverworldIncursion(level, getRandomSurfaceBlock(chunk));
+                    }
+                }
+            }
+            ticksUntilNextIncursion = 300;
+        }
+    }
+
+    public void createOverworldIncursion(ServerLevel pLevel, BlockPos pCenter){
+        OverworldIncursion incursion = new OverworldIncursion(getOverworldUniqueId(), pLevel, pCenter);
         incursion.startIncursion();
         overworldIncursionMap.put(incursion.getId(), incursion);
-        return incursion;
+        overworldIncursionInPlace = true;
+    }
+
+    public void createEFIncursion(ServerLevel pLevel, BlockPos pCenter){
+        EFIncursion incursion = new EFIncursion(getEFUniqueId(), pLevel, pCenter);
+        incursion.createIncursion();
+        efIncursionMap.put(incursion.getId(), incursion);
     }
 
     public void checkAndStartIncursionContainment(BlockPos pos){
@@ -120,11 +190,35 @@ public class Incursions extends SavedData {
         }
     }
 
+    private BlockPos getRandomSurfaceBlock(LevelChunk chunk) {
+        int chunkX = chunk.getPos().getMinBlockX();
+        int chunkZ = chunk.getPos().getMinBlockZ();
+
+        // Generate random x and z coordinates within the chunk
+        int x = chunkX + random.nextInt(16);
+        int z = chunkZ + random.nextInt(16);
+
+        Level world = chunk.getLevel();
+        int y = world.getHeight();
+
+        // Find the top non-air and non-tree block at the (x, z) position
+        for (; y > 0; y--) {
+            BlockPos pos = new BlockPos(x, y, z);
+            if (!world.getBlockState(pos).isAir() && !world.getBlockState(pos).is(BlockTags.LEAVES) &&
+                    !world.getBlockState(pos).is(BlockTags.LOGS) && !world.getBlockState(pos).is(Blocks.WATER)) {
+                return pos;
+            }
+        }
+        return null;
+    }
+
     public static Incursions load(ServerLevel pLevel, CompoundTag pTag) {
         Incursions incursions = new Incursions(pLevel);
         incursions.nextOverworldAvailableID = pTag.getInt("NextAvailableOverworldID");
         incursions.nextEFAvailableID = pTag.getInt("NextAvailableEFID");
         incursions.tick = pTag.getInt("Tick");
+        incursions.accessedDarkAether = pTag.getBoolean("AccessedDarkAether");
+        incursions.overworldIncursionInPlace = pTag.getBoolean("OverworldIncursionInPlace");
         ListTag listtag = pTag.getList("OverworldIncursions", 10);
         ListTag listtag1 = pTag.getList("EFIncursions", 10);
 
@@ -138,6 +232,8 @@ public class Incursions extends SavedData {
             CompoundTag compoundtag = listtag1.getCompound(i);
             EFIncursion incursion = new EFIncursion(pLevel, compoundtag);
             incursions.efIncursionMap.put(incursion.getId(), incursion);
+            if (incursion.isEnded())
+                incursions.accessedDarkAether = true;
         }
 
         return incursions;
@@ -148,6 +244,8 @@ public class Incursions extends SavedData {
         pCompoundTag.putInt("NextAvailableOverworldID", this.nextOverworldAvailableID);
         pCompoundTag.putInt("NextAvailableEFID", this.nextEFAvailableID);
         pCompoundTag.putInt("Tick", this.tick);
+        pCompoundTag.putBoolean("AccessedDarkAether", this.accessedDarkAether);
+        pCompoundTag.putBoolean("OverworldIncursionInPlace", this.overworldIncursionInPlace);
 
         ListTag listtag = new ListTag();
         for(OverworldIncursion incursion : this.overworldIncursionMap.values()) {
@@ -170,7 +268,15 @@ public class Incursions extends SavedData {
         return "incursions";
     }
 
-    private int getUniqueId() {
+    private int getOverworldUniqueId() {
         return ++this.nextOverworldAvailableID;
+    }
+
+    private int getEFUniqueId() {
+        return ++this.nextEFAvailableID;
+    }
+
+    public enum ENEMY_TYPES {
+        ZOMBIE, SCREAMER, MIMIC
     }
 }
